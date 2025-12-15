@@ -19,7 +19,10 @@ const mono = Fjalla_One({
 });
 
 export const metadata: Metadata = {
-  title: "Ace The Himalaya",
+  title: {
+    template: "%s || acethehimalaya",
+    default: "acethehimalaya",
+  },
 };
 export const viewport: Viewport = {
   themeColor: [
