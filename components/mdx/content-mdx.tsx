@@ -1,12 +1,12 @@
 import * as runtime from "react/jsx-runtime";
-import { basecomponents } from "./base-mdx"; // import for base components
+import { BaseComponents } from "./base-mdx"; // import for base components
 
 
 
 ////////////////////////////////
 const sharedComponents = {
     // Add your base components here
-    ...basecomponents,
+    ...BaseComponents,
     // Add your custom components here
 
   };
@@ -25,7 +25,7 @@ const useMDXComponent = (code: string) => {
   export const MDXContent = ({ code }: MDXProps) => {
     const Component = useMDXComponent(code);
     return (
-      <section className="w-full h-full relative">
+      <section className="w-full h-full font-sans relative">
         <Component components={sharedComponents} />
       </section>
     );

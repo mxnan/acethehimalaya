@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Fjalla_One, Lato } from "next/font/google";
+import { Fjalla_One, Lato } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
@@ -20,8 +20,8 @@ const mono = Fjalla_One({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s || acethehimalaya",
-    default: "acethehimalaya",
+    template: "%s || AceTheHimalaya",
+    default: "AceTheHimalaya",
   },
 };
 export const viewport: Viewport = {

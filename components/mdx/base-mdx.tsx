@@ -4,7 +4,7 @@ import React, { HTMLAttributes } from "react";
 
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
-export const basecomponents = {
+export const BaseComponents = {
   Callout: ({ className, ...props }: ComponentsProps) => (
     <div
       className={cn(
@@ -17,7 +17,7 @@ export const basecomponents = {
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1
       className={cn(
-        "mt-12 scroll-m-32 text-4xl font-bold text-primary  tracking-tight",
+        "mt-12 scroll-m-32 text-4xl font-extrabold font-mono uppercase text-primary tracking-normal",
         className
       )}
       {...props}
@@ -26,7 +26,7 @@ export const basecomponents = {
   h2: ({ className, ...props }: ComponentsProps) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-32 pb-1 text-3xl font-semibold text-primary tracking-tight first:mt-0",
+        "mt-10 scroll-m-32 pb-1 text-3xl font-semibold font-mono uppercase text-primary tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -35,7 +35,7 @@ export const basecomponents = {
   h3: ({ className, ...props }: ComponentsProps) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-32 text-2xl font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-2xl font-semibold font-mono uppercase text-primary tracking-tight",
         className
       )}
       {...props}
@@ -44,25 +44,7 @@ export const basecomponents = {
   h4: ({ className, ...props }: ComponentsProps) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-32 text-xl font-semibold text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h5: ({ className, ...props }: ComponentsProps) => (
-    <h5
-      className={cn(
-        "mt-8 scroll-m-32 text-lg font-semibold text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h6: ({ className, ...props }: ComponentsProps) => (
-    <h6
-      className={cn(
-        "mt-8 scroll-m-32 text-base font-semibold text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-xl font-normal font-mono uppercase text-primary tracking-tight",
         className
       )}
       {...props}
@@ -70,7 +52,7 @@ export const basecomponents = {
   ),
   p: ({ className, ...props }: ComponentsProps) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7 not-first:mt-6", className)}
       {...props}
     />
   ),
@@ -92,14 +74,14 @@ export const basecomponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "[&>*]:text-muted-foreground mt-6 border-l-4 border-indigo-600 dark:border-lime-400  pl-6 italic",
+        "*:text-muted-foreground mt-6 border-l-4 border-indigo-600 dark:border-lime-400  pl-6 italic",
         className
       )}
       {...props}
     />
   ),
   hr: ({ ...props }) => (
-    <hr className="my-4 h-[1px] max-w-sm md:my-8 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" {...props} />
+    <hr className="my-4 h-px max-w-sm md:my-8 bg-linear-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent" {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
@@ -115,7 +97,7 @@ export const basecomponents = {
   th: ({ className, ...props }: ComponentsProps) => (
     <th
       className={cn(
-        "border-2 px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right",
         className
       )}
       {...props}
@@ -124,7 +106,7 @@ export const basecomponents = {
   td: ({ className, ...props }: ComponentsProps) => (
     <td
       className={cn(
-        "border-2 px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right",
         className
       )}
       {...props}
@@ -136,7 +118,7 @@ export const basecomponents = {
   code: ({ className, ...props }: ComponentsProps) => (
     <code
       className={cn(
-        "relative rounded  px-[0.3rem] py-[0.2rem]  font-mono font-medium !text-sm",
+        "relative rounded  px-[0.3rem] py-[0.2rem]  font-mono font-medium text-sm!",
         className
       )}
       {...props}
@@ -154,11 +136,11 @@ export const basecomponents = {
   ),
   ///////////////////// steps
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
-    <h3 className={cn("my-8 scroll-m-32 ", className)} {...props} />
+    <h3 className={cn("my-2 scroll-m-32 ", className)} {...props} />
   ),
   Steps: ({ ...props }: React.ComponentProps<"div">) => (
     <div
-      className="[&>h3]:step rounded-md steps mb-12 ml-4 border-l-[4px] border-l-indigo-600 dark:border-l-lime-400 pl-8 [counter-reset:step]"
+      className="[&>h3]:step rounded-md steps mb-6 ml-4 border-l-4 border-l-indigo-600 dark:border-l-lime-400 pl-8 [counter-reset:step]"
       {...props}
     />
   ),
