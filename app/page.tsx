@@ -13,6 +13,10 @@ export default function Home() {
         {" "}
         <Link href={"/blogs"}>Blogs</Link>
       </Button>
+      <Button variant={"secondary"}>
+        {" "}
+        <Link href={"/trips"}>Trips</Link>
+      </Button>
     </div>
   );
 }

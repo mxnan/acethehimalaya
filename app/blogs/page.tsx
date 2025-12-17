@@ -1,4 +1,3 @@
-
 import { blogs } from "#site/content";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
   description: "Blogs Showcase",
 };
 
-const BlogPage = () => {
+export default function BlogPage() {
   const publishedBlogs = blogs.filter((blog) => blog.status === "published");
 
   if (!publishedBlogs.length) {
@@ -21,7 +20,7 @@ const BlogPage = () => {
   }
 
   const sortedBlogs = [...publishedBlogs].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
   return (
@@ -64,6 +63,4 @@ const BlogPage = () => {
       })}
     </section>
   );
-};
-
-export default BlogPage;
+}
