@@ -1,17 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Fjalla_One, Lato } from "next/font/google";
+import { Anybody, Bayon  } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
+import Navbar from "@/components/nav/navbar";
+import { Toaster } from "@/components/ui/sonner";
 
-const sans = Lato({
+const sans = Anybody({
   variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "300", "400", "700", "900"],
 });
 
-const mono = Fjalla_One({
+const mono = Bayon({
   variable: "--font-mono",
   weight: ["400"],
   subsets: ["latin"],
@@ -48,7 +49,9 @@ export default function RootLayout({
         <Providers>
           <>
             {/* <ResponsiveSidebar /> */}
+            <Navbar />
             {children}
+            <Toaster position="bottom-right"/>
           </>
         </Providers>
       </body>
