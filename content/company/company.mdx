@@ -8,6 +8,105 @@ tags: ["mdx", "intro", "docs"]
 
 ---
 
+Showing all base mdx components here, as i did not want to use prose classes , so i defined all my base components in mdx-base.tsx
+
+# lorem ipsum dolor set anquiteres
+
+## lorem ipsum dolor set anquiteres .
+
+### lorem ipsum dolor set anquiteres .
+
+#### lorem ipsum dolor set anquiteres .
+
+## P tag
+
+Lorem ipsum dolor jsnajn dasnhd adjsn
+
+## Links
+
+- [Home](/#) Link tag (internal)
+
+- [Shadcn](https://ui.shadcn.com/docs/components/sonner) a tag (external)
+
+## Blockquote
+
+> Blockquote
+
+## Buttons
+
+<div className="space-y-6 mt-4 rounded-xl border bg-card/40 p-6 shadow-sm">
+Button variants
+<div className="flex flex-wrap gap-3">
+<Button variant="default">Default</Button>
+<Button variant="outline">Outline</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="destructive">Destructive</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="link">Link</Button>
+</div>
+Button sizes
+<div className="flex flex-wrap items-center gap-3">
+<Button size="sm" variant="secondary">Small</Button>
+<Button size="default" variant="secondary">Default</Button>
+<Button size="lg" variant="secondary">Large</Button>
+<Button size="icon-sm" aria-label="icon button small" variant="secondary"><Logo /></Button>
+<Button size="icon" aria-label="icon button" variant="secondary"><Logo /></Button>
+<Button size="icon-lg"aria-label="icon button large"variant="secondary"><Logo /></Button>
+</div>
+</div>
+
+## List
+
+1. Orderded list
+2. Orderded list
+3. Orderded list
+
+---
+
+- Lorem ipsum
+- Lorem ipsum
+- Lorem ipsum
+
+---
+
+- list
+- list
+- list
+
+## Callout
+
+<Callout>Default</Callout>
+<Callout type="warning">Warning</Callout>
+<Callout type="danger">Danger</Callout>
+
+## Steps
+
+### Lorem ipsum
+
+<Steps>
+
+<Step>Lorem ipsum dolor sit amet,</Step>
+
+<Step className="text-sm font-medium">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+</Step>
+
+</Steps>
+
+## Tables
+
+You can create tables by assembling a list of words and dividing them with hyphens `-` (for the first row), and then separating each column with a pipe `|`:
+
+| Wrestler                | Origin       | Finisher           |
+| ----------------------- | ------------ | ------------------ |
+| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
+| Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
+| Randy Savage            | Sarasota, FL | Elbow Drop         |
+| Vader                   | Boulder, CO  | Vader Bomb         |
+| Razor Ramon             | Chuluota, FL | Razor's Edge       |
+
+---
+
 <Callout>
 
 - The text below is from the [Tailwind CSS](https://play.tailwindcss.com/uj1vGACRJA?layout=preview) docs. I copied it here to test the markdown styles. **Tailwind is awesome. You should use it.**

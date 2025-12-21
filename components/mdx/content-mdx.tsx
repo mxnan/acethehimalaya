@@ -1,12 +1,25 @@
 import * as runtime from "react/jsx-runtime";
 import { BaseComponents } from "./base-mdx"; // import for base components
+import { Button } from "../ui/button";
 
-
+// Logo component for use in MDX files
+const Logo = ({ className }: { className?: string }) => {
+  return (
+    <img
+      src="/logo.svg"
+      alt="Logo"
+      className={className}
+      style={{ width: '1em', height: '1em' }}
+    />
+  );
+};
 
 ////////////////////////////////
 const sharedComponents = {
     // Add your base components here
     ...BaseComponents,
+    Button,
+    Logo,
     // Add your custom components here
 
   };

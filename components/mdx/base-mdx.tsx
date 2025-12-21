@@ -5,15 +5,38 @@ import React, { HTMLAttributes } from "react";
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
 export const BaseComponents = {
-  Callout: ({ className, ...props }: ComponentsProps) => (
-    <div
-      className={cn(
-        "mt-6 rounded-lg border border-border bg-muted/60 px-4 py-3 text-sm text-muted-foreground",
-        className
-      )}
-      {...props}
-    />
-  ),
+  Callout: ({
+    className,
+    type = "default",
+    ...props
+  }: ComponentsProps & { type?: "default" | "warning" | "danger" }) => {
+    let variantClass = "";
+    switch (type) {
+      case "warning":
+        variantClass =
+          "border-yellow-400 bg-yellow-100/70 text-yellow-900 dark:bg-yellow-800/35 dark:text-yellow-100 dark:border-yellow-600";
+        break;
+      case "danger":
+        variantClass =
+          "border-red-400 bg-red-100/70 text-red-900 dark:bg-red-800/35 dark:text-red-100 dark:border-red-600";
+        break;
+      case "default":
+      default:
+        variantClass =
+          "border-border bg-muted/60 text-muted-foreground";
+    }
+
+    return (
+      <div
+        className={cn(
+          "mt-6 rounded-lg border px-4 py-3 text-sm font-bold",
+          variantClass,
+          className
+        )}
+        {...props}
+      />
+    );
+  },
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1
       className={cn(
@@ -74,7 +97,7 @@ export const BaseComponents = {
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
       className={cn(
-        "*:text-muted-foreground mt-6 border-l-4 border-indigo-600 dark:border-lime-400  pl-6 italic",
+        "*:text-muted-foreground mt-6 border-l-4 border-muted-foreground pl-6 italic",
         className
       )}
       {...props}
@@ -128,19 +151,19 @@ export const BaseComponents = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
-        "font-semibold text-indigo-600 dark:text-lime-400 mx-1 pb-2 custom-underline text-sm",
+        "font-bold italic text-muted-foreground mx-1 pb-2 custom-underline text-sm",
         className
       )}
       {...props}
     />
   ),
   ///////////////////// steps
-  Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
-    <h3 className={cn("my-2 scroll-m-32 ", className)} {...props} />
+  Step: ({ className, ...props }: React.ComponentProps<"span">) => (
+    <span className={cn("scroll-m-32 ", className)} {...props} />
   ),
   Steps: ({ ...props }: React.ComponentProps<"div">) => (
     <div
-      className="[&>h3]:step rounded-md steps mb-6 ml-4 border-l-4 border-l-indigo-600 dark:border-l-lime-400 pl-8 [counter-reset:step]"
+      className="[&>span]:step font-bold rounded-md steps mt-6 ml-4 border-l-4 border-l-muted-foreground pl-8 [counter-reset:step]"
       {...props}
     />
   ),

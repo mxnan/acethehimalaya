@@ -1,6 +1,6 @@
-import ThemeToggle from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { ClipboardCheck } from "lucide-react"
+import ThemeToggle from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { ClipboardCheck } from "lucide-react";
 
 export default function Demo() {
   return (
@@ -25,9 +25,7 @@ export default function Demo() {
           <h3 className="font-mono text-2xl font-semibold">
             Heading Three (h3)
           </h3>
-          <h4 className="font-mono text-xl font-semibold">
-            Heading Four (h4)
-          </h4>
+          <h4 className="font-mono text-xl font-semibold">Heading Four (h4)</h4>
           <p className="font-sans text-base text-muted-foreground">
             Paragraph body copy showing the default text styling. Keep content
             concise and readable across breakpoints.
@@ -61,17 +59,25 @@ export default function Demo() {
           <Button size="lg" variant="secondary">
             Large
           </Button>
+          <Button
+            size="icon-sm"
+            aria-label="icon button small"
+            variant="secondary"
+          >
+            <ClipboardCheck />
+          </Button>
           <Button size="icon" aria-label="icon button" variant="secondary">
             <ClipboardCheck />
           </Button>
-          <Button size="icon-sm" aria-label="icon button small" variant="secondary">
-            <ClipboardCheck />
-          </Button>
-          <Button size="icon-lg" aria-label="icon button large" variant="secondary">
+          <Button
+            size="icon-lg"
+            aria-label="icon button large"
+            variant="secondary"
+          >
             <ClipboardCheck />
           </Button>
         </div>
       </section>
     </div>
-  )
+  );
 }
