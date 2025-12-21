@@ -39,7 +39,7 @@ const Navbar = () => {
           </Button>{" "}
           <Button asChild variant={"ghost"} size={"sm"} className="mr-2">
             <Link
-              href="/blogs"
+              href="/company"
               className="font-mono uppercase tracking-wide text-xl"
             >
               Company

@@ -42,6 +42,24 @@ const trips = defineCollection({
     .transform(computedFields),
 });
 
+const company = defineCollection({
+  name: "Company",
+  pattern: "company/*.mdx",
+  schema: s
+    .object({
+      slug: s.path(),
+      title: s.string().max(20),
+      description: s.string().max(99).optional(),
+      date: s.isodate(),
+      status: s.enum(["published", "draft"]).default("draft"),
+      image: s.string().optional(),
+      tags: s.string().array().optional(),
+      toc: s.toc(),
+      content: s.mdx(),
+    })
+    .transform(computedFields),
+});
+
 export default defineConfig({
   root: "content",
   output: {
@@ -51,7 +69,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, trips },
+  collections: { blogs, trips, company },
   mdx: {
     rehypePlugins: [
       // rehypeSlug,
