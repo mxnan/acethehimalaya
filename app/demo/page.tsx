@@ -10,7 +10,7 @@ export default function Demo() {
           <p className="text-sm font-medium text-muted-foreground">
             Component demo surface
           </p>
-          <h1 className="font-mono text-4xl font-bold">UI Toolkit Preview</h1>
+          <h1 className="font-sans text-4xl font-bold">UI Toolkit Preview</h1>
         </div>
         <ThemeToggle />
       </header>
@@ -20,12 +20,12 @@ export default function Demo() {
           Typography
         </p>
         <div className="space-y-2">
-          <h1 className="font-mono text-4xl font-bold">Heading One (h1)</h1>
-          <h2 className="font-mono text-3xl font-bold">Heading Two (h2)</h2>
-          <h3 className="font-mono text-2xl font-semibold">
+          <h1 className="font-sans text-4xl font-bold">Heading One (h1)</h1>
+          <h2 className="font-sans text-3xl font-bold">Heading Two (h2)</h2>
+          <h3 className="font-sans text-2xl font-semibold">
             Heading Three (h3)
           </h3>
-          <h4 className="font-mono text-xl font-semibold">Heading Four (h4)</h4>
+          <h4 className="font-sans text-xl font-semibold">Heading Four (h4)</h4>
           <p className="font-sans text-base text-muted-foreground">
             Paragraph body copy showing the default text styling. Keep content
             concise and readable across breakpoints.

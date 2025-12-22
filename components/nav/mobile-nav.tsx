@@ -152,7 +152,7 @@ const MobileNav = () => {
           <div className="flex items-center gap-3 px-4 py-3 border-b bg-muted/40">
             <ThemeToggle />
             <div>
-              <p className="text-sm font-semibold text-foreground tracking-wide uppercase font-mono">
+              <p className="text-sm font-semibold text-foreground tracking-wide uppercase font-sans">
                 AceTheHimalaya
               </p>
               <p className="text-xs font-sans text-muted-foreground">
@@ -171,7 +171,7 @@ const MobileNav = () => {
                   asChild
                   variant="ghost"
                   size="lg"
-                  className="justify-start px-4 py-3 text-base font-mono uppercase tracking-wide"
+                  className="justify-start px-4 py-3 text-base font-sans uppercase tracking-wide"
                   onClick={() => setIsOpen(false)}
                 >
                   <Link href={link.href}>{link.label}</Link>
@@ -181,7 +181,7 @@ const MobileNav = () => {
 
             {/* Social links */}
             <div className="border-t pt-3 px-2 space-y-3">
-              <p className="px-2 text-xs font-mono uppercase tracking-wide text-muted-foreground">
+              <p className="px-2 text-xs font-sans uppercase tracking-wide text-muted-foreground">
                 Follow us
               </p>
               <div className="flex flex-wrap gap-3 px-2">

@@ -13,7 +13,7 @@ export default function TripsPage() {
 
   if (!publishedTrips.length) {
     return (
-      <section className="mx-auto flex max-w-5xl items-center justify-center px-6 py-16">
+      +      <section className="flex items-center justify-center px-6 py-16">
         <p className="text-sm text-muted-foreground">No trips available yet.</p>
       </section>
     );
@@ -41,7 +41,7 @@ export default function TripsPage() {
   });
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="px-6 py-16">
       <h1 className="mb-8 text-3xl font-semibold tracking-tight">Trips</h1>
       
       <div className="space-y-12">

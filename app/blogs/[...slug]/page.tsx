@@ -44,8 +44,8 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
   }
 
   return (
-    <article className="mx-auto min-h-[60vh] max-w-3xl px-6 py-12">
-      <header className="mb-8 space-y-2">
+    <section className="px-6 py-12">
+      <div className="mb-8 space-y-2">
         <p className="text-xs uppercase tracking-wide text-muted-foreground">
           {new Intl.DateTimeFormat("en", {
             year: "numeric",
@@ -57,9 +57,9 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
         {blog.description ? (
           <p className="text-sm text-muted-foreground">{blog.description}</p>
         ) : null}
-      </header>
+      </div>
 
       <MDXContent code={blog.content} />
-    </article>
+    </section>
   );
 }

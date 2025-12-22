@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Anybody, Bayon  } from "next/font/google";
+import { Anybody, Bayon, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Navbar from "@/components/nav/navbar";
+import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import ProgressBar from "@/components/mdx/progress-bar";
 
 const sans = Anybody({
   variable: "--font-sans",
@@ -12,12 +14,11 @@ const sans = Anybody({
   display: "swap",
 });
 
-const mono = Bayon({
-  variable: "--font-mono",
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-});
+// const mono = Geist({
+//   variable: "--font-mono",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: {
@@ -41,17 +42,21 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "relative antialiased font-sans",
-          sans.variable,
-          mono.variable
+          "relative antialiased font-sans container mx-auto",
+          sans.variable
+          // mono.variable
         )}
       >
         <Providers>
           <>
             {/* <ResponsiveSidebar /> */}
             <Navbar />
-            {children}
-            <Toaster position="bottom-right"/>
+            <main className="min-h-[calc(100vh-3.5rem)]">
+              <ProgressBar />
+              {children}
+            </main>
+            <Footer />
+            <Toaster position="bottom-right" />
           </>
         </Providers>
       </body>
