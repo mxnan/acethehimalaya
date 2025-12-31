@@ -3,6 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-brand-color: var(--brand-color);  /* BRAND */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -42,6 +43,7 @@
 
 
 :root {
+  --brand-color: oklch(0.4525 0.2015 257.3 / 97.79%);  /* BRAND */
   --radius: 0.625rem;
   --background: oklch(1 0 279 / 93.66%);
   --foreground: oklch(0.145 0 0);
@@ -77,6 +79,7 @@
 }
 
 .dark {
+  --brand-color: oklch(0.7107 0.1455 68.9 / 97.79%);/* BRAND */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -120,6 +123,7 @@
   .custom-underline {
     @apply hover:bg-[url('/style/underline.svg')] dark:hover:bg-[url('/style/underline-dark.svg')];
   }
+ 
   /* .font-sans {
     font-family: var(--font-sans);
   }
@@ -239,7 +243,7 @@
 }
 
 /***************************  UNDERLINE ANIMATIONS**************************************/
-
+/* 
 @keyframes move-down-and-scale {
   0% {
     transform: translateY(0) scaleX(1);
@@ -268,5 +272,5 @@
 
 ::view-transition-new(underline) {
   animation: 0.3s cubic-bezier(0.4, 0, 0.2, 1) both move-up-and-scale;
-}
+} */
 /*************************************************************/

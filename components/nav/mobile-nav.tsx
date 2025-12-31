@@ -54,9 +54,9 @@ const OpenCloseButton = ({
         height="20"
         viewBox="0 0 23 23"
         fill="none"
-        strokeWidth={2}
+        strokeWidth={3}
         strokeLinecap="round"
-        className="stroke-primary"
+        className="stroke-brand-color"
       >
         <motion.path
           variants={{

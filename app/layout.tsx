@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     template: "%s || AceTheHimalaya",
     default: "AceTheHimalaya",
   },
+  // // Favicons
+  // icons: {
+  //   icon: [
+  //     { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+  //     { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+  //   ],
+  // },
 };
 export const viewport: Viewport = {
   themeColor: [
@@ -42,7 +49,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "relative antialiased font-sans container mx-auto",
+          "relative antialiased font-sans",
           sans.variable
           // mono.variable
         )}
@@ -51,7 +58,7 @@ export default function RootLayout({
           <>
             {/* <ResponsiveSidebar /> */}
             <Navbar />
-            <main className="min-h-[calc(100vh-3.5rem)]">
+            <main className="container mx-auto min-h-[calc(100vh-3.5rem)]">
               <ProgressBar />
               {children}
             </main>
