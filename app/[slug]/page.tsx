@@ -42,7 +42,7 @@ export default async function CompanyPage({ params }: CompanyPageParams) {
   }
 
   return (
-    <section className="px-6 py-12">
+    <section className="py-12">
       <div className="mb-8 space-y-2">
         <p className="text-xs uppercase tracking-wide text-muted-foreground">
           {new Intl.DateTimeFormat("en", {

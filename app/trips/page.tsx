@@ -41,7 +41,7 @@ export default function TripsPage() {
   });
 
   return (
-    <section className="px-6 py-16">
+    <section className="py-16">
       <h1 className="mb-8 text-3xl font-semibold tracking-tight">Trips</h1>
       
       <div className="space-y-12">

@@ -50,29 +50,29 @@ export default function Demo() {
           Button sizes
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <Button size="sm" variant="secondary">
+          <Button size="sm" variant="default">
             Small
           </Button>
-          <Button size="default" variant="secondary">
+          <Button size="default" variant="default">
             Default
           </Button>
-          <Button size="lg" variant="secondary">
+          <Button size="lg" variant="default">
             Large
           </Button>
           <Button
             size="icon-sm"
             aria-label="icon button small"
-            variant="secondary"
+            variant="default"
           >
             <ClipboardCheck />
           </Button>
-          <Button size="icon" aria-label="icon button" variant="secondary">
+          <Button size="icon" aria-label="icon button" variant="default">
             <ClipboardCheck />
           </Button>
           <Button
             size="icon-lg"
             aria-label="icon button large"
-            variant="secondary"
+            variant="default"
           >
             <ClipboardCheck />
           </Button>

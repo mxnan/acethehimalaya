@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
-import ProgressBar from "@/components/mdx/progress-bar";
+import ProgressBar from "@/components/progress-bar";
 
 const sans = Anybody({
   variable: "--font-sans",
@@ -58,7 +58,7 @@ export default function RootLayout({
           <>
             {/* <ResponsiveSidebar /> */}
             <Navbar />
-            <main className="container mx-auto min-h-[calc(100vh-3.5rem)]">
+            <main className="container mx-auto min-h-screen">
               <ProgressBar />
               {children}
             </main>

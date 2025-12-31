@@ -24,7 +24,7 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="mx-auto grid gap-6 px-6 py-16 sm:grid-cols-2 lg:grid-cols-3">
+    <section className="mx-auto grid gap-6 py-16 sm:grid-cols-2 lg:grid-cols-3">
       {sortedBlogs.map((blog) => {
         const formattedDate = new Intl.DateTimeFormat("en", {
           year: "numeric",

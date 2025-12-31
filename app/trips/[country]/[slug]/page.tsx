@@ -47,7 +47,7 @@ export default async function TripPage({ params }: TripPageParams) {
   }
 
   return (
-    <article className="mx-auto min-h-[60vh] max-w-3xl px-6 py-12">
+    <section className="py-12">
       <header className="mb-8 space-y-2">
         <p className="text-xs uppercase tracking-wide text-muted-foreground">
           {new Intl.DateTimeFormat("en", {
@@ -63,6 +63,6 @@ export default async function TripPage({ params }: TripPageParams) {
       </header>
 
       <MDXContent code={trip.content} />
-    </article>
+    </section>
   );
 }
