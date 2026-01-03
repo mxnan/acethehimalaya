@@ -1,14 +1,13 @@
 "use client";
-
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
-
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "../theme-toggle";
+import { Icons } from "../brand";
 
 const navLinks = [
   { href: "/trips", label: "Trips" },
@@ -136,8 +135,8 @@ const MobileNav = () => {
       <OpenCloseButton
         onclickFunction={() => setIsOpen((prev) => !prev)}
         isOpen={isOpen}
-        // text1="Menu"
-        // text2="Close"
+      // text1="Menu"
+      // text2="Close"
       />
 
       {/* Animated menu panel positioned below the button */}
@@ -145,20 +144,16 @@ const MobileNav = () => {
         initial={false}
         variants={menuVariants}
         animate={isOpen ? "open" : "closed"}
-        className="absolute z-50 -left-52 mt-3 w-[250px] overflow-hidden rounded-xl border bg-muted text-muted-foreground shadow-lg"
+        className="absolute z-50 -left-65 mt-3 w-[302px] overflow-hidden rounded-xl border bg-muted text-muted-foreground shadow-lg"
       >
         <div className="flex flex-col max-h-[70vh]">
           {/* Header with logo / brand */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b bg-muted/40">
+          <div className="flex justify-between items-center gap-3 px-4 py-3 border-b bg-muted/40">
             <ThemeToggle />
-            <div>
-              <p className="text-sm font-semibold text-foreground tracking-wide uppercase font-sans">
-                AceTheHimalaya
-              </p>
-              <p className="text-xs font-sans text-muted-foreground">
-                Experience The Difference
-              </p>
-            </div>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Icons.navlogo className="h-8 w-auto" />
+              <span className="sr-only">AceTheHimalaya</span>
+            </Link>
           </div>
 
           {/* Scrollable content area to keep content in screen */}

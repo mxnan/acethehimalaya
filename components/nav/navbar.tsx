@@ -1,9 +1,9 @@
-import { Button } from "../ui/button";
+
 import Link from "next/link";
-import { Home } from "lucide-react";
-import MobileNav from "./mobile-nav";
-import DesktopNav from "./desktop-nav";
 import { Icons } from "../brand";
+import dynamic from "next/dynamic";
+const MobileNav = dynamic(() => import('./mobile-nav'));
+const DesktopNav = dynamic(() => import('./desktop-nav'));
 
 const Navbar = () => {
   return (

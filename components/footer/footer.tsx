@@ -1,9 +1,11 @@
 
-import FooterMap from "./footer-map";
 import FooterNewsletter from "./footer-newsletter";
 import FooterBottom from "./footer-bottom";
 import FooterBento from "./footer-bento";
 import { Separator } from "../ui/separator";
+import dynamic from "next/dynamic";
+
+const FooterMap = dynamic(() => import("./footer-map"));
 
 const Footer = () => {
   return (

@@ -3,11 +3,12 @@ import { Anybody } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
-import Navbar from "@/components/nav/navbar";
 import Footer from "@/components/footer/footer";
 import { Toaster } from "@/components/ui/sonner";
 import ProgressBar from "@/components/progress-bar";
+import dynamic from "next/dynamic";
 
+const Navbar = dynamic(() => import('@/components/nav/navbar'));
 const sans = Anybody({
   variable: "--font-sans",
   subsets: ["latin"],
