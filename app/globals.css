@@ -41,7 +41,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-
 :root {
   --brand-color: oklch(0.4525 0.2015 257.3 / 97.79%);  /* BRAND */
   --radius: 0.625rem;
@@ -123,13 +122,19 @@
   .custom-underline {
     @apply hover:bg-[url('/style/underline.svg')] dark:hover:bg-[url('/style/underline-dark.svg')];
   }
- 
+
   /* .font-sans {
     font-family: var(--font-sans);
   }
   .font-sans {
     font-family: var(--font-sans);
   } */
+  .maplibregl-popup-content {
+    @apply bg-transparent! shadow-none! p-0! rounded-none!;
+  }
+  .maplibregl-popup-tip {
+    @apply hidden!;
+  }
 }
 
 /* Container breakpoints for larger screens */
@@ -190,8 +195,6 @@
     }
   }
 }
-
-
 
 /****************************VIEW TRANSITIONS************************************/
 

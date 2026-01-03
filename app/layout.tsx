@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Anybody, Bayon, Geist, Geist_Mono } from "next/font/google";
+import { Anybody } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Providers } from "./providers";
 import Navbar from "@/components/nav/navbar";
-import Footer from "@/components/footer";
+import Footer from "@/components/footer/footer";
 import { Toaster } from "@/components/ui/sonner";
 import ProgressBar from "@/components/progress-bar";
 
@@ -61,8 +61,9 @@ export default function RootLayout({
             <main className="container mx-auto min-h-screen">
               <ProgressBar />
               {children}
+              <Footer />
             </main>
-            <Footer />
+
             <Toaster position="bottom-right" />
           </>
         </Providers>
