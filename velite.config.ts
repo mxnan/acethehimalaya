@@ -1,6 +1,4 @@
 import { defineConfig, defineCollection, s } from "velite";
-// import rehypeSlug from "rehype-slug";
-// import rehypeAutoLinkHeadings from "rehype-autolink-headings";
 
 const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
@@ -13,8 +11,9 @@ const blogs = defineCollection({
   schema: s
     .object({
       slug: s.path(),
-      title: s.string().max(20),
-      description: s.string().max(99).optional(),
+      title: s.string(),    
+      category: s.string(),
+      description: s.string().optional(),
       date: s.isodate(),
       status: s.enum(["published", "draft"]).default("draft"),
       image: s.string().optional(),

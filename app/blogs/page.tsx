@@ -1,5 +1,6 @@
 import { blogs } from "#site/content";
 import { Button } from "@/components/ui/button";
+import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,43 +25,40 @@ export default function BlogPage() {
   );
 
   return (
-    <section className="mx-auto grid gap-6 py-16 sm:grid-cols-2 lg:grid-cols-3">
-      {sortedBlogs.map((blog) => {
-        const formattedDate = new Intl.DateTimeFormat("en", {
-          year: "numeric",
-          month: "short",
-          day: "2-digit",
-        }).format(new Date(blog.date));
-
-        return (
-          <article
-            key={blog.slug}
-            className="rounded-xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-          >
-            <div className="mb-3 space-y-1">
-              <p className="text-xs uppercase text-muted-foreground">
-                {formattedDate}
-              </p>
-              <h2 className="text-lg font-semibold leading-tight">
-                {blog.title}
-              </h2>
-              {blog.description ? (
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {blog.description}
-                </p>
-              ) : null}
-            </div>
-
-            <Button
-              asChild
-              variant="secondary"
-              className="w-full justify-center"
+    <div className="relative max-w-3xl mx-auto">
+      <div className="flex flex-col gap-10">
+        {sortedBlogs.map((blog) => {
+          return (
+            <article
+              key={blog.slug}
+              className="rounded-xl border border-border bg-card p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
             >
-              <Link href={`/blogs/${blog.slugAsParams}`}>Read blog</Link>
-            </Button>
-          </article>
-        );
-      })}
-    </section>
+              <div className="mb-3 space-y-1">
+                <p className="text-xs uppercase text-muted-foreground">
+                  <time dateTime={blog.date}>{formatDate(blog.date)}</time>
+                </p>
+                <h2 className="text-lg font-semibold leading-tight">
+                  {blog.title}
+                </h2>
+                {blog.description ? (
+                  <p className="text-sm text-muted-foreground line-clamp-2">
+                    {blog.description}
+                  </p>
+                ) : null}
+              </div>
+
+              <Button
+                asChild
+                variant="secondary"
+                className="w-full justify-center"
+              >
+                <Link href={`/blogs/${blog.slugAsParams}`}>Read blog</Link>
+              </Button>
+            </article>
+          );
+        })}
+      </div>
+
+    </div>
   );
 }
