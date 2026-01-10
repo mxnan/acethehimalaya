@@ -2,12 +2,16 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "../theme-toggle";
 import { Icons } from "../brand";
+import InstagramIcon from "../ui/instagram-icon";
+import FacebookIcon from "../ui/facebook-icon";
+import TwitterXIcon from "../ui/twitter-x-icon";
+import YoutubeIcon from "../ui/youtube-icon";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const navLinks = [
   { href: "/trips", label: "Trips" },
@@ -16,10 +20,10 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { href: "https://instagram.com", label: "Instagram", icon: Instagram },
-  { href: "https://facebook.com", label: "Facebook", icon: Facebook },
-  { href: "https://twitter.com", label: "Twitter", icon: Twitter },
-  { href: "https://youtube.com", label: "YouTube", icon: Youtube },
+  { href: "https://instagram.com", label: "Instagram", icon: InstagramIcon },
+  { href: "https://facebook.com", label: "Facebook", icon: FacebookIcon },
+  { href: "https://twitter.com", label: "Twitter", icon: TwitterXIcon },
+  { href: "https://youtube.com", label: "YouTube", icon: YoutubeIcon },
 ];
 
 type OpenCloseButtonProps = {
@@ -183,22 +187,28 @@ const MobileNav = () => {
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
-                    <Button
-                      key={social.href}
-                      asChild
-                      variant="outline"
-                      size="icon"
-                      className="h-9 w-9"
-                    >
-                      <Link
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.label}
-                      >
-                        <Icon className="h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <Tooltip  key={social.href}>
+                      <TooltipTrigger  asChild>
+                        <Button
+                          asChild
+                          variant="default"
+                          size="icon"
+                          className=""
+                        >
+                          <Link
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={social.label}
+                          >
+                            <Icon />
+                          </Link>
+                        </Button>
+                      </TooltipTrigger>
+                        <TooltipContent align="center" side="bottom">
+                        <p>{social.label}</p>
+                      </TooltipContent>
+                    </Tooltip>
                   );
                 })}
               </div>
