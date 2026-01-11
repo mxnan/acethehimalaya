@@ -4,7 +4,7 @@ import { Card } from '../ui/card';
 import { Icons } from '../brand';
 export default function FooterMap() {
     return (
-        <div className="w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] ">
+        <div className="mb-8 w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] ">
             <Card className="w-full h-full p-2">
                 <Map center={[85.324, 27.7172]} zoom={11}>
                     <MapMarker longitude={85.324} latitude={27.7172}>

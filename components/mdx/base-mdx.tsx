@@ -40,7 +40,7 @@ export const BaseComponents = {
   h1: ({ className, ...props }: ComponentsProps) => (
     <h1
       className={cn(
-        "mt-12 scroll-m-32 text-4xl font-extrabold font-sans uppercase text-primary tracking-normal",
+        "mt-12 scroll-m-32 text-4xl font-black font-sans uppercase text-primary tracking-normal",
         className
       )}
       {...props}
@@ -49,7 +49,7 @@ export const BaseComponents = {
   h2: ({ className, ...props }: ComponentsProps) => (
     <h2
       className={cn(
-        "mt-10 scroll-m-32 pb-1 text-3xl font-semibold font-sans uppercase text-primary tracking-tight first:mt-0",
+        "mt-10 scroll-m-32 pb-1 text-3xl font-extrabold font-sans uppercase text-primary tracking-tight first:mt-0",
         className
       )}
       {...props}
@@ -58,7 +58,7 @@ export const BaseComponents = {
   h3: ({ className, ...props }: ComponentsProps) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-32 text-2xl font-semibold font-sans uppercase text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-2xl font-bold font-sans uppercase text-primary tracking-tight",
         className
       )}
       {...props}
@@ -67,7 +67,7 @@ export const BaseComponents = {
   h4: ({ className, ...props }: ComponentsProps) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-32 text-xl font-normal font-sans uppercase text-primary tracking-tight",
+        "mt-8 scroll-m-32 text-xl font-medium font-sans uppercase text-primary tracking-tight",
         className
       )}
       {...props}
