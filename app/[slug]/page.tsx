@@ -4,6 +4,14 @@ import { notFound } from "next/navigation";
 import { company } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
 
+import { Separator } from "@/components/ui/separator";
+import dynamic from "next/dynamic";
+
+const TableOfContents = dynamic(
+  () =>
+    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+);
+
 const getCompanyBySlug = (slug: string) =>
   company.find((page) => page.slugAsParams === slug);
 
@@ -42,23 +50,14 @@ export default async function CompanyPage({ params }: CompanyPageParams) {
   }
 
   return (
-    <section className="py-12">
-      <div className="mb-8 space-y-2">
-        <p className="text-xs uppercase tracking-wide text-muted-foreground">
-          {new Intl.DateTimeFormat("en", {
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-          }).format(new Date(page.date))}
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight">{page.title}</h1>
-        {page.description ? (
-          <p className="text-sm text-muted-foreground">{page.description}</p>
-        ) : null}
+    <div className="w-full min-h-screen">
+      <Separator className="mt-4" />
+      <div className="relative flex flex-row gap-8">
+        <div className="w-full flex-1">
+          <MDXContent code={page.content} />
+        </div>
+        <TableOfContents  toc={page.toc} />
       </div>
-
-      <MDXContent code={page.content} />
-    </section>
+    </div>
   );
 }
-

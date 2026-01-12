@@ -1,0 +1,202 @@
+// components/mdx/table-of-contents.tsx
+"use client";
+
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { List } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import UnorderedListIcon from "../ui/unordered-list-icon";
+
+interface TocEntry {
+  items?: TocEntry[];
+  url: string;
+  title: string;
+}
+
+interface TocProps {
+  toc: TocEntry[];
+  className?: string;
+}
+
+// Simple useMounted hook
+function useMounted() {
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+  return mounted;
+}
+
+export function TableOfContents({ toc, className }: TocProps) {
+  const itemIds = React.useMemo(
+    () =>
+      toc
+        ? toc
+            .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
+            .flat()
+            .filter(Boolean)
+            .map((id) => id?.split("#")[1])
+        : [],
+    [toc]
+  );
+
+  const activeHeading = useActiveItem(itemIds);
+  const mounted = useMounted();
+  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <>
+      {/* Desktop TOC */}
+      {isLargeScreen && (
+        <div className={cn("w-64 shrink-0 ", className)}>
+          <div className="sticky top-16">
+            <p className="font-bold text-lg mb-4">On This Page</p>
+            <Tree tree={toc} activeItem={activeHeading} />
+          </div>
+        </div>
+      )}
+
+      {/* Mobile TOC Button */}
+      {!isLargeScreen && (
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              variant="default"
+              size="default"
+              className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
+            >
+              <UnorderedListIcon className="h-8 w-8" />
+              <span>On This Page</span>
+              <span className="sr-only">Table of Contents</span>
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>On This Page</DialogTitle>
+            </DialogHeader>
+            <div className="max-h-96 overflow-y-auto">
+              <Tree tree={toc} activeItem={activeHeading} />
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
+    </>
+  );
+}
+
+function useActiveItem(itemIds: (string | undefined)[]) {
+  const [activeId, setActiveId] = React.useState<string>("");
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: `0% 0% -80% 0%` }
+    );
+
+    itemIds?.forEach((id) => {
+      if (!id) {
+        return;
+      }
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      itemIds?.forEach((id) => {
+        if (!id) {
+          return;
+        }
+        const element = document.getElementById(id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [itemIds]);
+
+  return activeId;
+}
+
+interface TreeProps {
+  tree: TocEntry[];
+  level?: number;
+  activeItem?: string | null;
+}
+
+function Tree({ tree, level = 1, activeItem }: TreeProps) {
+  return tree.length && level < 3 ? (
+    <ul className={cn("m-0 list-none", { "pl-3": level !== 1 })}>
+      {tree.map((item, index) => {
+        return (
+          <li key={index} className={cn("mt-0 pt-2")}>
+            <a
+              href={item.url}
+              className={cn(
+                "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out truncate w-full",
+                item.url === `#${activeItem}`
+                  ? "text-primary font-medium"
+                  : "text-muted-foreground hover:text-primary"
+              )}
+            >
+              <AnimatePresence mode="sync">
+                {item.url === `#${activeItem}` && (
+                  <motion.span
+                    key="activeItem"
+                    layoutId="activeItem"
+                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-brand-color"
+                    initial={{ opacity: 0.3 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0.3 }}
+                    transition={{
+                      type: "tween",
+                      duration: 0.3,
+                      stiffness: 100,
+                      damping: 10,
+                    }}
+                  />
+                )}
+              </AnimatePresence>
+              {item.title}
+            </a>
+            {item.items?.length ? (
+              <Tree
+                tree={item.items}
+                level={level + 1}
+                activeItem={activeItem}
+              />
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  ) : null;
+}

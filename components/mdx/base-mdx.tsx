@@ -2,6 +2,18 @@ import { cn } from "@/lib/utils";
 import React, { HTMLAttributes } from "react";
 
 
+// Function to convert heading text to URL-friendly slug
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+    .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
+}
+
+
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
 export const BaseComponents = {
@@ -37,42 +49,66 @@ export const BaseComponents = {
       />
     );
   },
-  h1: ({ className, ...props }: ComponentsProps) => (
-    <h1
-      className={cn(
-        "mt-12 scroll-m-32 text-4xl font-black font-sans uppercase text-primary tracking-normal",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h2: ({ className, ...props }: ComponentsProps) => (
-    <h2
-      className={cn(
-        "mt-10 scroll-m-32 pb-1 text-3xl font-extrabold font-sans uppercase text-primary tracking-tight first:mt-0",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h3: ({ className, ...props }: ComponentsProps) => (
-    <h3
-      className={cn(
-        "mt-8 scroll-m-32 text-2xl font-bold font-sans uppercase text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
-  h4: ({ className, ...props }: ComponentsProps) => (
-    <h4
-      className={cn(
-        "mt-8 scroll-m-32 text-xl font-medium font-sans uppercase text-primary tracking-tight",
-        className
-      )}
-      {...props}
-    />
-  ),
+  h1: ({ className, children, ...props }: ComponentsProps) => {
+    const id = typeof children === 'string' ? slugify(children) : 'h1';
+    return (
+      <h1
+        className={cn(
+          "mt-12 scroll-m-32 text-4xl font-black font-sans uppercase text-primary tracking-normal",
+          className
+        )}
+        id={id}
+        {...props}
+      >
+        {children}
+      </h1>
+    );
+  },
+  h2: ({ className, children, ...props }: ComponentsProps) => {
+    const id = typeof children === 'string' ? slugify(children) : 'h2';
+    return (
+      <h2
+        className={cn(
+          "mt-10 scroll-m-32 pb-1 text-3xl font-extrabold font-sans uppercase text-primary tracking-tight first:mt-0",
+          className
+        )}
+        id={id}
+        {...props}
+      >
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ className, children, ...props }: ComponentsProps) => {
+    const id = typeof children === 'string' ? slugify(children) : 'h3';
+    return (
+      <h3
+        className={cn(
+          "mt-8 scroll-m-32 text-2xl font-bold font-sans uppercase text-primary tracking-tight",
+          className
+        )}
+        id={id}
+        {...props}
+      >
+        {children}
+      </h3>
+    );
+  },
+  h4: ({ className, children, ...props }: ComponentsProps) => {
+    const id = typeof children === 'string' ? slugify(children) : 'h4';
+    return (
+      <h4
+        className={cn(
+          "mt-8 scroll-m-32 text-xl font-medium font-sans uppercase text-primary tracking-tight",
+          className
+        )}
+        id={id}
+        {...props}
+      >
+        {children}
+      </h4>
+    );
+  },
   p: ({ className, ...props }: ComponentsProps) => (
     <p
       className={cn("leading-7 not-first:mt-6", className)}

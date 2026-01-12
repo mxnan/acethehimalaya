@@ -47,11 +47,10 @@ const company = defineCollection({
   schema: s
     .object({
       slug: s.path(),
-      title: s.string().max(20),
-      description: s.string().max(99).optional(),
-      date: s.isodate(),
+      title: s.string(),    
+      category: s.string(),
+      description: s.string().optional(),
       status: s.enum(["published", "draft"]).default("draft"),
-      image: s.string().optional(),
       tags: s.string().array().optional(),
       toc: s.toc(),
       content: s.mdx(),
