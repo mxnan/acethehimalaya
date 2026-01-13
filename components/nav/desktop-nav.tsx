@@ -130,7 +130,8 @@ const DesktopNav = () => {
             style={{
               left: menuPosition.left,
             }}
-            className="absolute top-full mt-2 min-w-32 rounded-lg border bg-background/95 backdrop-blur-sm shadow-lg z-50 transition-[left] duration-300 ease-in-out"
+            className="absolute top-full mt-2 min-w-32 rounded-lg border  bg-background/95 backdrop-blur
+           supports-backdrop-filter:bg-background/60 shadow-lg z-30 transition-[left] duration-500 ease-in-out"
             onMouseEnter={() => setHoveredItem(hoveredItem)}
             onMouseLeave={handleNavLeave}
           >

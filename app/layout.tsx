@@ -59,7 +59,7 @@ export default function RootLayout({
           <>
             {/* <ResponsiveSidebar /> */}
             <Navbar />
-            <main className="container mx-auto min-h-screen">
+            <main className="px-4 lg:px-8 max-w-7xl mx-auto min-h-screen">
               <ProgressBar />
               {children}
               <Footer />
