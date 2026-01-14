@@ -47,22 +47,10 @@ export default async function TripPage({ params }: TripPageParams) {
   }
 
   return (
-    <section className="py-12">
-      <header className="mb-8 space-y-2">
-        <p className="text-xs uppercase tracking-wide text-muted-foreground">
-          {new Intl.DateTimeFormat("en", {
-            year: "numeric",
-            month: "short",
-            day: "2-digit",
-          }).format(new Date(trip.date))}
-        </p>
-        <h1 className="text-3xl font-semibold tracking-tight">{trip.title}</h1>
-        {trip.description ? (
-          <p className="text-sm text-muted-foreground">{trip.description}</p>
-        ) : null}
-      </header>
-
-      <MDXContent code={trip.content} />
-    </section>
+    <div className="my-8 w-full min-h-screen">
+      <div className="relative flex-1">
+        <MDXContent code={trip.content} />
+      </div>
+    </div>
   );
 }

@@ -141,11 +141,11 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
           {blog.image ? (
             <div className="mb-8">
               <Image
-                height={1000}
-                width={1000}
+                height={900}
+                width={1200}
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-64 md:h-96 object-cover rounded-md shadow-sm"
+                className="w-full h-84 md:h-108 object-cover  rounded-md shadow-sm"
               />
             </div>
           ) : null}

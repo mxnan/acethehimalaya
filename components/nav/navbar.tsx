@@ -1,12 +1,17 @@
-
 import Link from "next/link";
 import { Icons } from "../brand";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
 import WhatsappIcon from "../ui/whatsapp-icon";
-import { Dialog, DialogContent, DialogFooter, DialogTitle, DialogTrigger } from "../ui/dialog";
-const MobileNav = dynamic(() => import('./mobile-nav'));
-const DesktopNav = dynamic(() => import('./desktop-nav'));
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+const MobileNav = dynamic(() => import("./mobile-nav"));
+const DesktopNav = dynamic(() => import("./desktop-nav"));
 
 const Navbar = () => {
   return (
@@ -20,11 +25,9 @@ const Navbar = () => {
         <Link href="/" className="">
           {/* <span className="sr-only">{siteConfig.name}</span> */}
           <Icons.navlogo />
-          {/* <Icons.navlogolight className="" /> */}
         </Link>
 
         <div className="flex items-center gap-2">
-
           <Dialog>
             <DialogTrigger asChild>
               <Button
@@ -38,11 +41,9 @@ const Navbar = () => {
               </Button>
             </DialogTrigger>
             <DialogContent>
-             <DialogTitle>Talk to an Expert</DialogTitle>
-             map all sales personell whatsapp numbers here
-             <DialogFooter>
-              Ace the Himalaya
-             </DialogFooter>
+              <DialogTitle>Talk to an Expert</DialogTitle>
+              map all sales personell whatsapp numbers here
+              <DialogFooter>Ace the Himalaya</DialogFooter>
             </DialogContent>
           </Dialog>
           <div className="relative flex">
@@ -52,8 +53,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
-
       </nav>
     </header>
   );
