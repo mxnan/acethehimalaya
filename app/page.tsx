@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div className="my-8 min-h-screen flex items-center justify-center">
       <Button variant={"secondary"}>
         {" "}
         <Link href={"/blogs"}>Blogs</Link>

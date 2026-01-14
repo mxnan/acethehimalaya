@@ -10,7 +10,7 @@ const FooterMap = dynamic(() => import("./footer-map"));
 const Footer = () => {
   return (
     <footer className="relative bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <Separator className="my-10" />
+      <Separator className="my-8" />
       <FooterMap />
       {/* Horizontal separator between map and subscribe */}
       {/* <Separator className="my-10" /> */}

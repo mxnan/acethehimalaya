@@ -50,8 +50,8 @@ export default async function CompanyPage({ params }: CompanyPageParams) {
   }
 
   return (
-    <div className="w-full min-h-screen">
-      <Separator className="mt-4" />
+    <div className="my-8 w-full min-h-screen">
+      {/* <Separator className="mt-4" /> */}
       <div className="relative flex flex-row gap-8">
         <div className="w-full flex-1">
           <MDXContent code={page.content} />

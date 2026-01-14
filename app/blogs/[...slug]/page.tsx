@@ -61,8 +61,8 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
   }
 
   return (
-    <div className="w-full min-h-screen">
-      <Separator className="my-4" />
+    <div className="my-8 w-full min-h-screen">
+      {/* <Separator className="my-4" /> */}
       <div className="relative flex flex-row gap-8">
         {" "}
         <div className="w-full flex-1">

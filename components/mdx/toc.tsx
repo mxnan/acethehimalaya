@@ -4,7 +4,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { List } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -71,7 +70,7 @@ export function TableOfContents({ toc, className }: TocProps) {
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
           <div className="sticky top-16">
-            <p className="font-bold text-lg mb-4">On This Page</p>
+            <p className="font-bold text-lg pt-6 mb-4">On This Page</p>
             <Tree tree={toc} activeItem={activeHeading} />
           </div>
         </div>

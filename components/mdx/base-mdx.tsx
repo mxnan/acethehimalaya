@@ -41,7 +41,7 @@ export const BaseComponents = {
     return (
       <div
         className={cn(
-          "mt-6 rounded-lg border px-4 py-3 text-sm font-bold",
+          "rounded-lg border px-4 py-3 text-sm font-bold",
           variantClass,
           className
         )}
