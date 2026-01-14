@@ -1,6 +1,6 @@
-import ThemeToggle from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { ClipboardCheck } from "lucide-react"
+import ThemeToggle from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { ClipboardCheck } from "lucide-react";
 
 export default function Demo() {
   return (
@@ -10,7 +10,7 @@ export default function Demo() {
           <p className="text-sm font-medium text-muted-foreground">
             Component demo surface
           </p>
-          <h1 className="font-mono text-4xl font-bold">UI Toolkit Preview</h1>
+          <h1 className="font-sans text-4xl font-bold">UI Toolkit Preview</h1>
         </div>
         <ThemeToggle />
       </header>
@@ -20,14 +20,12 @@ export default function Demo() {
           Typography
         </p>
         <div className="space-y-2">
-          <h1 className="font-mono text-4xl font-bold">Heading One (h1)</h1>
-          <h2 className="font-mono text-3xl font-bold">Heading Two (h2)</h2>
-          <h3 className="font-mono text-2xl font-semibold">
+          <h1 className="font-sans text-4xl font-bold">Heading One (h1)</h1>
+          <h2 className="font-sans text-3xl font-bold">Heading Two (h2)</h2>
+          <h3 className="font-sans text-2xl font-semibold">
             Heading Three (h3)
           </h3>
-          <h4 className="font-mono text-xl font-semibold">
-            Heading Four (h4)
-          </h4>
+          <h4 className="font-sans text-xl font-semibold">Heading Four (h4)</h4>
           <p className="font-sans text-base text-muted-foreground">
             Paragraph body copy showing the default text styling. Keep content
             concise and readable across breakpoints.
@@ -52,26 +50,34 @@ export default function Demo() {
           Button sizes
         </p>
         <div className="flex flex-wrap items-center gap-3">
-          <Button size="sm" variant="secondary">
+          <Button size="sm" variant="default">
             Small
           </Button>
-          <Button size="default" variant="secondary">
+          <Button size="default" variant="default">
             Default
           </Button>
-          <Button size="lg" variant="secondary">
+          <Button size="lg" variant="default">
             Large
           </Button>
-          <Button size="icon" aria-label="icon button" variant="secondary">
+          <Button
+            size="icon-sm"
+            aria-label="icon button small"
+            variant="default"
+          >
             <ClipboardCheck />
           </Button>
-          <Button size="icon-sm" aria-label="icon button small" variant="secondary">
+          <Button size="icon" aria-label="icon button" variant="default">
             <ClipboardCheck />
           </Button>
-          <Button size="icon-lg" aria-label="icon button large" variant="secondary">
+          <Button
+            size="icon-lg"
+            aria-label="icon button large"
+            variant="default"
+          >
             <ClipboardCheck />
           </Button>
         </div>
       </section>
     </div>
-  )
+  );
 }
