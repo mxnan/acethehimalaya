@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { trips } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
+import { TableOfContents } from "@/components/mdx/toc";
 
 const getTripBySlug = (slugPath: string) =>
   trips.find((trip) => trip.slugAsParams === slugPath);
@@ -48,8 +49,11 @@ export default async function TripPage({ params }: TripPageParams) {
 
   return (
     <div className="my-8 w-full min-h-screen">
-      <div className="relative flex-1">
-        <MDXContent code={trip.content} />
+      <div className="relative flex flex-row gap-8">
+        <div className="relative flex-1">
+          <MDXContent code={trip.content} />
+        </div>
+        <TableOfContents toc={trip.toc} />
       </div>
     </div>
   );

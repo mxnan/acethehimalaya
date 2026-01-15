@@ -123,81 +123,26 @@
     @apply hover:bg-[url('/style/underline.svg')] dark:hover:bg-[url('/style/underline-dark.svg')];
   }
 
-  /* .font-sans {
-    font-family: var(--font-sans);
-  }
-  .font-sans {
-    font-family: var(--font-sans);
-  } */
   .maplibregl-popup-content {
     @apply bg-transparent! shadow-none! p-0! rounded-none!;
   }
   .maplibregl-popup-tip {
     @apply hidden!;
   }
+
+  .brand-active {
+  @apply   text-[color:var(--brand-color)] font-medium
+           bg-[color:var(--brand-color)]/20 shadow-sm;
 }
 
-/* Container breakpoints for larger screens */
-@layer utilities {
-  .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .brand-inactive {
+  @apply   text-[color:var(--brand-color)]/70 
+           hover:text-[color:var(--brand-color)]
+           hover:bg-[color:var(--brand-color)]/10;
   }
 
-  @media (width >= 640px) {
-    .container {
-      max-width: 640px;
-    }
-  }
-
-  @media (width >= 768px) {
-    .container {
-      max-width: 768px;
-    }
-  }
-
-  @media (width >= 1024px) {
-    .container {
-      max-width: 1024px;
-    }
-  }
-
-  @media (width >= 1280px) {
-    .container {
-      max-width: 80rem; /* 1280px */
-    }
-  }
-
-  @media (width >= 1536px) {
-    .container {
-      max-width: 96rem; /* 1536px */
-    }
-  }
-
-  /* @media (width >= 1792px) {
-    .container {
-      max-width: 112rem; 
-    }
-  } */
-  /* 1792px */
-
-  /* @media (width >= 2048px) {
-    .container {
-      max-width: 128rem; 
-    }
-  } */
-  /* 2048px */
-
-  /* @media (width >= 2560px) {
-    .container {
-      max-width: 144rem; 
-    }
-  } */
-  /* 2304px */
 }
+
 
 /****************************VIEW TRANSITIONS************************************/
 

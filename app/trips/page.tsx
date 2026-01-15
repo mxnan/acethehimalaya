@@ -39,8 +39,10 @@ export default function TripsPage() {
 
   return (
     <div className="my-8 w-full min-h-screen">
-      <div className="relative flex flex-col gap-10">
-        <></>
+      <div className="relative flex-1">
+        <>
+         
+        </>
       </div>
     </div>
   );
