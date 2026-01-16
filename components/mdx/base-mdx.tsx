@@ -21,10 +21,10 @@ export const BaseComponents = {
     className,
     type = "default",
     ...props
-  }: ComponentsProps & { type?: "default" | "warning" | "danger" }) => {
+  }: ComponentsProps & { type?: "default" | "note" | "danger" }) => {
     let variantClass = "";
     switch (type) {
-      case "warning":
+      case "note":
         variantClass =
           "border-yellow-400 bg-yellow-100/70 text-yellow-900 dark:bg-yellow-800/35 dark:text-yellow-100 dark:border-yellow-600";
         break;
@@ -117,7 +117,7 @@ export const BaseComponents = {
   ),
   strong: ({ className, ...props }: ComponentsProps) => (
     <strong
-      className={cn("font-semibold text-muted-foreground", className)}
+      className={cn("font-bold text-muted-background", className)}
       {...props}
     />
   ),
