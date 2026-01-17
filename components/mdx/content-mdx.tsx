@@ -4,8 +4,9 @@ import { Button } from "../ui/button";
 import MDXErrorBoundary from "./error-boundary";
 import YTEmbed from "./yt-embed";
 import Image from "next/image";
-
-
+import { TripDetailsCard } from "../cards/trip-details-card";
+import { Callout, CalloutFooter } from "./callout";
+import { Acc, AccContent, AccGroup, AccTrigger } from "./accordion";
 
 ////////////////////////////////
 const sharedComponents = {
@@ -15,6 +16,13 @@ const sharedComponents = {
   Image,
   // Add your custom components here
   YTEmbed,
+  TripDetailsCard,
+  Callout,
+  CalloutFooter,
+  AccGroup,
+  Acc,
+  AccContent,
+  AccTrigger,
 };
 
 // parse the Velite generated MDX code into a React component function

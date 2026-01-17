@@ -17,38 +17,6 @@ function slugify(text: string): string {
 type ComponentsProps = HTMLAttributes<HTMLElement>;
 
 export const BaseComponents = {
-  Callout: ({
-    className,
-    type = "default",
-    ...props
-  }: ComponentsProps & { type?: "default" | "note" | "danger" }) => {
-    let variantClass = "";
-    switch (type) {
-      case "note":
-        variantClass =
-          "border-yellow-400 bg-yellow-100/70 text-yellow-900 dark:bg-yellow-800/35 dark:text-yellow-100 dark:border-yellow-600";
-        break;
-      case "danger":
-        variantClass =
-          "border-red-400 bg-red-100/70 text-red-900 dark:bg-red-800/35 dark:text-red-100 dark:border-red-600";
-        break;
-      case "default":
-      default:
-        variantClass =
-          "border-border bg-muted/60 text-muted-foreground";
-    }
-
-    return (
-      <div
-        className={cn(
-          "rounded-lg border px-4 py-3 text-sm font-bold",
-          variantClass,
-          className
-        )}
-        {...props}
-      />
-    );
-  },
   h1: ({ className, children, ...props }: ComponentsProps) => {
     const id = typeof children === 'string' ? slugify(children) : 'h1';
     return (
