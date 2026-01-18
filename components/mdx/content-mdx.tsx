@@ -6,7 +6,13 @@ import YTEmbed from "./yt-embed";
 import Image from "next/image";
 import { TripDetailsCard } from "../cards/trip-details-card";
 import { Callout, CalloutFooter } from "./callout";
-import { Acc, AccContent, AccGroup, AccTrigger } from "./accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./accordion";
+import { TripAltitudeChart } from "./trip-altitude-chart";
 
 ////////////////////////////////
 const sharedComponents = {
@@ -19,10 +25,11 @@ const sharedComponents = {
   TripDetailsCard,
   Callout,
   CalloutFooter,
-  AccGroup,
-  Acc,
-  AccContent,
-  AccTrigger,
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  TripAltitudeChart,
 };
 
 // parse the Velite generated MDX code into a React component function

@@ -67,7 +67,7 @@ export const BaseComponents = {
     return (
       <h4
         className={cn(
-          "mt-8 scroll-m-32 text-xl font-medium font-sans uppercase text-primary tracking-tight",
+          "mt-8 scroll-m-16 text-xl font-medium font-sans uppercase text-primary tracking-tight",
           className
         )}
         id={id}

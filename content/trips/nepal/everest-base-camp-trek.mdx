@@ -381,90 +381,195 @@ src="/trips/nepal/everest-base-camp-trek/ebc-trek-map.jpg"
 
 ---
 
-<div className='h-[70vh] w-full'>
+<TripAltitudeChart
+  data={[
+    { day: "Day 1", location: "Kathmandu", meters: 1400 },
+    { day: "Day 2", location: "Lukla", meters: 2840 },
+    { day: "Day 2", location: "Phakding", meters: 2610 },
+    { day: "Day 3", location: "Namche Bazaar", meters: 3440 },
+    { day: "Day 4", location: "Namche Bazaar", meters: 3440 },
+    { day: "Day 5", location: "Tengboche", meters: 3860 },
+    { day: "Day 6", location: "Dingboche", meters: 4410 },
+    { day: "Day 7", location: "Nangkartsang Peak  Peak", meters: 5083 },
+    { day: "Day 7", location: "Dingboche", meters: 4410 },
+    { day: "Day 8", location: "Lobuche", meters: 4910 },
+    { day: "Day 9", location: "Everest Base Camp", meters: 5364 },
+    { day: "Day 9", location: "Gorakshep", meters: 5190 },
+    { day: "Day 10", location: "Kala Patthar", meters: 5555 },
+    { day: "Day 10", location: "Pheriche", meters: 4240 },
+    { day: "Day 11", location: "Namche Bazaar", meters: 3440 },
+    { day: "Day 12", location: "Lukla", meters: 2860 },
+    { day: "Day 13", location: "Kathmandu", meters: 1400 },
+  ]}
+/>
 
-graph
+#### Notes on Acclimatization
 
-</div>
+- Two acclimatization days at **Namche Bazaar**  
+- Gradual ascent beyond **3,500m**  
+- Highest point: **Kala Patthar (5,555m / 18,225 ft)**  
+
 
 ---
 
 # Watch Video
 
+---
+
 <YTEmbed url="https://youtu.be/55N4r6l9mvA" />
+
+---
 
 # FAQs
 
 ---
 
-### General
+#### General
 
-<AccGroup>
-  <Acc>
-    <AccTrigger>What is included?</AccTrigger>
-    <AccContent>
+<Accordion
+  type="single"
+  collapsible
+  className="w-full py-2"
+>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>
+Why trek with Ace the Himalaya?
+    </AccordionTrigger>
+    <AccordionContent>
+Ace the Himalaya is proudly recognized as one of the best trekking companies in Nepal.  We have a reputation for successfully leading treks with knowledgeable leaders and staff taking care of all your travel needs.
+
+We are a certified sustainable travel company that also endorses the idea of giving back to the community by participating in various philanthropic activities. Here are 17 reasons why you should choose Ace the Himalaya for your next adventure!
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>
+What additional documents do I need?
+    </AccordionTrigger>
+<AccordionContent>
+- Two passport-sized photos (2×2 inch) to give to our office staff
+- A copy of your international flight ticket to give to our office staff
+- A copy of travel insurance to give to our office staff
+</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>
+What should I know about booking my flights to/from Nepal? Do I need to plan extra days in case of delays?
+    </AccordionTrigger>
+    <AccordionContent>
+The best course of action is to add a day or two before and after your intended trek days in case of flight delays or cancellations. It also gives you time to buy clothing equipment and gear required before your trip.
+
+Please be aware that Ace the Himalaya is not responsible for any inconveniences or missed international flights resulting from unforeseen events like airport changes, flight delays or cancellations, etc.
+    </AccordionContent>
+  </AccordionItem>
+   <AccordionItem value="item-4">
+    <AccordionTrigger>
+Is hiring a guide necessary even if I have trekking experience?
+    </AccordionTrigger>
+    <AccordionContent>
+You can hike to Everest Base Camp without a guide. A guide is there to assist you in going forward and making alternative plans and arrangements when unanticipated occurrences happen or when things get difficult.
+
+Our hiking leaders are qualified experts. When talking about their trip, our guests frequently remark on how much fun they had and how crucial their guide was to make it successful.
+    </AccordionContent>
+  </AccordionItem>
+   <AccordionItem value="item-5">
+    <AccordionTrigger>
+Can the guide speak English?
+    </AccordionTrigger>
+    <AccordionContent>
+Yes, our guides can speak English. Most of them start their careers as porters and work for 3 to 4 years before becoming trekking guides. Their English skills are based on real-world experience rather than formal education. While they are able to communicate effectively, please note that English is not their first language, so their fluency may not be on par with native speakers. They will also assist with communication, especially since many locals, like shopkeepers and teahouse hosts, may not speak English.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+#### Everest Base Camp Weather and Temperature
+
+<Accordion
+  type="single"
+  collapsible
+  className="w-full py-2"
+>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>
+Why trek with Ace the Himalaya?
+    </AccordionTrigger>
+    <AccordionContent>
+Ace the Himalaya is proudly recognized as one of the best trekking companies in Nepal.  We have a reputation for successfully leading treks with knowledgeable leaders and staff taking care of all your travel needs.
+
+We are a certified sustainable travel company that also endorses the idea of giving back to the community by participating in various philanthropic activities. Here are 17 reasons why you should choose Ace the Himalaya for your next adventure!
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>
+What additional documents do I need?
+    </AccordionTrigger>
+<AccordionContent>
+- Two passport-sized photos (2×2 inch) to give to our office staff
+- A copy of your international flight ticket to give to our office staff
+- A copy of travel insurance to give to our office staff
+</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>
+What should I know about booking my flights to/from Nepal? Do I need to plan extra days in case of delays?
+    </AccordionTrigger>
+    <AccordionContent>
+The best course of action is to add a day or two before and after your intended trek days in case of flight delays or cancellations. It also gives you time to buy clothing equipment and gear required before your trip.
+
+Please be aware that Ace the Himalaya is not responsible for any inconveniences or missed international flights resulting from unforeseen events like airport changes, flight delays or cancellations, etc.
+    </AccordionContent>
+  </AccordionItem>
+   <AccordionItem value="item-4">
+    <AccordionTrigger>
+Is hiring a guide necessary even if I have trekking experience?
+    </AccordionTrigger>
+    <AccordionContent>
+You can hike to Everest Base Camp without a guide. A guide is there to assist you in going forward and making alternative plans and arrangements when unanticipated occurrences happen or when things get difficult.
+
+Our hiking leaders are qualified experts. When talking about their trip, our guests frequently remark on how much fun they had and how crucial their guide was to make it successful.
+    </AccordionContent>
+  </AccordionItem>
+   <AccordionItem value="item-5">
+    <AccordionTrigger>
+Can the guide speak English?
+    </AccordionTrigger>
+    <AccordionContent>
+Yes, our guides can speak English. Most of them start their careers as porters and work for 3 to 4 years before becoming trekking guides. Their English skills are based on real-world experience rather than formal education. While they are able to communicate effectively, please note that English is not their first language, so their fluency may not be on par with native speakers. They will also assist with communication, especially since many locals, like shopkeepers and teahouse hosts, may not speak English.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+
+#### Arrival and Visas
+
+<Accordion
+  type="single"
+  collapsible
+  className="w-full py-2"
+>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>
+    What is included?
+    </AccordionTrigger>
+    <AccordionContent>
       Accommodation, permits, meals, and experienced guides.
-    </AccContent>
-  </Acc>
-  <Acc>
-    <AccTrigger>What is included?</AccTrigger>
-    <AccContent>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>
+    What is included?
+    </AccordionTrigger>
+    <AccordionContent>
       Accommodation, permits, meals, and experienced guides.
-    </AccContent>
-  </Acc>
-  <Acc>
-    <AccTrigger>What is included?</AccTrigger>
-    <AccContent>
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>
+    What is included?
+    </AccordionTrigger>
+    <AccordionContent>
       Accommodation, permits, meals, and experienced guides.
-    </AccContent>
-  </Acc>
-</AccGroup>
-
-### Everest Base Camp Weather and Temperature
-
-<AccGroup>
-  <Acc>
-    <AccTrigger>How difficult is the trek?</AccTrigger>
-    <AccContent>
-      Moderate difficulty, suitable for fit beginners.
-    </AccContent>
-  </Acc>
-   <Acc>
-    <AccTrigger>How difficult is the trek?</AccTrigger>
-    <AccContent>
-      Moderate difficulty, suitable for fit beginners.
-    </AccContent>
-  </Acc>
-   <Acc>
-    <AccTrigger>How difficult is the trek?</AccTrigger>
-    <AccContent>
-      Moderate difficulty, suitable for fit beginners.
-    </AccContent>
-  </Acc>
-</AccGroup>
-
-### Arrival and Visas
-
-<AccGroup> 
-  <Acc>
-    <AccTrigger>Best season?</AccTrigger>
-    <AccContent>
-      March–May and September–November.
-    </AccContent>
-  </Acc>
-   <Acc>
-    <AccTrigger>Best season?</AccTrigger>
-    <AccContent>
-      March–May and September–November.
-    </AccContent>
-  </Acc>
-   <Acc>
-    <AccTrigger>Best season?</AccTrigger>
-    <AccContent>
-      March–May and September–November.
-    </AccContent>
-  </Acc>
-</AccGroup>
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
 
 # Reviews
 
