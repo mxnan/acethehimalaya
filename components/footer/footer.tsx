@@ -1,4 +1,3 @@
-
 import FooterBottom from "./footer-bottom";
 import FooterBento from "./footer-bento";
 import { Separator } from "../ui/separator";
@@ -7,7 +6,7 @@ import FooterNewsletterBrand from "./footer-newsletter-brand";
 
 const FooterMap = dynamic(() => import("./footer-map"));
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="relative bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       <Separator className="my-8" />
@@ -23,6 +22,4 @@ const Footer = () => {
       <FooterBottom />
     </footer>
   );
-};
-
-export default Footer;
+}

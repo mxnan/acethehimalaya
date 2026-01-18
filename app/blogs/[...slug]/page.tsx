@@ -38,10 +38,34 @@ export async function generateMetadata({
     return {};
   }
 
+  const ogImage = blog.image || "/brand-assets/brand-logo-icon.png";
+
   return {
     title: blog.title,
     description: blog.description,
-    openGraph: blog.image ? { images: [blog.image] } : undefined,
+    keywords: blog.tags,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
+      type: "article",
+      publishedTime: blog.date,
+      authors: ["AceTheHimalaya"],
+      tags: blog.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      images: [ogImage],
+    },
   };
 }
 

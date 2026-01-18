@@ -28,13 +28,32 @@ export async function generateMetadata({
     return {};
   }
 
+  const ogImage = trip.image || "/brand-assets/brand-logo-icon.png";
+
   return {
     title: trip.title,
     description: trip.description,
+    keywords: trip.tags,
     openGraph: {
       title: trip.title,
       description: trip.description,
-      images: trip.image ? [trip.image] : [],
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: trip.title,
+        },
+      ],
+      type: "article",
+      authors: ["AceTheHimalaya"],
+      tags: trip.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: trip.title,
+      description: trip.description,
+      images: [ogImage],
     },
   };
 }
