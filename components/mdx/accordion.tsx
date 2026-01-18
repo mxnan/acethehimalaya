@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence, type Transition } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { Separator } from "../ui/separator";
 
 interface AccordionItemContextType {
   isOpen: boolean;
@@ -117,7 +118,7 @@ const AccordionTrigger = React.forwardRef<
             }
           }}
           className={cn(
-            "flex flex-1 items-center justify-between gap-4 text-start text-sm font-bold px-4 py-3 cursor-pointer",
+            "flex flex-1 items-center justify-between gap-4 text-start text-sm  px-4 py-3 cursor-pointer",
             className
           )}
           {...props}
@@ -177,6 +178,7 @@ const AccordionContent = React.forwardRef<
               ref={ref}
             >
               <div className={cn("px-4 py-4 text-sm", className)}>{children}</div>
+              <Separator className="w-full my-4" />
             </motion.div>
           </AccordionPrimitive.Content>
         )}

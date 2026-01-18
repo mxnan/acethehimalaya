@@ -21,6 +21,7 @@ import {
 /* ---------------------------------- types --------------------------------- */
 
 type TripDetailsCardProps = {
+  variant?: "default" | "info-only";
   country?: string;
   duration?: string;
   difficulty?: string;
@@ -54,11 +55,7 @@ const OpenCloseButton = ({
   text2,
   className,
 }: OpenCloseButtonProps) => (
-  <motion.div
-    className={cn("", className)}
-    initial={false}
-    animate={isOpen ? "open" : "closed"}
-  >
+  <motion.div className={cn("", className)} initial={false}>
     <Button
       variant="default"
       onClick={onclickFunction}
@@ -74,28 +71,12 @@ const OpenCloseButton = ({
         fill="none"
         strokeWidth={3}
         strokeLinecap="round"
-        className="stroke-white stroke-4 dark:stroke-black"
+        className="stroke-white dark:stroke-black"
+        animate={{ rotate: isOpen ? 45 : 0 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
       >
-        <motion.path
-          variants={{
-            closed: { d: "M 2 2.5 L 20 2.5" },
-            open: { d: "M 3 16.5 L 17 2.5" },
-          }}
-        />
-        <motion.path
-          d="M 2 9.423 L 20 9.423"
-          variants={{
-            closed: { opacity: 1 },
-            open: { opacity: 0 },
-          }}
-          transition={{ duration: 0.1 }}
-        />
-        <motion.path
-          variants={{
-            closed: { d: "M 2 16.346 L 20 16.346" },
-            open: { d: "M 3 2.5 L 17 16.346" },
-          }}
-        />
+        <motion.path d="M 2 11.5 L 20 11.5" />
+        <motion.path d="M 11.5 2 L 11.5 20" />
       </motion.svg>
     </Button>
   </motion.div>
@@ -142,6 +123,7 @@ export function TripDetailsCard({
   meals,
   startEnd,
   images,
+  variant = "default",
   className,
 }: TripDetailsCardProps) {
   const [currentImage, setCurrentImage] = useState(0);
@@ -165,6 +147,7 @@ export function TripDetailsCard({
 
   /* --------------------------- auto slide images --------------------------- */
   useEffect(() => {
+    if (variant !== "default") return;
     if (!images || images.length <= 1) return;
 
     const interval = setInterval(() => {
@@ -172,56 +155,37 @@ export function TripDetailsCard({
     }, AUTO_SLIDE_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [images]);
+  }, [images, variant]);
 
   if (validDetails.length === 0) return null;
 
-  const imageVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      scale: 1.08,
-      opacity: 0,
-    }),
-    center: {
-      x: "0%",
-      scale: 1,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction > 0 ? "-30%" : "30%",
-      scale: 0.96,
-      opacity: 0,
-    }),
-  };
+  const detailsOpen = variant === "info-only" ? true : isOpen;
 
   return (
     <Card
       className={cn(
-        "relative min-h-[70vh] overflow-hidden rounded-xl border-none shadow-sm",
+        variant === "info-only"
+          ? "relative overflow-hidden rounded-xl border shadow-sm"
+          : "relative min-h-[70vh] overflow-hidden rounded-xl border-none shadow-sm",
         className
       )}
     >
       {/* Image carousel */}
-      {images && images.length > 0 && (
-        <AnimatePresence mode="sync">
+      {variant === "default" && images && images.length > 0 && (
+        <AnimatePresence>
           <motion.div
             key={currentImage}
             className="absolute inset-0"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{
-              opacity: { duration: 1.2, ease: "linear" },
-            }}
+            transition={{ duration: 1.2, ease: "linear" }}
           >
             <motion.div
               className="absolute inset-0"
               initial={{ scale: 1.02 }}
               animate={{ scale: 1 }}
-              transition={{
-                duration: 6,
-                ease: "linear",
-              }}
+              transition={{ duration: 6, ease: "linear" }}
             >
               <Image
                 src={images[currentImage].src}
@@ -234,66 +198,85 @@ export function TripDetailsCard({
           </motion.div>
         </AnimatePresence>
       )}
+
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/25 to-black/10" />
+      {variant === "default" && (
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/25 to-black/10" />
+      )}
 
       {/* Toggle button */}
-      <div className="absolute top-4 left-4 z-20">
-        <OpenCloseButton
-          onclickFunction={() => setIsOpen((prev) => !prev)}
-          isOpen={isOpen}
-          text1="Show details"
-          text2="Hide details"
-        />
-      </div>
-      {images?.[currentImage]?.caption && (
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={currentImage}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "linear" }}
-            className="absolute top-4 right-4 z-20 max-w-sm max-sm:hidden"
-          >
-            <div className="rounded-md bg-primary-background backdrop-blur-md px-3 py-2 shadow-sm">
-              <p className="text-xs md:text-sm font-semibold text-white dark:text-black leading-snug">
-                {images[currentImage].caption}
-              </p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+      {variant === "default" && (
+        <div className="absolute top-4 left-4 z-20">
+          <OpenCloseButton
+            onclickFunction={() => setIsOpen((prev) => !prev)}
+            isOpen={isOpen}
+            text1="Show details"
+            text2="Hide details"
+          />
+        </div>
+      )}
+
+      {/* Caption */}
+      {variant === "default" && images?.[currentImage]?.caption && (
+        <motion.div
+          key={currentImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: "linear" }}
+          className="absolute top-4 right-4 z-20 max-w-sm max-sm:hidden"
+        >
+          <div className="rounded-md bg-primary-background backdrop-blur-md px-3 py-2 shadow-sm">
+            <p className="text-xs md:text-sm font-semibold text-white dark:text-black">
+              {images[currentImage].caption}
+            </p>
+          </div>
+        </motion.div>
       )}
 
       {/* Details panel */}
       <motion.div
-        className="absolute bottom-4 left-4 right-4 z-10"
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
+        className={cn(
+          "z-10",
+          variant === "info-only"
+            ? "relative inset-auto"
+            : "absolute bottom-4 left-4 right-4"
+        )}
+        animate={detailsOpen ? "open" : "closed"}
         variants={{
           open: { y: 0, opacity: 1 },
           closed: { y: 20, opacity: 0 },
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <div className="rounded-lg w-max bg-black/50 backdrop-blur-md p-4">
+        <div
+          className={cn(
+            "rounded-lg  p-4",
+            variant === "info-only"
+              ? "w-full bg-muted text-primary"
+              : "w-max bg-black/50 backdrop-blur-md text-white"
+          )}
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {validDetails.map(([key, value]) => {
               const Icon = detailIcons[key as keyof typeof detailIcons];
 
               return (
                 <div key={key} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-md bg-brand-color/80">
-                    <Icon className="h-5 w-5 stroke-3 text-white dark:text-black" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-color/80">
+                    <Icon
+                      className={cn(
+                        "size-5 stroke-3",
+                        variant === "info-only"
+                          ? "stroke-primary-foreground"
+                          : "stroke-primary-foreground"
+                      )}
+                    />
                   </div>
-
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-xs font-medium text-white/80">
+                  <div className="flex flex-col">
+                    <span className="text-xs ">
                       {detailLabels[key as keyof typeof detailLabels]}
                     </span>
-                    <span className="text-sm font-semibold text-white">
-                      {value}
-                    </span>
+                    <span className="text-sm font-semibold ">{value}</span>
                   </div>
                 </div>
               );

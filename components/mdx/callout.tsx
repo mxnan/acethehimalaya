@@ -74,7 +74,7 @@ export function Callout({
   return (
     <div
       className={cn(
-        "rounded-lg border px-4 py-4 text-sm",
+        "rounded-lg border px-4 py-4 my-4 text-sm",
         styles.container,
         className
       )}
