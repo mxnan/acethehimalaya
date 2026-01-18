@@ -37,6 +37,9 @@ export function CategoriesSidebar({
   const mounted = useMounted();
   const [isLargeScreen, setIsLargeScreen] = React.useState(false);
 
+  const activeCategory = selectedCategory ?? "latest";
+
+
   React.useEffect(() => {
     const checkScreenSize = () => {
       setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
@@ -60,31 +63,26 @@ export function CategoriesSidebar({
 
   const CategoryList = () => (
     <ul className="m-0 list-none space-y-2">
-      {/* Latest/All Blogs Option */}
-      <li className="mt-0 pt-0">
+      {/* Latest Blogs (default state) */}
+      <li>
         <Link href={createCategoryUrl(null)}>
           <span
             className={cn(
-              "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out truncate w-full",
-              !selectedCategory
-                ? "text-primary font-medium"
-                : "text-muted-foreground hover:text-primary"
+              "relative inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm transition-colors duration-200",
+              activeCategory === "latest"
+                ? "brand-active"
+                : "brand-inactive"
             )}
           >
             <AnimatePresence mode="sync">
-              {!selectedCategory && (
+              {activeCategory === "latest" && (
                 <motion.span
-                  key="activeItem"
                   layoutId="activeCategory"
-                  className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-brand-color"
-                  initial={{ opacity: 0.3 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0.3 }}
+                  className="absolute inset-0 z-[-1] rounded-md bg-[color:var(--brand-color)]/15"
                   transition={{
-                    type: "tween",
-                    duration: 0.3,
-                    stiffness: 100,
-                    damping: 10,
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 30,
                   }}
                 />
               )}
@@ -94,41 +92,38 @@ export function CategoriesSidebar({
         </Link>
       </li>
 
-      {/* Category List */}
-      {categories.map((category) => (
-        <li key={category} className="mt-0 pt-0">
-          <Link href={createCategoryUrl(category)}>
-            <span
-              className={cn(
-                "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out truncate w-full",
-                selectedCategory === category
-                  ? "text-primary font-medium"
-                  : "text-muted-foreground hover:text-primary"
-              )}
-            >
-              <AnimatePresence mode="sync">
-                {selectedCategory === category && (
-                  <motion.span
-                    key="activeItem"
-                    layoutId="activeCategory"
-                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-brand-color"
-                    initial={{ opacity: 0.3 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0.3 }}
-                    transition={{
-                      type: "tween",
-                      duration: 0.3,
-                      stiffness: 100,
-                      damping: 10,
-                    }}
-                  />
+      {/* Real categories */}
+      {categories.map((category) => {
+        const isActive = activeCategory === category;
+
+        return (
+          <li key={category}>
+            <Link href={createCategoryUrl(category)}>
+              <span
+                className={cn(
+                  "relative inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm transition-colors duration-200",
+                  isActive ? "brand-active" : "brand-inactive"
                 )}
-              </AnimatePresence>
-              {category}
-            </span>
-          </Link>
-        </li>
-      ))}
+              >
+                <AnimatePresence mode="sync">
+                  {isActive && (
+                    <motion.span
+                      layoutId="activeCategory"
+                      className="absolute inset-0 z-[-1] rounded-md bg-[color:var(--brand-color)]/15"
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                </AnimatePresence>
+                {category}
+              </span>
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 

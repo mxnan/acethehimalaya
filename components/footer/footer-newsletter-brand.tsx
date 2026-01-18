@@ -12,7 +12,7 @@ export default function FooterNewsletterBrand() {
   return (
     <section className="mb-8 relative w-full flex flex-col max-lg:items-center lg:flex-row gap-8">
 
-      <Card className="min-h-[300px] w-full w-full lg:w-1/3 h-full flex-grow">
+      <Card className="min-h-[300px] w-full lg:w-1/3 h-full grow">
         <CardHeader className="px-6 pt-6">
           <CardTitle className="text-3xl">Subscribe Now !</CardTitle>
           <CardDescription className="font-semibold">
@@ -66,7 +66,7 @@ export default function FooterNewsletterBrand() {
         </CardContent>
       </Card>
 
-      <Card className="lg:max-h-[354px] w-full lg:w-2/3 flex-grow overflow-hidden p-2 bg-muted/30  shadow-none">
+      <Card className="lg:max-h-[354px] w-full lg:w-2/3 grow overflow-hidden p-2 bg-muted/30  shadow-none">
         <div className="h-full w-full">
           <Icons.navlogo className="w-full h-full" />
         </div>
