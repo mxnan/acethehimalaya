@@ -10,7 +10,7 @@
     "lint": "eslint",
     "velite": "velite",
     "velite:dev": "velite --watch",
-    "clean": "rm -rf .next .velite node_modules/.cache",
+    "clean": ".next .velite node_modules/.cache",
     "type-check": "tsc --noEmit",
     "preview": "pnpm build && pnpm start"
   },

@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Your Updated Workflow
 
-## Getting Started
+Development:
 
-First, run the development server:
+# For local development with auto-reload
+pnpm velite:dev  # Runs Velite in watch mode in one terminal
+pnpm dev         # Runs Next.js dev server in another terminal
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# OR for manual rebuilds
+pnpm velite      # Build docs once
+pnpm dev         # Start dev server
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production Build:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+pnpm clean       # Clean previous builds (optional)
+pnpm velite      # Build latest docs from MDX
+pnpm build       # Build Next.js app
+pnpm start       # Start production server (or deploy)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Quick Preview:
+pnpm preview     # Builds everything and starts production server
 
-## Learn More
+Git Workflow with Your Build Process
 
-To learn more about Next.js, take a look at the following resources:
+# On dev branch
+pnpm velite
+pnpm build
+# Test locally with pnpm start
+git add .
+git commit -m "feat: add new content"
+git push origin dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# When ready for production
+git checkout main
+git merge dev
+git push origin main  # Vercel auto-deploys with your velite build step

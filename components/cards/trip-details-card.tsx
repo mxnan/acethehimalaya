@@ -16,6 +16,7 @@ import {
   Home,
   Utensils,
   Route,
+  Map,
 } from "lucide-react";
 
 /* ---------------------------------- types --------------------------------- */
@@ -31,6 +32,7 @@ type TripDetailsCardProps = {
   accommodation?: string;
   meals?: string;
   startEnd?: string;
+  trekkingDistance?: string;
   images?: {
     src: string;
     caption?: string;
@@ -96,6 +98,7 @@ const detailLabels = {
   accommodation: "Accommodation",
   meals: "Meals",
   startEnd: "Start / End Point",
+  trekkingDistance: "Trekking Distance",
 };
 
 const detailIcons = {
@@ -108,6 +111,7 @@ const detailIcons = {
   accommodation: Home,
   meals: Utensils,
   startEnd: Route,
+  trekkingDistance: Map,
 };
 
 /* ----------------------------- main component ------------------------------ */
@@ -122,6 +126,7 @@ export function TripDetailsCard({
   accommodation,
   meals,
   startEnd,
+  trekkingDistance,
   images,
   variant = "default",
   className,
@@ -139,6 +144,7 @@ export function TripDetailsCard({
     accommodation,
     meals,
     startEnd,
+    trekkingDistance,
   };
 
   const validDetails = Object.entries(details).filter(
@@ -262,7 +268,7 @@ export function TripDetailsCard({
 
               return (
                 <div key={key} className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-color/80">
+                  <div className="flex p-2 items-center justify-center rounded-md bg-brand-color/80">
                     <Icon
                       className={cn(
                         "size-5 stroke-3",
