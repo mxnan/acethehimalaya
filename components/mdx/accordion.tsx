@@ -100,14 +100,6 @@ const AccordionTrigger = React.forwardRef<
 
     return (
       <AccordionPrimitive.Header className="relative flex border rounded-lg bg-muted">
-        {/* <span
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none rounded-lg z-0"
-          style={{
-            background: "linear-gradient(90deg, #F8FAE5 0%, #CED8B6 100%)",
-            opacity: 0.35,
-          }}
-        /> */}
         <AccordionPrimitive.Trigger
           ref={(node: HTMLButtonElement | null) => {
             triggerRef.current = node;
@@ -118,7 +110,7 @@ const AccordionTrigger = React.forwardRef<
             }
           }}
           className={cn(
-            "flex flex-1 items-center justify-between gap-4 text-start text-sm  px-4 py-3 cursor-pointer",
+            "flex flex-1 items-center justify-between gap-4 text-start text-sm px-4 py-3 cursor-pointer",
             className
           )}
           {...props}

@@ -13,6 +13,9 @@ import {
   AccordionTrigger,
 } from "./accordion";
 import { TripAltitudeChart } from "./trip-altitude-chart";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import CalendarCard from "./calendar-card";
+import PrivateTripForm from "./private-trip-form";
 
 ////////////////////////////////
 const sharedComponents = {
@@ -23,6 +26,10 @@ const sharedComponents = {
   // Add your custom components here
   YTEmbed,
   TripDetailsCard,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
   Callout,
   CalloutFooter,
   Accordion,
@@ -30,6 +37,8 @@ const sharedComponents = {
   AccordionTrigger,
   AccordionContent,
   TripAltitudeChart,
+  CalendarCard,
+  PrivateTripForm,
 };
 
 // parse the Velite generated MDX code into a React component function
