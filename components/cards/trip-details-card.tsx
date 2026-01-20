@@ -57,11 +57,15 @@ const OpenCloseButton = ({
   text2,
   className,
 }: OpenCloseButtonProps) => (
-  <motion.div className={cn("", className)} initial={false}>
+  <motion.div
+    className={cn("", className)}
+    initial={false}
+    animate={isOpen ? "open" : "closed"}
+  >
     <Button
       variant="default"
       onClick={onclickFunction}
-      className="group cursor-pointer flex items-center gap-4 bg-primary-background backdrop-blur-md text-white dark:text-black border-white/30 hover:bg-brand-color/80"
+      className="group cursor-pointer flex items-center gap-4 bg-neutral-200 backdrop-blur-md text-black border-white/30 hover:bg-neutral-300/80"
     >
       {text1 && text2 && (
         <span className="max-sm:hidden">{isOpen ? text2 : text1}</span>
@@ -73,12 +77,28 @@ const OpenCloseButton = ({
         fill="none"
         strokeWidth={3}
         strokeLinecap="round"
-        className="stroke-white dark:stroke-black"
-        animate={{ rotate: isOpen ? 45 : 0 }}
-        transition={{ duration: 0.25, ease: "easeInOut" }}
+        className="stroke-black"
       >
-        <motion.path d="M 2 11.5 L 20 11.5" />
-        <motion.path d="M 11.5 2 L 11.5 20" />
+        <motion.path
+          variants={{
+            closed: { d: "M 2 2.5 L 20 2.5" },
+            open: { d: "M 3 16.5 L 17 2.5" },
+          }}
+        />
+        <motion.path
+          d="M 2 9.423 L 20 9.423"
+          variants={{
+            closed: { opacity: 1 },
+            open: { opacity: 0 },
+          }}
+          transition={{ duration: 0.1 }}
+        />
+        <motion.path
+          variants={{
+            closed: { d: "M 2 16.346 L 20 16.346" },
+            open: { d: "M 3 2.5 L 17 16.346" },
+          }}
+        />
       </motion.svg>
     </Button>
   </motion.div>
@@ -132,7 +152,7 @@ export function TripDetailsCard({
   className,
 }: TripDetailsCardProps) {
   const [currentImage, setCurrentImage] = useState(0);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const details = {
     country,
@@ -231,7 +251,7 @@ export function TripDetailsCard({
           transition={{ duration: 0.6, ease: "linear" }}
           className="absolute top-4 right-4 z-20 max-w-sm max-sm:hidden"
         >
-          <div className="rounded-md bg-primary-background backdrop-blur-md px-3 py-2 shadow-sm">
+          <div className="rounded-md bg-brand-color backdrop-blur-md px-3 py-2 shadow-sm">
             <p className="text-xs md:text-sm font-semibold text-white dark:text-black">
               {images[currentImage].caption}
             </p>

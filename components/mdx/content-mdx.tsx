@@ -18,6 +18,7 @@ import CalendarCard from "./calendar-card";
 import { PrivateTripForm } from "./private-trip-form";
 import { GoogleReviewsSection } from "../reviews/google-reviews-section";
 import { TripadvisorReviewsSection } from "../reviews/tripadvisor-reviews-section";
+import { TrekMap } from "./trek-map";
 
 
 ////////////////////////////////
@@ -28,6 +29,7 @@ const sharedComponents = {
   Image,
   // Add your custom components here
   YTEmbed,
+  TrekMap, 
   TripDetailsCard,
   Tabs,
   TabsList,
