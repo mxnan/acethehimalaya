@@ -16,6 +16,8 @@ import { TripAltitudeChart } from "./trip-altitude-chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import CalendarCard from "./calendar-card";
 import { PrivateTripForm } from "./private-trip-form";
+import { GoogleReviews } from "../reviews/google-reviews";
+import { TripadvisorReviews } from "../reviews/tripadvisor-reviews";
 
 
 ////////////////////////////////
@@ -40,6 +42,8 @@ const sharedComponents = {
   TripAltitudeChart,
   CalendarCard,
   PrivateTripForm,
+  GoogleReviews,
+  TripadvisorReviews,
 };
 
 // parse the Velite generated MDX code into a React component function
