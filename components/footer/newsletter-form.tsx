@@ -45,7 +45,6 @@ export function NewsletterForm() {
   function onSubmit(data: NewsletterFormValues) {
     toast.success("Subscribed successfully!", {
       description: `${data.email} has been added to our newsletter.`,
-      position: "bottom-right",
     });
 
     form.reset();

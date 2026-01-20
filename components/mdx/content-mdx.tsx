@@ -15,7 +15,8 @@ import {
 import { TripAltitudeChart } from "./trip-altitude-chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import CalendarCard from "./calendar-card";
-import PrivateTripForm from "./private-trip-form";
+import { PrivateTripForm } from "./private-trip-form";
+
 
 ////////////////////////////////
 const sharedComponents = {
