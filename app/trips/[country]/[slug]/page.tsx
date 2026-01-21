@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
 import { trips } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
 import { TableOfContents } from "@/components/mdx/toc";
-import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
 
 const getTripBySlug = (slugPath: string) =>
   trips.find((trip) => trip.slugAsParams === slugPath);
