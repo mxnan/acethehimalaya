@@ -20,16 +20,15 @@ import { GoogleReviewsSection } from "../reviews/google-reviews-section";
 import { TripadvisorReviewsSection } from "../reviews/tripadvisor-reviews-section";
 import { TrekMap } from "./trek-map";
 
-
 ////////////////////////////////
 const sharedComponents = {
   // Add your base components here
   ...BaseComponents,
   Button,
   Image,
-  // Add your custom components here
   YTEmbed,
-  TrekMap, 
+  // Add your custom components here
+  TrekMap,
   TripDetailsCard,
   Tabs,
   TabsList,
@@ -46,7 +45,6 @@ const sharedComponents = {
   PrivateTripForm,
   GoogleReviewsSection,
   TripadvisorReviewsSection,
-  
 };
 
 // parse the Velite generated MDX code into a React component function

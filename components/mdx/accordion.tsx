@@ -44,7 +44,11 @@ const AccordionItem = React.forwardRef<
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <AccordionPrimitive.Item ref={ref} className={cn("my-2", className)} {...props}>
+    <AccordionPrimitive.Item
+      ref={ref}
+      className={cn("my-2", className)}
+      {...props}
+    >
       <AccordionItemContext.Provider value={{ isOpen, setIsOpen }}>
         {children}
       </AccordionItemContext.Provider>
@@ -169,7 +173,9 @@ const AccordionContent = React.forwardRef<
               className="overflow-hidden"
               ref={ref}
             >
-              <div className={cn("px-4 py-4 text-sm", className)}>{children}</div>
+              <div className={cn("px-4 py-4 text-sm", className)}>
+                {children}
+              </div>
               <Separator className="w-full my-4" />
             </motion.div>
           </AccordionPrimitive.Content>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icons } from "../brand";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
-import WhatsappIcon from "../ui/whatsapp-icon";
+import WhatsappIcon from "../ui/icons/whatsapp-icon";
 import {
   Dialog,
   DialogContent,

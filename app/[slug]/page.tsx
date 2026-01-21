@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
 import { company } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
-
-import { Separator } from "@/components/ui/separator";
 import dynamic from "next/dynamic";
 
 const TableOfContents = dynamic(

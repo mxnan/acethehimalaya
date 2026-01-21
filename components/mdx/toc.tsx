@@ -12,8 +12,10 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import UnorderedListIcon from "../ui/unordered-list-icon";
+import UnorderedListIcon from "../ui/icons/unordered-list-icon";
 import BookNowButton from "./booknow-button";
+import { usePathname } from "next/navigation";
+import { Separator } from "../ui/separator";
 
 interface TocEntry {
   items?: TocEntry[];
@@ -36,6 +38,9 @@ function useMounted() {
 }
 
 export function TableOfContents({ toc, className }: TocProps) {
+  const pathname = usePathname();
+  const showBookNow = pathname.startsWith("/trips/");
+
   const itemIds = React.useMemo(
     () =>
       toc
@@ -70,13 +75,14 @@ export function TableOfContents({ toc, className }: TocProps) {
       {/* Desktop TOC */}
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
-          <div className="sticky top-16">
-            <BookNowButton />
+          <div className="sticky top-18">
+            {showBookNow && <BookNowButton className="py-8" />}
             <p className="group font-bold text-lg mb-4 flex items-center gap-2">
               {" "}
               <UnorderedListIcon className="size-5" />
               On This Page
             </p>
+            <Separator className="my-2" />
             <Tree tree={toc} activeItem={activeHeading} />
           </div>
         </div>
@@ -85,7 +91,7 @@ export function TableOfContents({ toc, className }: TocProps) {
       {/* Mobile TOC Button */}
       {!isLargeScreen && (
         <div className="flex flex-row gap-4 fixed bottom-6 left-1/2 -translate-1/2 z-30 ">
-          <BookNowButton className="my-0 py-0" />
+          {showBookNow && <BookNowButton />}
           <Dialog>
             <DialogTrigger asChild>
               <Button

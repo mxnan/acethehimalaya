@@ -196,17 +196,17 @@ const ThemeToggle = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     if (!("startViewTransition" in document)) {
       setTheme(nextTheme);
-      toast.info(
-        `Theme : ${nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1)} mode`
-      );
+      // toast.info(
+      //   `Theme : ${nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1)} mode`
+      // );
       return;
     }
 
     (document as any).startViewTransition(() => {
       setTheme(nextTheme);
-      toast.info(
-        `Theme : ${nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1)} mode`
-      );
+      // toast.info(
+      //   `Theme : ${nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1)} mode`
+      // );
     });
   };
 

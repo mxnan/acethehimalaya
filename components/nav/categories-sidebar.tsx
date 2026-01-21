@@ -13,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import UnorderedListIcon from "@/components/ui/unordered-list-icon";
+import UnorderedListIcon from "@/components/ui/icons/unordered-list-icon";
 
 type CategoriesSidebarProps = {
   categories: string[];
