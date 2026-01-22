@@ -96,7 +96,7 @@ export default async function TripPage({ params }: TripPageParams) {
           {/* <Separator className="my-8" /> */}
           <MDXContent code={trip.content} />
         </div>
-        <TableOfContents toc={trip.toc} pricing={trip.price} />
+        <TableOfContents toc={trip.toc} pricing={trip.price} tripname={trip.title} />
       </div>
     </div>
   );

@@ -13,12 +13,9 @@ import CopyLink from "@/components/mdx/copy-link";
 import { formatDate } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
-
-const TableOfContents = dynamic(
-  () =>
-    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+const TableOfContents = dynamic(() =>
+  import("@/components/mdx/toc").then((mod) => mod.TableOfContents)
 );
-
 
 const getBlogBySlug = (slugPath: string) =>
   blogs.find((blog) => blog.slugAsParams === slugPath);
@@ -170,7 +167,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 priority
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-84 md:h-108 object-cover  rounded-md shadow-sm"
+                className="w-full h-84 md:h-108 object-cover object-center   rounded-md shadow-sm"
               />
             </div>
           ) : null}
@@ -253,7 +250,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
             </div>
           </div>
         </div>
-        <TableOfContents  toc={blog.toc} />
+        <TableOfContents toc={blog.toc} />
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export default function BookNowButton({
           <Button
             variant="default"
             size="default"
-            className="group cursor-pointer lg:py-5 w-full lg:text-lg lg:font-bold"
+            className="group cursor-pointer lg:py-5 w-max"
           >
             Book now{" "}
             <ChevronRight className="size-5 stroke-4 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
@@ -43,16 +43,17 @@ export default function BookNowButton({
         </DialogTrigger>
         <DialogContent className="max-w-[354px] mx-auto">
           <DialogHeader className="">
-            <DialogTitle className="text-2xl text-center ">
+            <DialogTitle className="text-2xl font-black text-center ">
               Price Details
             </DialogTitle>
             <p className="text-center ">
               You can book through weTravel portal .
             </p>
           </DialogHeader>
+          <Separator />
           <div className="max-h-96 overflow-y-auto flex flex-col items-center">
             <div className="text-center space-y-2">
-              <p className="text-xl">For Solo Travellers </p>
+              <p className="text-xl font-semibold">For Solo Travellers </p>
               <Separator />
               <p className="font-bold">
                 {pricing.currency} {pricing.base.toLocaleString()} / person
@@ -62,8 +63,10 @@ export default function BookNowButton({
             <table className="w-full text-center border mt-4">
               <thead>
                 <tr>
-                  <th className="border-2 px-4 py-2 font-bold">No of people</th>
-                  <th className="border-2 px-4 py-2 font-bold">
+                  <th className="border-2 px-4 py-2 font-bold italic">
+                    No of people
+                  </th>
+                  <th className="border-2 px-4 py-2 font-bold italic">
                     Price per person
                   </th>
                 </tr>
@@ -71,8 +74,10 @@ export default function BookNowButton({
               <tbody>
                 {pricing.tiers.map((tier) => (
                   <tr className="even:bg-secondary m-0 " key={tier.label}>
-                    <td className="border-2 px-4 py-2 text-sm">{tier.label}</td>
-                    <td className="border-2 px-4 py-2 text-sm">
+                    <td className="border-2 px-4 py-2 text-sm font-bold">
+                      {tier.label}
+                    </td>
+                    <td className="border-2 px-4 py-2 text-sm font-bold">
                       {pricing.currency} {tier.price.toLocaleString()}
                     </td>
                   </tr>

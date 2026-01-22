@@ -17,6 +17,8 @@ import BookNowButton from "./booknow-button";
 import { usePathname } from "next/navigation";
 import { Separator } from "../ui/separator";
 import { TripPricing } from "@/types/trip-pricing";
+import { ChevronRight } from "lucide-react";
+import { PrivateTripForm } from "./private-trip-form";
 
 interface TocEntry {
   items?: TocEntry[];
@@ -28,6 +30,7 @@ interface TocProps {
   toc: TocEntry[];
   pricing?: TripPricing;
   className?: string;
+  tripname?: string;
 }
 
 // Simple useMounted hook
@@ -42,6 +45,7 @@ function useMounted() {
 export function TableOfContents({
   toc,
   pricing,
+  tripname,
   className,
 }: TocProps) {
   const pathname = usePathname();
@@ -81,9 +85,43 @@ export function TableOfContents({
       {/* Desktop TOC */}
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
-          <div className="sticky top-16">
-            {showBookNow && pricing && <BookNowButton className="py-5" pricing={pricing} />}
-            <p className="group font-bold text-lg mb-4 flex items-center gap-2">
+          <div className="sticky top-20">
+            {showBookNow && pricing && (
+              <BookNowButton className="mb-4" pricing={pricing} />
+            )}
+            {showBookNow && (
+              <>
+                <div className="mb-4">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="outline"
+                        size="default"
+                        className="group cursor-pointer w-max lg:font-bold"
+                      >
+                        Make an Inquiry
+                        <ChevronRight className="size-5 stroke-3 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
+                        <span className="sr-only">Book now</span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-[354px] mx-auto">
+                      <DialogHeader className="">
+                        <DialogTitle className="text-2xl font-black ">
+                          Make An Inquiry for
+                        </DialogTitle>
+                      </DialogHeader>
+                      <Separator />
+                      <div>
+                        <PrivateTripForm tripName={tripname} />
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+                <Separator className="my-2" />
+              </>
+            )}
+
+            <p className="group font-bold text-lg py-2 flex items-center gap-2">
               {" "}
               <UnorderedListIcon className="size-5" />
               On This Page
@@ -100,6 +138,34 @@ export function TableOfContents({
           {showBookNow && pricing && (
             <BookNowButton pricing={pricing} className="my-0 py-0" />
           )}
+          {showBookNow && (
+            <div className="mb-4">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="default"
+                    size="default"
+                    className="group cursor-pointer w-max lg:font-bold"
+                  >
+                    Inquiry
+                    <ChevronRight className="size-5 stroke-3 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
+                    <span className="sr-only">Book now</span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-[354px] mx-auto">
+                  <DialogHeader className="">
+                    <DialogTitle className="text-2xl font-black ">
+                      Make An Inquiry for
+                    </DialogTitle>
+                  </DialogHeader>
+                  <Separator />
+                  <div>
+                    <PrivateTripForm tripName={tripname} />
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          )}
           <Dialog>
             <DialogTrigger asChild>
               <Button
@@ -108,7 +174,7 @@ export function TableOfContents({
                 // className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
               >
                 <UnorderedListIcon className="h-8 w-8" />
-                <span>On This Page</span>
+                {/* <span>On This Page</span> */}
                 <span className="sr-only">Table of Contents</span>
               </Button>
             </DialogTrigger>
