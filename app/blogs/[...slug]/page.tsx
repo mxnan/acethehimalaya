@@ -167,6 +167,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
               <Image
                 height={900}
                 width={1200}
+                priority
                 src={blog.image}
                 alt={blog.title}
                 className="w-full h-84 md:h-108 object-cover  rounded-md shadow-sm"

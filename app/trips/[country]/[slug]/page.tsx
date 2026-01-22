@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { trips } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
-import { TableOfContents } from "@/components/mdx/toc";
+import dynamic from "next/dynamic";
+
+
+const TableOfContents = dynamic(
+  () =>
+    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+);
 
 const getTripBySlug = (slugPath: string) =>
   trips.find((trip) => trip.slugAsParams === slugPath);

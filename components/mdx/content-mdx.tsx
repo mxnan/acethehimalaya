@@ -14,9 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import dynamic from "next/dynamic";
 
 // Dynamic imports for heavy components using Next.js dynamic
-const YTEmbed = dynamic(() =>
-  import("./yt-embed").then((mod) => mod.default)
-);
+const YTEmbed = dynamic(() => import("./yt-embed").then((mod) => mod.default));
 const TripDetailsCard = dynamic(() =>
   import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard)
 );
@@ -48,18 +46,24 @@ const sharedComponents = {
   Button,
   Image,
   // Add your custom components here
-  TrekMap,
-  TripDetailsCard,
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
   Callout,
   CalloutFooter,
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
+  Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion)),
+  AccordionItem: dynamic(() =>
+    import("./accordion").then((mod) => mod.AccordionItem)
+  ),
+  AccordionTrigger: dynamic(() =>
+    import("./accordion").then((mod) => mod.AccordionTrigger)
+  ),
+  AccordionContent: dynamic(() =>
+    import("./accordion").then((mod) => mod.AccordionContent)
+  ),
+  TrekMap,
+  TripDetailsCard,
   TripAltitudeChart,
   CalendarCard,
   PrivateTripForm,
