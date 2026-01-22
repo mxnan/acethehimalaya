@@ -92,7 +92,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
           <div className="mb-4 flex flex-col sm:flex-row items-center sm:justify-between gap-2">
             <div className="max-sm:mb-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               {blog.category ? (
-                <span className="px-3 py-1.5 bg-brand-color text-secondary rounded-md font-semibold">
+                <span className="px-3 py-1.5 bg-primary text-secondary rounded-md font-semibold">
                   {blog.category}
                 </span>
               ) : null}

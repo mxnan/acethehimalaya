@@ -36,7 +36,7 @@ const Navbar = () => {
                 className="inline-flex group cursor-pointer"
                 aria-label="Talk to an Expert"
               >
-                <WhatsappIcon className="h-8 w-8 stroke-brand-color" />
+                <WhatsappIcon className="h-6 w-6 stroke-green-700" />
                 <span className="sr-only">Talk to an Expert</span>
               </Button>
             </DialogTrigger>

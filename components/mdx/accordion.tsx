@@ -124,7 +124,7 @@ const AccordionTrigger = React.forwardRef<
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={transition}
           >
-            <ChevronDown className="size-5 stroke-brand-color shrink-0" />
+            <ChevronDown className="size-5 stroke-primary shrink-0" />
           </motion.div>
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Header>

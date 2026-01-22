@@ -59,7 +59,7 @@ const OpenCloseButton = ({
         fill="none"
         strokeWidth={3}
         strokeLinecap="round"
-        className="stroke-brand-color"
+        className="stroke-primary"
       >
         <motion.path
           variants={{

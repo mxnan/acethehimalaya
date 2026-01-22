@@ -159,7 +159,7 @@ export function TableOfContents({
                     </DialogTitle>
                   </DialogHeader>
                   <Separator />
-                  <div>
+                  <div className="max-h-[70vh] overflow-y-auto">
                     <PrivateTripForm tripName={tripname} />
                   </div>
                 </DialogContent>
@@ -260,7 +260,7 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
                   <motion.span
                     key="activeItem"
                     layoutId="activeItem"
-                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-brand-color"
+                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-primary"
                     initial={{ opacity: 0.3 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0.3 }}

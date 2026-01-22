@@ -107,7 +107,7 @@ const DesktopNav = () => {
                 }}
                 transition={{ duration: 0.2 }}
               >
-                <ChevronDown className="h-4 w-4 stroke-brand-color" />
+                <ChevronDown className="h-4 w-4 stroke-primary" />
               </motion.div>
             </Link>
           </motion.div>

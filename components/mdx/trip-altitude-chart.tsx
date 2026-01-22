@@ -207,8 +207,8 @@ export function TripAltitudeChart({ data, className }: TripAltitudeChartProps) {
             y1={padding.top}
             x2={getX(i)}
             y2={height - padding.bottom}
-            stroke="var(--brand-color)"
-            strokeWidth="1"
+            className="stroke-orange-400"
+            strokeWidth="2"
             opacity="0.2"
           />
         ))}
@@ -216,7 +216,7 @@ export function TripAltitudeChart({ data, className }: TripAltitudeChartProps) {
         {/* Area */}
         <path
           d={`${path} L ${width} ${height} L 0 ${height} Z`}
-          fill="var(--brand-color)"
+          className="fill-orange-600"
           opacity="0.08"
         />
 
@@ -224,7 +224,7 @@ export function TripAltitudeChart({ data, className }: TripAltitudeChartProps) {
         <path
           d={path}
           fill="none"
-          stroke="var(--brand-color)"
+          className="stroke-orange-400"
           strokeWidth="2.5"
           strokeLinecap="round"
         />
@@ -236,10 +236,9 @@ export function TripAltitudeChart({ data, className }: TripAltitudeChartProps) {
             cx={getX(i)}
             cy={getY(d.meters)}
             r={activeIndex === i ? 4 : 3}
-            fill={activeIndex === i ? "#fff" : "var(--brand-color)"}
-            stroke="var(--brand-color)"
+            fill={activeIndex === i ? "#fff" : "#F97316"}
             strokeWidth={activeIndex === i ? 5 : 4}
-            className="transition-all duration-150 cursor-pointer"
+            className="stroke-orange-400 transition-all duration-150 cursor-pointer"
           />
         ))}
 
@@ -291,10 +290,10 @@ export function TripAltitudeChart({ data, className }: TripAltitudeChartProps) {
           >
             <div className="pointer-events-none flex justify-center">
               <div className="rounded-md bg-background/90 backdrop-blur-sm px-3 py-2 shadow-sm border border-border text-center">
-                <p className="text-xs font-medium text-foreground">
+                {/* <p className="text-xs font-medium text-foreground">
                   {data[activeIndex].day} · {data[activeIndex].location}
-                </p>
-                <p className="text-xs text-muted-foreground">
+                </p> */}
+                <p className="text-primary font-bold text-sm">
                   {data[activeIndex].meters} m /{" "}
                   {metersToFeet(data[activeIndex].meters)} ft
                 </p>
