@@ -5,13 +5,25 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
   slugAsParams: data.slug.split("/").slice(1).join("/"),
 });
 
+const tripPricingSchema = s.object({
+  currency: s.string().default("USD"),
+  base: s.number(),
+  tiers: s
+    .object({
+      label: s.string(),
+      price: s.number(),
+    })
+    .array(),
+  bookingUrl: s.string().optional(),
+});
+
 const blogs = defineCollection({
   name: "Blogs",
   pattern: "blogs/*.mdx",
   schema: s
     .object({
       slug: s.path(),
-      title: s.string(),    
+      title: s.string(),
       category: s.string(),
       description: s.string().optional(),
       date: s.isodate(),
@@ -37,6 +49,7 @@ const trips = defineCollection({
       image: s.string().optional(),
       tags: s.string().array().optional(),
       toc: s.toc(),
+      price: tripPricingSchema.optional(),
       content: s.mdx(),
     })
     .transform(computedFields),
@@ -48,7 +61,7 @@ const company = defineCollection({
   schema: s
     .object({
       slug: s.path(),
-      title: s.string(),    
+      title: s.string(),
       category: s.string(),
       description: s.string().optional(),
       status: s.enum(["published", "draft"]).default("draft"),

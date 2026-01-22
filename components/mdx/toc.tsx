@@ -16,6 +16,7 @@ import UnorderedListIcon from "../ui/icons/unordered-list-icon";
 import BookNowButton from "./booknow-button";
 import { usePathname } from "next/navigation";
 import { Separator } from "../ui/separator";
+import { TripPricing } from "@/types/trip-pricing";
 
 interface TocEntry {
   items?: TocEntry[];
@@ -25,6 +26,7 @@ interface TocEntry {
 
 interface TocProps {
   toc: TocEntry[];
+  pricing?: TripPricing;
   className?: string;
 }
 
@@ -37,7 +39,11 @@ function useMounted() {
   return mounted;
 }
 
-export function TableOfContents({ toc, className }: TocProps) {
+export function TableOfContents({
+  toc,
+  pricing,
+  className,
+}: TocProps) {
   const pathname = usePathname();
   const showBookNow = pathname.startsWith("/trips/");
 
@@ -75,8 +81,8 @@ export function TableOfContents({ toc, className }: TocProps) {
       {/* Desktop TOC */}
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
-          <div className="sticky top-18">
-            {showBookNow && <BookNowButton className="py-8" />}
+          <div className="sticky top-16">
+            {showBookNow && pricing && <BookNowButton className="py-5" pricing={pricing} />}
             <p className="group font-bold text-lg mb-4 flex items-center gap-2">
               {" "}
               <UnorderedListIcon className="size-5" />
@@ -91,7 +97,9 @@ export function TableOfContents({ toc, className }: TocProps) {
       {/* Mobile TOC Button */}
       {!isLargeScreen && (
         <div className="flex flex-row gap-4 fixed bottom-6 left-1/2 -translate-1/2 z-30 ">
-          {showBookNow && <BookNowButton />}
+          {showBookNow && pricing && (
+            <BookNowButton pricing={pricing} className="my-0 py-0" />
+          )}
           <Dialog>
             <DialogTrigger asChild>
               <Button

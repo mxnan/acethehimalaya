@@ -2,9 +2,7 @@ import * as runtime from "react/jsx-runtime";
 import { BaseComponents } from "./base-mdx"; // import for base components
 import { Button } from "../ui/button";
 import MDXErrorBoundary from "./error-boundary";
-import YTEmbed from "./yt-embed";
 import Image from "next/image";
-import { TripDetailsCard } from "../cards/trip-details-card";
 import { Callout, CalloutFooter } from "./callout";
 import {
   Accordion,
@@ -12,13 +10,36 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./accordion";
-import { TripAltitudeChart } from "./trip-altitude-chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import CalendarCard from "./calendar-card";
-import { PrivateTripForm } from "./private-trip-form";
-import { GoogleReviewsSection } from "../reviews/google-reviews-section";
-import { TripadvisorReviewsSection } from "../reviews/tripadvisor-reviews-section";
-import { TrekMap } from "./trek-map";
+import dynamic from "next/dynamic";
+
+// Dynamic imports for heavy components using Next.js dynamic
+const YTEmbed = dynamic(() =>
+  import("./yt-embed").then((mod) => mod.default)
+);
+const TripDetailsCard = dynamic(() =>
+  import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard)
+);
+const TripAltitudeChart = dynamic(() =>
+  import("./trip-altitude-chart").then((mod) => mod.TripAltitudeChart)
+);
+const GoogleReviewsSection = dynamic(() =>
+  import("../reviews/google-reviews-section").then(
+    (mod) => mod.GoogleReviewsSection
+  )
+);
+const TripadvisorReviewsSection = dynamic(() =>
+  import("../reviews/tripadvisor-reviews-section").then(
+    (mod) => mod.TripadvisorReviewsSection
+  )
+);
+const TrekMap = dynamic(() => import("./trek-map").then((mod) => mod.TrekMap));
+const CalendarCard = dynamic(() =>
+  import("./calendar-card").then((mod) => mod.default)
+);
+const PrivateTripForm = dynamic(() =>
+  import("./private-trip-form").then((mod) => mod.PrivateTripForm)
+);
 
 ////////////////////////////////
 const sharedComponents = {
@@ -26,7 +47,6 @@ const sharedComponents = {
   ...BaseComponents,
   Button,
   Image,
-  YTEmbed,
   // Add your custom components here
   TrekMap,
   TripDetailsCard,
@@ -43,6 +63,7 @@ const sharedComponents = {
   TripAltitudeChart,
   CalendarCard,
   PrivateTripForm,
+  YTEmbed,
   GoogleReviewsSection,
   TripadvisorReviewsSection,
 };

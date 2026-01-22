@@ -217,6 +217,7 @@ export function TripDetailsCard({
                 src={images[currentImage].src}
                 alt={images[currentImage].caption ?? "Trip image"}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover object-center"
                 priority={currentImage === 0}
               />
