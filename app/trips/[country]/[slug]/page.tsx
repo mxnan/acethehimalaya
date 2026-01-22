@@ -4,10 +4,24 @@ import { trips } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
 import dynamic from "next/dynamic";
 
-
 const TableOfContents = dynamic(
-  () =>
-    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+  () => import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="w-64 shrink-0">
+        <div className="sticky top-20">
+          <div className="h-10 w-full bg-muted animate-pulse rounded-lg mb-4" />
+          <div className="h-10 w-full bg-muted animate-pulse rounded-lg mb-4" />
+          <div className="space-y-2">
+            <div className="h-4 w-full bg-muted animate-pulse rounded" />
+            <div className="h-4 w-3/4 bg-muted animate-pulse rounded" />
+            <div className="h-4 w-5/6 bg-muted animate-pulse rounded" />
+          </div>
+        </div>
+      </div>
+    ),
+  }
 );
 
 const getTripBySlug = (slugPath: string) =>
@@ -96,7 +110,11 @@ export default async function TripPage({ params }: TripPageParams) {
           {/* <Separator className="my-8" /> */}
           <MDXContent code={trip.content} />
         </div>
-        <TableOfContents toc={trip.toc} pricing={trip.price} tripname={trip.title} />
+        <TableOfContents
+          toc={trip.toc}
+          pricing={trip.price}
+          tripname={trip.title}
+        />
       </div>
     </div>
   );

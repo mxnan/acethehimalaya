@@ -62,7 +62,7 @@ export function TrekMap({
         width={width}
         height={height}
         className="object-cover object-center rounded-2xl border shadow-sm"
-        priority
+        loading="lazy"
       />
     </div>
   );

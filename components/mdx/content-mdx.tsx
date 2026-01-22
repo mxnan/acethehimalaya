@@ -18,8 +18,13 @@ const YTEmbed = dynamic(() => import("./yt-embed").then((mod) => mod.default));
 const TripDetailsCard = dynamic(() =>
   import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard)
 );
-const TripAltitudeChart = dynamic(() =>
-  import("./trip-altitude-chart").then((mod) => mod.TripAltitudeChart)
+// Lazy-loaded with intersection observer (below-the-fold)
+const TripAltitudeChart = dynamic(
+  () =>
+    import("./trip-altitude-chart-lazy").then(
+      (mod) => mod.TripAltitudeChartLazy
+    ),
+  { ssr: true }
 );
 const GoogleReviewsSection = dynamic(() =>
   import("../reviews/google-reviews-section").then(
@@ -31,7 +36,11 @@ const TripadvisorReviewsSection = dynamic(() =>
     (mod) => mod.TripadvisorReviewsSection
   )
 );
-const TrekMap = dynamic(() => import("./trek-map").then((mod) => mod.TrekMap));
+// Lazy-loaded with intersection observer (below-the-fold)
+const TrekMap = dynamic(
+  () => import("./trek-map-lazy").then((mod) => mod.TrekMapLazy),
+  { ssr: true }
+);
 const CalendarCard = dynamic(() =>
   import("./calendar-card").then((mod) => mod.default)
 );

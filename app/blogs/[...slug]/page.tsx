@@ -14,7 +14,7 @@ import { formatDate } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
 const TableOfContents = dynamic(() =>
-  import("@/components/mdx/toc").then((mod) => mod.TableOfContents)
+  import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents)
 );
 
 const getBlogBySlug = (slugPath: string) =>

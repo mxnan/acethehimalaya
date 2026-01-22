@@ -1,4 +1,3 @@
-// components/mdx/table-of-contents.tsx
 "use client";
 
 import * as React from "react";
@@ -12,21 +11,30 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import UnorderedListIcon from "../ui/icons/unordered-list-icon";
-import BookNowButton from "./booknow-button";
+import UnorderedListIcon from "../../ui/icons/unordered-list-icon";
 import { usePathname } from "next/navigation";
-import { Separator } from "../ui/separator";
+import { Separator } from "../../ui/separator";
 import { TripPricing } from "@/types/trip-pricing";
 import { ChevronRight } from "lucide-react";
-import { PrivateTripForm } from "./private-trip-form";
+import dynamic from "next/dynamic";
+import type { TocEntry } from "./toc-tree.server";
 
-interface TocEntry {
-  items?: TocEntry[];
-  url: string;
-  title: string;
-}
+// Lazy-load heavy components
+const BookNowButton = dynamic(
+  () => import("../booknow-button").then((mod) => mod.default),
+  {
+    ssr: false,
+  }
+);
 
-interface TocProps {
+const PrivateTripForm = dynamic(
+  () => import("../private-trip-form").then((mod) => mod.PrivateTripForm),
+  {
+    ssr: false,
+  }
+);
+
+interface TocClientProps {
   toc: TocEntry[];
   pricing?: TripPricing;
   className?: string;
@@ -42,12 +50,110 @@ function useMounted() {
   return mounted;
 }
 
-export function TableOfContents({
+// Active heading detection hook
+function useActiveItem(itemIds: (string | undefined)[]) {
+  const [activeId, setActiveId] = React.useState<string>("");
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: `0% 0% -80% 0%` }
+    );
+
+    itemIds?.forEach((id) => {
+      if (!id) {
+        return;
+      }
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      itemIds?.forEach((id) => {
+        if (!id) {
+          return;
+        }
+        const element = document.getElementById(id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, [itemIds]);
+
+  return activeId;
+}
+
+// Client-side Tree with active detection and animations
+interface TreeClientProps {
+  tree: TocEntry[];
+  level?: number;
+  activeItem?: string | null;
+}
+
+function TreeClient({ tree, level = 1, activeItem }: TreeClientProps) {
+  if (!tree.length || level >= 3) return null;
+
+  return (
+    <ul className={cn("m-0 list-none", { "pl-3": level !== 1 })}>
+      {tree.map((item, index) => (
+        <li key={index} className={cn("mt-0 pt-2")}>
+          <a
+            href={item.url}
+            className={cn(
+              "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out truncate w-full",
+              item.url === `#${activeItem}`
+                ? "text-primary font-medium"
+                : "text-muted-foreground hover:text-primary"
+            )}
+          >
+            <AnimatePresence mode="sync">
+              {item.url === `#${activeItem}` && (
+                <motion.span
+                  key="activeItem"
+                  layoutId="activeItem"
+                  className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-primary"
+                  initial={{ opacity: 0.3 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0.3 }}
+                  transition={{
+                    type: "tween",
+                    duration: 0.3,
+                    stiffness: 100,
+                    damping: 10,
+                  }}
+                />
+              )}
+            </AnimatePresence>
+            {item.title}
+          </a>
+          {item.items?.length ? (
+            <TreeClient
+              tree={item.items}
+              level={level + 1}
+              activeItem={activeItem}
+            />
+          ) : null}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export function TableOfContentsClient({
   toc,
   pricing,
   tripname,
   className,
-}: TocProps) {
+}: TocClientProps) {
   const pathname = usePathname();
   const showBookNow = pathname.startsWith("/trips/");
 
@@ -127,7 +233,7 @@ export function TableOfContents({
               On This Page
             </p>
             <Separator className="my-2" />
-            <Tree tree={toc} activeItem={activeHeading} />
+            <TreeClient tree={toc} activeItem={activeHeading} />
           </div>
         </div>
       )}
@@ -183,7 +289,7 @@ export function TableOfContents({
                 <DialogTitle> On This Page</DialogTitle>
               </DialogHeader>
               <div className="max-h-96 overflow-y-auto">
-                <Tree tree={toc} activeItem={activeHeading} />
+                <TreeClient tree={toc} activeItem={activeHeading} />
               </div>
             </DialogContent>
           </Dialog>
@@ -191,100 +297,4 @@ export function TableOfContents({
       )}
     </>
   );
-}
-
-function useActiveItem(itemIds: (string | undefined)[]) {
-  const [activeId, setActiveId] = React.useState<string>("");
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: `0% 0% -80% 0%` }
-    );
-
-    itemIds?.forEach((id) => {
-      if (!id) {
-        return;
-      }
-      const element = document.getElementById(id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => {
-      itemIds?.forEach((id) => {
-        if (!id) {
-          return;
-        }
-        const element = document.getElementById(id);
-        if (element) {
-          observer.unobserve(element);
-        }
-      });
-    };
-  }, [itemIds]);
-
-  return activeId;
-}
-
-interface TreeProps {
-  tree: TocEntry[];
-  level?: number;
-  activeItem?: string | null;
-}
-
-function Tree({ tree, level = 1, activeItem }: TreeProps) {
-  return tree.length && level < 3 ? (
-    <ul className={cn("m-0 list-none", { "pl-3": level !== 1 })}>
-      {tree.map((item, index) => {
-        return (
-          <li key={index} className={cn("mt-0 pt-2")}>
-            <a
-              href={item.url}
-              className={cn(
-                "inline-block relative text-sm pl-3 transition-colors duration-300 ease-in-out truncate w-full",
-                item.url === `#${activeItem}`
-                  ? "text-primary font-medium"
-                  : "text-muted-foreground hover:text-primary"
-              )}
-            >
-              <AnimatePresence mode="sync">
-                {item.url === `#${activeItem}` && (
-                  <motion.span
-                    key="activeItem"
-                    layoutId="activeItem"
-                    className="absolute left-0 top-0 rounded-xl h-4 w-1 bg-primary"
-                    initial={{ opacity: 0.3 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0.3 }}
-                    transition={{
-                      type: "tween",
-                      duration: 0.3,
-                      stiffness: 100,
-                      damping: 10,
-                    }}
-                  />
-                )}
-              </AnimatePresence>
-              {item.title}
-            </a>
-            {item.items?.length ? (
-              <Tree
-                tree={item.items}
-                level={level + 1}
-                activeItem={activeItem}
-              />
-            ) : null}
-          </li>
-        );
-      })}
-    </ul>
-  ) : null;
 }

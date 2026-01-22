@@ -1,6 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
-import { ReviewsScroller } from "./reviews-scroller";
+import { ReviewsScrollerLazy } from "./reviews-scroller-lazy";
 import { Review } from "@/types/review";
 
 type TripadvisorReviewsSectionProps = {
@@ -41,13 +41,13 @@ export function TripadvisorReviewsSection({
       </header>
 
       <div className="my-4 md:px-4 flex justify-center gap-6 max-h-[520px] overflow-hidden">
-        <ReviewsScroller reviews={reviews.slice(0, 5)} duration={20} />
-        <ReviewsScroller
+        <ReviewsScrollerLazy reviews={reviews.slice(0, 5)} duration={20} />
+        <ReviewsScrollerLazy
           reviews={reviews.slice(5, 10)}
           duration={10}
           className="hidden sm:flex"
         />
-        <ReviewsScroller
+        <ReviewsScrollerLazy
           reviews={reviews.slice(10, 15)}
           duration={20}
           className="hidden md:flex"
