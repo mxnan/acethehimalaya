@@ -10,8 +10,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import DesktopNav from "./desktop-nav";
+
 const MobileNav = dynamic(() => import("./mobile-nav"));
-const DesktopNav = dynamic(() => import("./desktop-nav"));
 
 const Navbar = () => {
   return (
@@ -42,7 +43,7 @@ const Navbar = () => {
             </DialogTrigger>
             <DialogContent>
               <DialogTitle>Talk to an Expert</DialogTitle>
-              map all sales personell whatsapp numbers here
+              map all sales personnel whatsapp numbers here
               <DialogFooter>Ace the Himalaya</DialogFooter>
             </DialogContent>
           </Dialog>

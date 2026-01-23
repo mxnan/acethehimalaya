@@ -1,8 +1,10 @@
 import * as runtime from "react/jsx-runtime";
-import { BaseComponents } from "./base-mdx"; // import for base components
-import { Button } from "../ui/button";
-import MDXErrorBoundary from "./error-boundary";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+import { BaseComponents } from "./base-mdx"; // import for base components
+import MDXErrorBoundary from "./error-boundary";
+import { Button } from "../ui/button";
 import { Callout, CalloutFooter } from "./callout";
 import {
   Accordion,
@@ -11,10 +13,13 @@ import {
   AccordionTrigger,
 } from "./accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import dynamic from "next/dynamic";
 
-// Dynamic imports for heavy components using Next.js dynamic
+// ----------------------- Core MDX components (always) -----------------------
+// These are light, generic components that can be safely available on all MDX pages.
 const YTEmbed = dynamic(() => import("./yt-embed").then((mod) => mod.default));
+
+// ---------------------------- Trip-specific components ----------------------------
+// These should only be available on trip MDX pages (/trips/*).
 const TripDetailsCard = dynamic(() =>
   import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard)
 );
@@ -48,19 +53,20 @@ const PrivateTripForm = dynamic(() =>
   import("./private-trip-form").then((mod) => mod.PrivateTripForm)
 );
 
-////////////////////////////////
-const sharedComponents = {
-  // Add your base components here
+// ---------------------- Component maps by responsibility ---------------------
+
+// Core components shared across all MDX routes (blogs, generic pages)
+const coreComponents = {
   ...BaseComponents,
   Button,
   Image,
-  // Add your custom components here
   Tabs,
   TabsList,
   TabsTrigger,
   TabsContent,
   Callout,
   CalloutFooter,
+  // Interactive but generic: accordions are used broadly
   Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion)),
   AccordionItem: dynamic(() =>
     import("./accordion").then((mod) => mod.AccordionItem)
@@ -71,16 +77,31 @@ const sharedComponents = {
   AccordionContent: dynamic(() =>
     import("./accordion").then((mod) => mod.AccordionContent)
   ),
+  // Generic media
+  YTEmbed,
+};
+
+// Trip-specific components: only used on /trips/* MDX content
+const tripComponents = {
   TrekMap,
   TripDetailsCard,
   TripAltitudeChart,
   CalendarCard,
   PrivateTripForm,
-  YTEmbed,
   GoogleReviewsSection,
   TripadvisorReviewsSection,
 };
 
+// Component map for blog / generic MDX pages (no trip-specific components)
+const blogComponents = {
+  ...coreComponents,
+};
+
+// Component map for trip MDX pages (core + trip-specific)
+const tripPageComponents = {
+  ...coreComponents,
+  ...tripComponents,
+};
 // parse the Velite generated MDX code into a React component function
 const useMDXComponent = (code: string) => {
   const fn = new Function(code);
@@ -91,13 +112,25 @@ interface MDXProps {
   code: string;
 }
 
-// MDXContent component
+// Blog / generic MDXContent component (used for /blogs/* etc.)
 export const MDXContent = ({ code }: MDXProps) => {
   const Component = useMDXComponent(code);
   return (
     <MDXErrorBoundary>
       <section className="w-full h-full relative">
-        <Component components={sharedComponents} />
+        <Component components={blogComponents} />
+      </section>
+    </MDXErrorBoundary>
+  );
+};
+
+// Trip-specific MDXContent component (used for /trips/*)
+export const TripMDXContent = ({ code }: MDXProps) => {
+  const Component = useMDXComponent(code);
+  return (
+    <MDXErrorBoundary>
+      <section className="w-full h-full relative">
+        <Component components={tripPageComponents} />
       </section>
     </MDXErrorBoundary>
   );

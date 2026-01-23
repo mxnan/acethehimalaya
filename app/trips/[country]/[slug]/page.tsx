@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { trips } from "#site/content";
-import { MDXContent } from "@/components/mdx/content-mdx";
+import { TripMDXContent } from "@/components/mdx/content-mdx";
 import dynamic from "next/dynamic";
 
 const TableOfContents = dynamic(
@@ -108,7 +108,7 @@ export default async function TripPage({ params }: TripPageParams) {
             ) : null}
           </div>
           {/* <Separator className="my-8" /> */}
-          <MDXContent code={trip.content} />
+          <TripMDXContent code={trip.content} />
         </div>
         <TableOfContents
           toc={trip.toc}

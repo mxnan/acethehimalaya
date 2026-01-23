@@ -7,17 +7,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
-  MapPin,
-  Clock,
-  Mountain,
-  Activity,
-  TrendingUp,
-  Calendar,
-  Home,
-  Utensils,
-  Route,
-  Map,
-} from "lucide-react";
+  TripDetailsPanel,
+  type TripDetailsEntries,
+} from "./trip-details-card-details";
 
 /* ---------------------------------- types --------------------------------- */
 
@@ -108,32 +100,6 @@ const OpenCloseButton = ({
 
 const AUTO_SLIDE_INTERVAL = 5000;
 
-const detailLabels = {
-  country: "Country",
-  duration: "Duration",
-  difficulty: "Difficulty",
-  activity: "Activity",
-  altitude: "Max Altitude",
-  bestSeason: "Best Season",
-  accommodation: "Accommodation",
-  meals: "Meals",
-  startEnd: "Start / End Point",
-  trekkingDistance: "Trekking Distance",
-};
-
-const detailIcons = {
-  country: MapPin,
-  duration: Clock,
-  difficulty: Mountain,
-  activity: Activity,
-  altitude: TrendingUp,
-  bestSeason: Calendar,
-  accommodation: Home,
-  meals: Utensils,
-  startEnd: Route,
-  trekkingDistance: Map,
-};
-
 /* ----------------------------- main component ------------------------------ */
 
 export function TripDetailsCard({
@@ -167,9 +133,12 @@ export function TripDetailsCard({
     trekkingDistance,
   };
 
-  const validDetails = Object.entries(details).filter(
-    ([, value]) => value != null && value.trim() !== ""
-  );
+  const validDetails: TripDetailsEntries = Object.entries(details)
+    .filter(([_, value]) => typeof value === "string" && value.trim() !== "")
+    .map(([key, value]) => [
+      key as TripDetailsEntries[number][0],
+      value as string,
+    ]);
 
   /* --------------------------- auto slide images --------------------------- */
   useEffect(() => {
@@ -177,7 +146,7 @@ export function TripDetailsCard({
     if (!images || images.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
+      setCurrentImage((prev: number) => (prev + 1) % images.length);
     }, AUTO_SLIDE_INTERVAL);
 
     return () => clearInterval(interval);
@@ -275,41 +244,7 @@ export function TripDetailsCard({
         }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <div
-          className={cn(
-            "rounded-lg  p-4",
-            variant === "info-only"
-              ? "w-full bg-muted text-primary"
-              : "w-max bg-black/50 backdrop-blur-md text-white"
-          )}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {validDetails.map(([key, value]) => {
-              const Icon = detailIcons[key as keyof typeof detailIcons];
-
-              return (
-                <div key={key} className="flex items-start gap-3">
-                  <div className="flex p-2 items-center justify-center rounded-md bg-neutral-600 dark:bg-neutral-100">
-                    <Icon
-                      className={cn(
-                        "size-5 stroke-3",
-                        variant === "info-only"
-                          ? "stroke-primary-foreground"
-                          : "stroke-primary-foreground"
-                      )}
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs ">
-                      {detailLabels[key as keyof typeof detailLabels]}
-                    </span>
-                    <span className="text-sm font-semibold ">{value}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <TripDetailsPanel entries={validDetails} variant={variant} />
       </motion.div>
     </Card>
   );
