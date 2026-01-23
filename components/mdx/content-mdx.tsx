@@ -1,17 +1,10 @@
 import * as runtime from "react/jsx-runtime";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-
 import { BaseComponents } from "./base-mdx"; // import for base components
 import MDXErrorBoundary from "./error-boundary";
 import { Button } from "../ui/button";
 import { Callout, CalloutFooter } from "./callout";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 // ----------------------- Core MDX components (always) -----------------------
