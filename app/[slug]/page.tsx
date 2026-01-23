@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
 import { company } from "#site/content";
 import { MDXContent } from "@/components/mdx/content-mdx";
-
-import { Separator } from "@/components/ui/separator";
 import dynamic from "next/dynamic";
 
 const TableOfContents = dynamic(
   () =>
-    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+    import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents),
 );
 
 const getCompanyBySlug = (slug: string) =>

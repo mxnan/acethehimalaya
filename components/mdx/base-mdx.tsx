@@ -79,7 +79,7 @@ export const BaseComponents = {
   },
   p: ({ className, ...props }: ComponentsProps) => (
     <p
-      className={cn("leading-7 not-first:mt-6", className)}
+      className={cn("leading-7 text-sm not-first:mt-6", className)}
       {...props}
     />
   ),
@@ -90,13 +90,13 @@ export const BaseComponents = {
     />
   ),
   ul: ({ className, ...props }: ComponentsProps) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={cn("my-6 ml-6 text-sm list-disc", className)} {...props} />
   ),
   ol: ({ className, ...props }: ComponentsProps) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol className={cn("my-6 ml-6 text-sm list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: ComponentsProps) => (
-    <li className={cn("mt-2 list-disc", className)} {...props} />
+    <li className={cn("mt-2 text-sm list-disc", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
@@ -112,7 +112,7 @@ export const BaseComponents = {
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
-      <table className={cn("w-full max-w-4xl ", className)} {...props} />
+      <table className={cn("w-full ", className)} {...props} />
     </div>
   ),
   tr: ({ className, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
@@ -133,7 +133,7 @@ export const BaseComponents = {
   td: ({ className, ...props }: ComponentsProps) => (
     <td
       className={cn(
-        "border-2 px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left text-sm [[align=center]]:text-center [[align=right]]:text-right",
         className
       )}
       {...props}

@@ -2,7 +2,7 @@
 
 import { Button } from "../ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
-import CopyIcon from "../ui/copy-icon";
+import CopyIcon from "../ui/icons/copy-icon";
 
 const CopyLink = ({ link }: { link: string }) => {
   const handleCopy = () => {

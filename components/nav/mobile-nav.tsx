@@ -7,10 +7,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "../theme-toggle";
 import { Icons } from "../brand";
-import InstagramIcon from "../ui/instagram-icon";
-import FacebookIcon from "../ui/facebook-icon";
-import TwitterXIcon from "../ui/twitter-x-icon";
-import YoutubeIcon from "../ui/youtube-icon";
+import InstagramIcon from "../ui/icons/instagram-icon";
+import FacebookIcon from "../ui/icons/facebook-icon";
+import TwitterXIcon from "../ui/icons/twitter-x-icon";
+import YoutubeIcon from "../ui/icons/youtube-icon";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const navLinks = [
@@ -59,7 +59,7 @@ const OpenCloseButton = ({
         fill="none"
         strokeWidth={3}
         strokeLinecap="round"
-        className="stroke-brand-color"
+        className="stroke-primary"
       >
         <motion.path
           variants={{

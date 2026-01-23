@@ -5,20 +5,17 @@ import { MDXContent } from "@/components/mdx/content-mdx";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import WhatsappIcon from "@/components/ui/whatsapp-icon";
-import FacebookIcon from "@/components/ui/facebook-icon";
-import TwitterXIcon from "@/components/ui/twitter-x-icon";
-import ClockIcon from "@/components/ui/clock-icon";
+import WhatsappIcon from "@/components/ui/icons/whatsapp-icon";
+import FacebookIcon from "@/components/ui/icons/facebook-icon";
+import TwitterXIcon from "@/components/ui/icons/twitter-x-icon";
+import ClockIcon from "@/components/ui/icons/clock-icon";
 import CopyLink from "@/components/mdx/copy-link";
 import { formatDate } from "@/lib/utils";
 import dynamic from "next/dynamic";
 
-
-const TableOfContents = dynamic(
-  () =>
-    import("@/components/mdx/toc").then((mod) => mod.TableOfContents),
+const TableOfContents = dynamic(() =>
+  import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents)
 );
-
 
 const getBlogBySlug = (slugPath: string) =>
   blogs.find((blog) => blog.slugAsParams === slugPath);
@@ -95,7 +92,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
           <div className="mb-4 flex flex-col sm:flex-row items-center sm:justify-between gap-2">
             <div className="max-sm:mb-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               {blog.category ? (
-                <span className="px-3 py-1.5 bg-brand-color text-secondary rounded-md font-semibold">
+                <span className="px-3 py-1.5 bg-primary text-secondary rounded-md font-semibold">
                   {blog.category}
                 </span>
               ) : null}
@@ -167,9 +164,10 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
               <Image
                 height={900}
                 width={1200}
+                priority
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-84 md:h-108 object-cover  rounded-md shadow-sm"
+                className="w-full h-84 md:h-108 object-cover object-center   rounded-md shadow-sm"
               />
             </div>
           ) : null}
@@ -252,7 +250,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
             </div>
           </div>
         </div>
-        <TableOfContents  toc={blog.toc} />
+        <TableOfContents toc={blog.toc} />
       </div>
     </div>
   );

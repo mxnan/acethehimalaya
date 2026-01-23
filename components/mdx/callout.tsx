@@ -19,16 +19,16 @@ interface CalloutFooterProps {
 
 const calloutStyles = {
   default: {
-    container: "border-border bg-muted/60 text-muted-foreground",
+    container: "border-border bg-neutral-200 dark:bg-neutral-800 text-primary",
     icon: FileText,
     iconColor: "text-muted-foreground",
     separatorColor: "bg-border",
   },
   note: {
     container:
-      "border-brand-orange bg-yellow-200 dark:bg-yellow-400 text-black",
+      "border bg-yellow-400 dark:bg-yellow-400/80 text-black",
     icon: Lightbulb,
-    iconColor: "text-muted-background",
+    iconColor: "text-black",
     separatorColor: "bg-black",
   },
   warning: {
@@ -40,10 +40,10 @@ const calloutStyles = {
   },
   info: {
     container:
-      "bg-brand-blue/90 dark:bg-brand-blue text-white",
+      "bg-neutral-300/80 dark:bg-neutral-700/80 text-primary shadow-sm ",
     icon: Info,
-    iconColor: "text-white",
-    separatorColor: "bg-white",
+    iconColor: "text-primary",
+    separatorColor: "bg-primary",
   },
 };
 

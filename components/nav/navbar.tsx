@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Icons } from "../brand";
 import dynamic from "next/dynamic";
 import { Button } from "../ui/button";
-import WhatsappIcon from "../ui/whatsapp-icon";
+import WhatsappIcon from "../ui/icons/whatsapp-icon";
 import {
   Dialog,
   DialogContent,
@@ -10,8 +10,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import DesktopNav from "./desktop-nav";
+
 const MobileNav = dynamic(() => import("./mobile-nav"));
-const DesktopNav = dynamic(() => import("./desktop-nav"));
 
 const Navbar = () => {
   return (
@@ -36,13 +37,13 @@ const Navbar = () => {
                 className="inline-flex group cursor-pointer"
                 aria-label="Talk to an Expert"
               >
-                <WhatsappIcon className="h-8 w-8 stroke-brand-color" />
+                <WhatsappIcon className="h-6 w-6 stroke-green-700" />
                 <span className="sr-only">Talk to an Expert</span>
               </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogTitle>Talk to an Expert</DialogTitle>
-              map all sales personell whatsapp numbers here
+              map all sales personnel whatsapp numbers here
               <DialogFooter>Ace the Himalaya</DialogFooter>
             </DialogContent>
           </Dialog>

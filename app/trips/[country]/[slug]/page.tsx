@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
 import { trips } from "#site/content";
-import { MDXContent } from "@/components/mdx/content-mdx";
-import { TableOfContents } from "@/components/mdx/toc";
-import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
+import { TripMDXContent } from "@/components/mdx/content-mdx";
+import dynamic from "next/dynamic";
+
+const TableOfContents = dynamic(
+  () => import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="w-64 shrink-0">
+        <div className="sticky top-20">
+          <div className="h-10 w-full bg-muted animate-pulse rounded-lg mb-4" />
+          <div className="h-10 w-full bg-muted animate-pulse rounded-lg mb-4" />
+          <div className="space-y-2">
+            <div className="h-4 w-full bg-muted animate-pulse rounded" />
+            <div className="h-4 w-3/4 bg-muted animate-pulse rounded" />
+            <div className="h-4 w-5/6 bg-muted animate-pulse rounded" />
+          </div>
+        </div>
+      </div>
+    ),
+  }
+);
 
 const getTripBySlug = (slugPath: string) =>
   trips.find((trip) => trip.slugAsParams === slugPath);
@@ -66,7 +83,7 @@ export function generateStaticParams() {
       return { country, slug };
     });
 }
-
+export const revalidate = 86400; // 24 hours
 export default async function TripPage({ params }: TripPageParams) {
   const { country, slug } = await params;
   const slugPath = `${country}/${slug}`;
@@ -78,8 +95,8 @@ export default async function TripPage({ params }: TripPageParams) {
 
   return (
     <div className="my-8 w-full min-h-screen">
-      <div className="relative flex flex-row gap-8">
-        <div className="relative flex-1">
+      <div className="relative flex flex-col lg:flex-row gap-8">
+        <div className="flex-1">
           {/* <Separator className="my-6" /> */}
           {/* Title and description */}
           <div className="flex flex-col gap-4 mb-8 mt-3">
@@ -91,9 +108,13 @@ export default async function TripPage({ params }: TripPageParams) {
             ) : null}
           </div>
           {/* <Separator className="my-8" /> */}
-          <MDXContent code={trip.content} />
+          <TripMDXContent code={trip.content} />
         </div>
-        <TableOfContents toc={trip.toc} />
+        <TableOfContents
+          toc={trip.toc}
+          pricing={trip.price}
+          tripname={trip.title}
+        />
       </div>
     </div>
   );

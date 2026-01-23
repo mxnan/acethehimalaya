@@ -129,7 +129,7 @@ export default function RootLayout({
               <Footer />
             </main>
 
-            <Toaster position="bottom-right" />
+            <Toaster position="top-left" />
           </>
         </Providers>
       </body>

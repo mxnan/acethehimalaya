@@ -6,7 +6,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Blogs",
-  description: "Blogs Showcase",
+  description:
+    "Blog from the himalayas, we have a large collection of blogs explaining everything you will need for you next trip",
 };
 
 type BlogPageProps = {

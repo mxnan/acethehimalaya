@@ -40,10 +40,11 @@ export function BlogCard({ blog, className }: BlogCardProps) {
               src={image}
               alt={title}
               fill
+              priority
               className="object-cover aspect-video object-center transition-all duration-300"
-              //   sizes="(max-width: 768px) 100vw,
-              //          (max-width: 1200px) 50vw,
-              //          50vw"
+              sizes="(max-width: 768px) 100vw,
+                       (max-width: 1200px) 50vw,
+                       50vw"
             />
           </div>
         )}

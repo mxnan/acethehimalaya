@@ -13,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import UnorderedListIcon from "@/components/ui/unordered-list-icon";
+import UnorderedListIcon from "@/components/ui/icons/unordered-list-icon";
 
 type CategoriesSidebarProps = {
   categories: string[];
@@ -38,7 +38,6 @@ export function CategoriesSidebar({
   const [isLargeScreen, setIsLargeScreen] = React.useState(false);
 
   const activeCategory = selectedCategory ?? "latest";
-
 
   React.useEffect(() => {
     const checkScreenSize = () => {
@@ -70,15 +69,15 @@ export function CategoriesSidebar({
             className={cn(
               "relative inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm transition-colors duration-200",
               activeCategory === "latest"
-                ? "brand-active"
-                : "brand-inactive"
+                ? "bg-neutral-300 dark:bg-neutral-700 text-primary font-semibold"
+                : " hover:bg-neutral-300/80 dark:hover:bg-neutral-700/80 text-primary"
             )}
           >
             <AnimatePresence mode="sync">
               {activeCategory === "latest" && (
                 <motion.span
                   layoutId="activeCategory"
-                  className="absolute inset-0 z-[-1] rounded-md bg-[color:var(--brand-color)]/15"
+                  className="absolute inset-0 z-[-1] rounded-md bg-neutral-400 dark:bg-neutral-600"
                   transition={{
                     type: "spring",
                     stiffness: 300,
@@ -102,14 +101,16 @@ export function CategoriesSidebar({
               <span
                 className={cn(
                   "relative inline-flex w-full items-center rounded-md px-3 py-1.5 text-sm transition-colors duration-200",
-                  isActive ? "brand-active" : "brand-inactive"
+                  isActive
+                    ? "bg-neutral-300 dark:bg-neutral-700 text-primary font-semibold"
+                    : " hover:bg-neutral-300/80 dark:hover:bg-neutral-700/80 text-primary"
                 )}
               >
                 <AnimatePresence mode="sync">
                   {isActive && (
                     <motion.span
                       layoutId="activeCategory"
-                      className="absolute inset-0 z-[-1] rounded-md bg-[color:var(--brand-color)]/15"
+                      className="absolute inset-0 z-[-1] rounded-md bg-neutral-400 dark:bg-neutral-600"
                       transition={{
                         type: "spring",
                         stiffness: 300,

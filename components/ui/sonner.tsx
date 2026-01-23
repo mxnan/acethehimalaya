@@ -18,10 +18,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group"
       icons={{
         success: <CircleCheckIcon className="size-5 rounded-lg stroke-green-700 dark:bg-green-400" />,
-        info: <InfoIcon className="size-5 rounded-lg stroke-primary-foreground bg-brand-color" />,
-        warning: <TriangleAlertIcon className="size-5 rounded stroke-orange-700 dark:bg-orange-400" />,
-        error: <OctagonXIcon className="size-5 rounded-lg stroke-red-700 dark:bg-red-400" />,
-        loading: <Loader2Icon className="size-5 rounded-lg stroke-brand-color animate-spin" />,
+        info: <InfoIcon className="size-5 rounded-lg stroke-primary bg-muted" />,
+        warning: <TriangleAlertIcon className="size-5 rounded stroke-orange-700 dark:stroke-orange-400" />,
+        error: <OctagonXIcon className="size-5 rounded-lg stroke-red-700 dark:stroke-red-400" />,
+        loading: <Loader2Icon className="size-5 rounded-lg stroke-primary animate-spin" />,
       }}
       style={
         {
@@ -31,6 +31,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
           "--border-radius": "var(--radius)",
         } as React.CSSProperties
       }
+      
       {...props}
     />
   )
