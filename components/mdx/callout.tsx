@@ -19,7 +19,7 @@ interface CalloutFooterProps {
 
 const calloutStyles = {
   default: {
-    container: "border-border bg-neutral-200 dark:bg-neutral-800 text-primary w-max",
+    container: "border-border bg-neutral-200 dark:bg-neutral-800 text-primary",
     icon: FileText,
     iconColor: "text-muted-foreground",
     separatorColor: "bg-border",

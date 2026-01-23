@@ -95,8 +95,8 @@ export default async function TripPage({ params }: TripPageParams) {
 
   return (
     <div className="my-8 w-full min-h-screen">
-      <div className="relative flex flex-row gap-8">
-        <div className="relative flex-1">
+      <div className="relative flex flex-col lg:flex-row gap-8">
+        <div className="flex-1">
           {/* <Separator className="my-6" /> */}
           {/* Title and description */}
           <div className="flex flex-col gap-4 mb-8 mt-3">

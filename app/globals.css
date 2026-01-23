@@ -129,6 +129,42 @@
 
 }
 
+/****************************ACCORDION ANIMATIONS************************************/
+
+/* For accordion animations */
+
+/* For accordion animations */
+
+@keyframes accordion-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 300ms ease-out transition-all;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 300ms ease-in transition-all;
+}
+
 
 /****************************VIEW TRANSITIONS************************************/
 

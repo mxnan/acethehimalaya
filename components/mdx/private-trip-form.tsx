@@ -222,7 +222,7 @@ export function PrivateTripForm({
         )}
       />
       {/* Submit */}
-      <div className="mt-6 flex gap-4">
+      <div className="my-6 flex gap-4">
         <Button type="submit">Send Inquiry</Button>
         <Button
           type="button"

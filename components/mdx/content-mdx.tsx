@@ -20,8 +20,9 @@ const YTEmbed = dynamic(() => import("./yt-embed").then((mod) => mod.default));
 
 // ---------------------------- Trip-specific components ----------------------------
 // These should only be available on trip MDX pages (/trips/*).
-const TripDetailsCard = dynamic(() =>
-  import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard)
+const TripDetailsCard = dynamic(
+  () => import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard),
+  { ssr: true }
 );
 // Lazy-loaded with intersection observer (below-the-fold)
 const TripAltitudeChart = dynamic(
@@ -31,26 +32,32 @@ const TripAltitudeChart = dynamic(
     ),
   { ssr: true }
 );
-const GoogleReviewsSection = dynamic(() =>
-  import("../reviews/google-reviews-section").then(
-    (mod) => mod.GoogleReviewsSection
-  )
+const GoogleReviewsSection = dynamic(
+  () =>
+    import("../reviews/google-reviews-section").then(
+      (mod) => mod.GoogleReviewsSection
+    ),
+  { ssr: true }
 );
-const TripadvisorReviewsSection = dynamic(() =>
-  import("../reviews/tripadvisor-reviews-section").then(
-    (mod) => mod.TripadvisorReviewsSection
-  )
+const TripadvisorReviewsSection = dynamic(
+  () =>
+    import("../reviews/tripadvisor-reviews-section").then(
+      (mod) => mod.TripadvisorReviewsSection
+    ),
+  { ssr: true }
 );
 // Lazy-loaded with intersection observer (below-the-fold)
 const TrekMap = dynamic(
   () => import("./trek-map-lazy").then((mod) => mod.TrekMapLazy),
   { ssr: true }
 );
-const CalendarCard = dynamic(() =>
-  import("./calendar-card").then((mod) => mod.default)
+const CalendarCard = dynamic(
+  () => import("./calendar-card").then((mod) => mod.default),
+  { ssr: true }
 );
-const PrivateTripForm = dynamic(() =>
-  import("./private-trip-form").then((mod) => mod.PrivateTripForm)
+const PrivateTripForm = dynamic(
+  () => import("./private-trip-form").then((mod) => mod.PrivateTripForm),
+  { ssr: true }
 );
 
 // ---------------------- Component maps by responsibility ---------------------
@@ -66,17 +73,6 @@ const coreComponents = {
   TabsContent,
   Callout,
   CalloutFooter,
-  // Interactive but generic: accordions are used broadly
-  Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion)),
-  AccordionItem: dynamic(() =>
-    import("./accordion").then((mod) => mod.AccordionItem)
-  ),
-  AccordionTrigger: dynamic(() =>
-    import("./accordion").then((mod) => mod.AccordionTrigger)
-  ),
-  AccordionContent: dynamic(() =>
-    import("./accordion").then((mod) => mod.AccordionContent)
-  ),
   // Generic media
   YTEmbed,
 };
@@ -90,6 +86,22 @@ const tripComponents = {
   PrivateTripForm,
   GoogleReviewsSection,
   TripadvisorReviewsSection,
+  // Interactive but generic: accordions are used broadly
+  Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion), {
+    ssr: true,
+  }),
+  AccordionItem: dynamic(
+    () => import("./accordion").then((mod) => mod.AccordionItem),
+    { ssr: true }
+  ),
+  AccordionTrigger: dynamic(
+    () => import("./accordion").then((mod) => mod.AccordionTrigger),
+    { ssr: true }
+  ),
+  AccordionContent: dynamic(
+    () => import("./accordion").then((mod) => mod.AccordionContent),
+    { ssr: true }
+  ),
 };
 
 // Component map for blog / generic MDX pages (no trip-specific components)
