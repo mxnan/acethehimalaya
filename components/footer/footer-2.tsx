@@ -1,6 +1,13 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-import { Icons } from "../brand"
-import { NewsletterForm } from "./newsletter-form"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import { NewsletterForm } from "./newsletter-form";
+import { Icons } from "../brand";
+import { Map, MapControls, MapMarker, MarkerContent, MarkerPopup } from "../ui/map";
 
 export default function FooterNewsletterBrand() {
   return (
@@ -9,8 +16,9 @@ export default function FooterNewsletterBrand() {
         <CardHeader className="px-6 pt-6">
           <CardTitle className="text-3xl">Subscribe Now!</CardTitle>
           <CardDescription className="font-semibold">
-            Get travel tips, exclusive offers, and the latest updates on our adventures.
-            We also keep you informed about new blog posts, guides, and special promotions.
+            Get travel tips, exclusive offers, and the latest updates on our
+            adventures. We also keep you informed about new blog posts, guides,
+            and special promotions.
           </CardDescription>
         </CardHeader>
 
@@ -20,8 +28,8 @@ export default function FooterNewsletterBrand() {
       </Card>
 
       <Card className="lg:max-h-[354px] w-full lg:w-2/3 grow overflow-hidden shadow-none p-2 border-none bg-primary-background">
-        <Icons.navlogo className="w-full h-full" />
+        <Icons.brandlogo className="w-full h-full" />
       </Card>
     </section>
-  )
+  );
 }
