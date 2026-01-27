@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import UnorderedListIcon from "@/components/ui/icons/unordered-list-icon";
+import { Separator } from "../ui/separator";
 
 type CategoriesSidebarProps = {
   categories: string[];
@@ -135,9 +136,16 @@ export function CategoriesSidebar({
       {/* Desktop Categories Sidebar */}
       {isLargeScreen && (
         <div className="w-64 shrink-0">
-          <div className="sticky top-16">
-            <p className="font-bold text-lg pt-6 mb-4">Categories</p>
-            <CategoryList />
+          <div className="sticky top-20">
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 my-4">
+                <UnorderedListIcon className="h-8 w-8" />
+                <p className="font-bold text-xl">Categories</p>
+              </div>
+              <Separator className="mb-4" />
+              <CategoryList />
+            </div>
+
           </div>
         </div>
       )}

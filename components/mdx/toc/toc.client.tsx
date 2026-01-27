@@ -191,7 +191,7 @@ export function TableOfContentsClient({
       {/* Desktop TOC */}
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
-          <div className="sticky top-20">
+          <div className="sticky top-24">
             {showBookNow && pricing && (
               <BookNowButton className="mb-4" pricing={pricing} />
             )}
