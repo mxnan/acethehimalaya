@@ -2,9 +2,8 @@
 import { Map, MapMarker, MarkerContent, MarkerPopup, MapControls } from "@/components/ui/map";
 import { Card } from '../ui/card';
 import { Icons } from '../brand';
-import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-export default function FooterMap() {
+export default function FooterOne() {
     return (
         <div className="mb-8 w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] ">
             <Card className="w-full h-full p-2">
