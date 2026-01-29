@@ -139,7 +139,7 @@ export function CategoriesSidebar({
           <div className="sticky top-20">
             <div className="flex flex-col">
               <div className="flex items-center gap-2 my-4">
-                <UnorderedListIcon className="h-8 w-8" />
+                <UnorderedListIcon className="h-6 w-6" />
                 <p className="font-bold text-xl">Categories</p>
               </div>
               <Separator className="mb-4" />

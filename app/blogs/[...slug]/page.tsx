@@ -167,7 +167,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 priority
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-84 md:h-108 object-cover object-center   rounded-md shadow-sm"
+                className="w-full aspect-[16/9] object-cover object-center   rounded-md shadow-sm"
               />
             </div>
           ) : null}

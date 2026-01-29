@@ -75,10 +75,7 @@ export function TripDetailsPanel({
   return (
     <div
       className={cn(
-        "rounded-lg p-4",
-        variant === "info-only"
-          ? "w-full bg-muted text-primary"
-          : "w-max bg-black/50 backdrop-blur-md text-white",
+        "rounded-lg p-4 w-full bg-muted text-primary",
         className
       )}
     >

@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
   TripDetailsPanel,
   type TripDetailsEntries,
 } from "./trip-details-card-details";
+import Image from "next/image";
 
 /* -------------------------------------------------------------------------- */
 /* Types                                                                      */
@@ -75,44 +75,33 @@ export function TripDetailsCard({
   return (
     <Card
       className={cn(
-        variant === "info-only"
-          ? "rounded-xl border shadow-sm"
-          : "relative aspect-video md:aspect-[21/9] overflow-hidden rounded-xl border-none shadow-sm",
+        "rounded-xl border shadow-sm p-4",
         className
       )}
     >
       {/* ------------------------------------------------------------------ */}
-      {/* Hero Image                                                         */}
+      {/* Image Panel (always visible, no animation)                       */}
       {/* ------------------------------------------------------------------ */}
-
-      {variant === "default" && images?.[0] && (
-        <Image
-          src={images[0].src}
-          alt={images[0].caption ?? "Trip image"}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      )}
-
-      {/* Overlay for contrast */}
-      {variant === "default" && (
-        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-black/10" />
-      )}
+      <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+        {images && images.length > 0 && (
+          <div>
+            <Image
+              src={images[0].src}
+              alt={images[0].caption || "Trip Image"}
+              sizes="100vw"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
+        )}
+      </div>
 
       {/* ------------------------------------------------------------------ */}
       {/* Details Panel (always visible, no animation)                       */}
       {/* ------------------------------------------------------------------ */}
 
-      <div
-        className={cn(
-          "z-10",
-          variant === "info-only"
-            ? "relative p-4"
-            : "absolute bottom-4 left-4 right-4"
-        )}
-      >
+      <div className="relative">
         <TripDetailsPanel entries={entries} variant={variant} />
       </div>
     </Card>
