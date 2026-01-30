@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Blogs",
   description:
     "Blog from the himalayas, we have a large collection of blogs explaining everything you will need for your next trip to the himalayas.",
+
 };
 
 type BlogPageProps = {
@@ -42,7 +43,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             {/* Dynamic Title with Blog Count */}
             <div className="flex flex-col md:flex-row md:items-end items-center">
               <h1 className="text-3xl md:text-4xl font-bold">
-                {!category ? <>{"Latest"} Blogs</> : <>{category}</>}
+                {!category ? <>{"Latest"} Blogs</> : <>{decodeURIComponent(category || "")}</>}
               </h1>
               <p className="text-muted-foreground mt-2 md:mt-0 md:ml-4">
                 {sortedBlogs.length}{" "}
@@ -53,7 +54,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
             <p className="mt-4 max-w-2xl max-md:text-center text-lg text-gray-700 dark:text-gray-300">
               {!category
                 ? "Explore our latest blogs covering a variety of topics to inspire your next adventure."
-                : `Explore our latest blogs in the "${category}" category to inspire your next adventure.`}
+                : `Explore our latest blogs in the "${decodeURIComponent(category || "")}" category to inspire your next adventure.`}
             </p>
 
           </div>

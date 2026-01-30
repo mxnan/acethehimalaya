@@ -52,13 +52,7 @@ export function CategoriesSidebar({
   }, []);
 
   const createCategoryUrl = (category: string | null) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (category) {
-      params.set("category", category);
-    } else {
-      params.delete("category");
-    }
-    return `/blogs${params.toString() ? `?${params.toString()}` : ""}`;
+    return category ? `/blogs?category=${category}` : `/blogs`;
   };
 
   const CategoryList = () => (

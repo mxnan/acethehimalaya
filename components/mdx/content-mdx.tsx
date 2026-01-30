@@ -25,20 +25,6 @@ const TripAltitudeChart = dynamic(
     ),
   { ssr: true }
 );
-// const GoogleReviewsSection = dynamic(
-//   () =>
-//     import("../reviews/google-reviews-section").then(
-//       (mod) => mod.GoogleReviewsSection
-//     ),
-//   { ssr: true }
-// );
-// const TripadvisorReviewsSection = dynamic(
-//   () =>
-//     import("../reviews/tripadvisor-reviews-section").then(
-//       (mod) => mod.TripadvisorReviewsSection
-//     ),
-//   { ssr: true }
-// );
 // Lazy-loaded with intersection observer (below-the-fold)
 const TrekMap = dynamic(
   () => import("./trek-map-lazy").then((mod) => mod.TrekMapLazy),
@@ -77,8 +63,6 @@ const tripComponents = {
   TripAltitudeChart,
   CalendarCard,
   PrivateTripForm,
-  // GoogleReviewsSection,
-  // TripadvisorReviewsSection,
   // Interactive but generic: accordions are used broadly
   Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion), {
     ssr: true,
