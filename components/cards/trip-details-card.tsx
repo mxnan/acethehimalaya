@@ -82,20 +82,20 @@ export function TripDetailsCard({
       {/* ------------------------------------------------------------------ */}
       {/* Image Panel (always visible, no animation)                       */}
       {/* ------------------------------------------------------------------ */}
-      <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
-        {images && images.length > 0 && (
-          <div>
-            <Image
-              src={images[0].src}
-              alt={images[0].caption || "Trip Image"}
-              sizes="100vw"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-        )}
-      </div>
+
+      {images && images.length > 0 && (
+        <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+          <Image
+            src={images[0].src}
+            alt={images[0].caption || "Trip Image"}
+            sizes="100vw"
+            fill
+            className="object-cover object-center "
+            priority
+          />
+        </div>
+      )}
+
 
       {/* ------------------------------------------------------------------ */}
       {/* Details Panel (always visible, no animation)                       */}

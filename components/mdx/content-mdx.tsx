@@ -30,8 +30,8 @@ const TrekMap = dynamic(
   () => import("./trek-map-lazy").then((mod) => mod.TrekMapLazy),
   { ssr: true }
 );
-const CalendarCard = dynamic(
-  () => import("./calendar-card").then((mod) => mod.default),
+const TripCalendar = dynamic(
+  () => import("./trip-calendar").then((mod) => mod.TripCalendar),
   { ssr: true }
 );
 const PrivateTripForm = dynamic(
@@ -61,7 +61,7 @@ const tripComponents = {
   TrekMap,
   TripDetailsCard,
   TripAltitudeChart,
-  CalendarCard,
+  TripCalendar,
   PrivateTripForm,
   // Interactive but generic: accordions are used broadly
   Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion), {
