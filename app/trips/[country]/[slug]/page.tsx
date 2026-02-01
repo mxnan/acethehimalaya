@@ -45,7 +45,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const ogImage = trip.image || "/brand-assets/brand-logo-icon.png";
+  const ogImage = trip.image || "";
 
   return {
     title: trip.title,

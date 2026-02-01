@@ -29,12 +29,12 @@ export default function FooterBottom() {
                         </Link>
                     </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <LaptopMinimalCheckIcon className="inline-block ml-1 size-6" /> by
+                        <LaptopMinimalCheckIcon className="inline-block ml-1 size-10 stroke-1" /> by
                         <Link
                             href="https://acehimalaya.com"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-1 font-medium underline underline-offset-4 transition-colors hover:text-foreground"
+                            className="ml-1 pt-2 pb-2 font-bold custom-underline transition-colors hover:text-foreground"
                         >
                            @mxnan
                         </Link>
