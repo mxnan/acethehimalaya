@@ -44,6 +44,7 @@ const trips = defineCollection({
       title: s.string(),
       country: s.enum(["nepal", "tibet", "bhutan"]),
       category: s.string(),
+      duration: s.string().optional(),
       description: s.string().optional(),
       status: s.enum(["published", "draft"]).default("draft"),
       image: s.string().optional(),

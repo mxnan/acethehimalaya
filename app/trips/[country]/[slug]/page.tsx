@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { trips } from "#site/content";
 import { TripMDXContent } from "@/components/mdx/content-mdx";
 import dynamic from "next/dynamic";
+import { Badge } from "@/components/ui/badge";
+import { BadgeInfo, BadgeInfoIcon, ClockIcon } from "lucide-react";
 
 const TableOfContents = dynamic(
   () => import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents),
@@ -102,6 +104,7 @@ export default async function TripPage({ params }: TripPageParams) {
           <div className="flex flex-col gap-4 mb-8 mt-3">
             <h1 className="scroll-m-32 text-4xl font-extrabold font-sans uppercase text-primary tracking-normal">
               {trip.title}
+              <Badge className="ml-4 font-bold"><ClockIcon className="size-4 mr-1" />{trip.duration}</Badge>
             </h1>
             {trip.description ? (
               <p className="text-muted-foreground">{trip.description}</p>

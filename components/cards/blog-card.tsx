@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, ChevronUp, ClockIcon } from "lucide-react";
+import { ChevronRight, ClockIcon } from "lucide-react";
 import { cn, formatDate } from "@/lib/utils";
-import { Button } from "../ui/button";
+
 
 type Blog = {
   slugAsParams: string;
