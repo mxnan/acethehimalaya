@@ -52,13 +52,13 @@ export default function BookNowButton({
           </DialogHeader>
           <Separator />
           <div className="max-h-96 overflow-y-auto flex flex-col items-center">
-            <div className="text-center space-y-2">
+            {/* <div className="text-center space-y-2">
               <p className="text-xl font-semibold">For Solo Travellers </p>
               <Separator />
               <p className="font-bold">
                 {pricing.currency} {pricing.base.toLocaleString()} / person
               </p>
-            </div>
+            </div> */}
 
             <table className="w-full text-center border mt-4">
               <thead>
