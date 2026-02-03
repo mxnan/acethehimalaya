@@ -86,6 +86,7 @@ export function generateStaticParams() {
     });
 }
 export const revalidate = 86400; // 24 hours
+
 export default async function TripPage({ params }: TripPageParams) {
   const { country, slug } = await params;
   const slugPath = `${country}/${slug}`;

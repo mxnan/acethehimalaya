@@ -44,6 +44,21 @@ const trips = defineCollection({
     })
     .transform(computedFields),
 });
+const countryPages = defineCollection({
+  name: "CountryPages",
+  pattern: "trips/*.mdx", // content/trips/nepal.mdx, content/trips/tibet.mdx, etc.
+  schema: s
+    .object({
+      slug: s.path(),
+      country: s.enum(["nepal", "tibet", "bhutan"]),
+      title: s.string(),
+      description: s.string(),
+      videoUrl: s.string().optional(),
+      toc: s.toc(),
+      content: s.mdx(),
+    })
+    .transform(computedFields),
+});
 
 const company = defineCollection({
   name: "Company",
@@ -71,7 +86,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, trips, company },
+  collections: { blogs, trips, company, countryPages },
   mdx: {
     rehypePlugins: [
       // rehypeSlug,

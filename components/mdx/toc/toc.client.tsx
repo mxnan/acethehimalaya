@@ -154,16 +154,16 @@ export function TableOfContentsClient({
   className,
 }: TocClientProps) {
   const pathname = usePathname();
-  const showBookNow = pathname.startsWith("/trips/");
+  const showBookNow = pathname.startsWith("/trips/") && pathname.split("/").length > 3;
 
   const itemIds = React.useMemo(
     () =>
       toc
         ? toc
-            .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
-            .flat()
-            .filter(Boolean)
-            .map((id) => id?.split("#")[1])
+          .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
+          .flat()
+          .filter(Boolean)
+          .map((id) => id?.split("#")[1])
         : [],
     [toc]
   );
@@ -276,7 +276,7 @@ export function TableOfContentsClient({
               <Button
                 variant="default"
                 size="default"
-                // className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
+              // className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
               >
                 <UnorderedListIcon className="h-8 w-8" />
                 {/* <span>On This Page</span> */}

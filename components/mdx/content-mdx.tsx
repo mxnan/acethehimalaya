@@ -56,6 +56,10 @@ const coreComponents = {
   YTEmbed,
 };
 
+const countryComponents = {
+
+}
+
 // Trip-specific components: only used on /trips/* MDX content
 const tripComponents = {
   TrekMap,
@@ -86,6 +90,10 @@ const blogComponents = {
   ...coreComponents,
 };
 
+const countryPageComponents = {
+  ...coreComponents,
+  ...countryComponents,
+};
 // Component map for trip MDX pages (core + trip-specific)
 const tripPageComponents = {
   ...coreComponents,
@@ -110,6 +118,18 @@ export const MDXContent = ({ code }: MDXProps) => {
         <Component components={blogComponents} />
       </section>
     </MDXErrorBoundary>
+  );
+};
+
+// Country-specific MDXContent component (used for /countries/*)
+export const CountryMDXContent = ({ code }: MDXProps) => {
+  const Component = useMDXComponent(code);
+  return (
+    <MDXErrorBoundary>
+      <section className="w-full h-full relative">
+        <Component components={countryPageComponents} />
+      </section>
+    </MDXErrorBoundary >
   );
 };
 
