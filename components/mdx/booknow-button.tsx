@@ -6,25 +6,19 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { ChevronRight } from "lucide-react";
+import { BadgeDollarSign, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { Separator } from "../ui/separator";
+import { Badge } from "../ui/badge";
 
 type BookNowButtonProps = {
   className?: string;
-  pricing: {
-    currency: string;
-    base: number;
-    tiers: {
-      label: string;
-      price: number;
-    }[];
-  };
+  price?: number;
 };
 
 export default function BookNowButton({
-  pricing,
+  price,
   className,
 }: BookNowButtonProps) {
   return (
@@ -51,39 +45,16 @@ export default function BookNowButton({
             </p>
           </DialogHeader>
           <Separator />
-          <div className="max-h-96 overflow-y-auto flex flex-col items-center">
-            {/* <div className="text-center space-y-2">
-              <p className="text-xl font-semibold">For Solo Travellers </p>
-              <Separator />
-              <p className="font-bold">
-                {pricing.currency} {pricing.base.toLocaleString()} / person
+          <div className="max-h-96 overflow-y-auto flex flex-col">
+            <div className="flex justify-center items-center gap-2">
+              <p className="font-bold text-xl">
+                {price ? `${price.toLocaleString()}` : "Price not available"}
               </p>
-            </div> */}
-
-            <table className="w-full text-center border mt-4">
-              <thead>
-                <tr>
-                  <th className="border-2 px-4 py-2 font-bold italic">
-                    No of people
-                  </th>
-                  <th className="border-2 px-4 py-2 font-bold italic">
-                    Price per person
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {pricing.tiers.map((tier) => (
-                  <tr className="even:bg-secondary m-0 " key={tier.label}>
-                    <td className="border-2 px-4 py-2 text-sm font-bold">
-                      {tier.label}
-                    </td>
-                    <td className="border-2 px-4 py-2 text-sm font-bold">
-                      {pricing.currency} {tier.price.toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              <Badge variant={"default"} className="my-2 px-2 py-1 font-bold text-xs w-max">
+                <BadgeDollarSign />
+                USD
+              </Badge>
+            </div>
             <Button
               size={"lg"}
               variant={"destructive"}

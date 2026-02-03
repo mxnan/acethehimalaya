@@ -115,7 +115,7 @@ export default async function TripPage({ params }: TripPageParams) {
         </div>
         <TableOfContents
           toc={trip.toc}
-          pricing={trip.price}
+          price={trip.price}
           tripname={trip.title}
         />
       </div>

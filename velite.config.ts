@@ -5,17 +5,6 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
   slugAsParams: data.slug.split("/").slice(1).join("/"),
 });
 
-const tripPricingSchema = s.object({
-  currency: s.string().default("USD"),
-  base: s.number(),
-  tiers: s
-    .object({
-      label: s.string(),
-      price: s.number(),
-    })
-    .array(),
-  bookingUrl: s.string().optional(),
-});
 
 const blogs = defineCollection({
   name: "Blogs",
@@ -50,7 +39,7 @@ const trips = defineCollection({
       image: s.string().optional(),
       tags: s.string().array().optional(),
       toc: s.toc(),
-      price: tripPricingSchema.optional(),
+      price: s.number().optional(),
       content: s.mdx(),
     })
     .transform(computedFields),
