@@ -120,7 +120,7 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <main className="w-full min-h-screen">
+          <main className="relative w-full min-h-screen flex-1">
             {/* <ResponsiveSidebar /> */}
             <Navbar />
             <ProgressBar />
