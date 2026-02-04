@@ -9,7 +9,7 @@ const FooterMap = dynamic(() => import("./footer-1"));
 
 export default function Footer() {
   return (
-    <footer className="relative bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+    <footer className="relative max-w-7xl mx-auto">
       <Separator className="my-8" />
       <FooterMap />
       {/* Horizontal separator between map and subscribe */}

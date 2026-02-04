@@ -10,11 +10,11 @@ const Navbar = () => {
   return (
     <header
       className="z-40 sticky top-2 mx-auto max-w-7xl rounded-lg border
-    border-border/50
+    border-border/50 px-4 lg:px-8 h-18 
     bg-background/95 backdrop-blur
     supports-backdrop-filter:bg-background/60"
     >
-      <nav className="px-4 lg:px-8 h-18 flex items-center justify-between">
+      <nav className="flex items-center justify-between">
         <>
           <Link href="/" className="max-md:hidden py-2">
             {/* <span className="sr-only">{siteConfig.name}</span> */}
