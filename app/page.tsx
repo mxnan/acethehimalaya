@@ -1,3 +1,4 @@
+import HeroVideoSection from "@/components/landing/hero-video-section";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -26,15 +27,8 @@ export const metadata: Metadata = {
 };
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <Button variant={"secondary"}>
-        {" "}
-        <Link href={"/blogs"}>Blogs</Link>
-      </Button>
-      <Button variant={"secondary"}>
-        {" "}
-        <Link href={"/trips"}>Trips</Link>
-      </Button>
+    <div className="relative w-full min-h-screen">
+      <HeroVideoSection />
     </div>
   );
 }
