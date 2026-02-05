@@ -79,7 +79,7 @@ export const BaseComponents = {
   },
   p: ({ className, ...props }: ComponentsProps) => (
     <p
-      className={cn("leading-7 text-sm not-first:mt-6", className)}
+      className={cn("leading-7 text-sm md:text-base not-first:mt-6", className)}
       {...props}
     />
   ),
@@ -90,13 +90,13 @@ export const BaseComponents = {
     />
   ),
   ul: ({ className, ...props }: ComponentsProps) => (
-    <ul className={cn("my-6 ml-6 text-sm list-disc", className)} {...props} />
+    <ul className={cn("my-6 ml-6 text-sm md:text-base list-disc", className)} {...props} />
   ),
   ol: ({ className, ...props }: ComponentsProps) => (
-    <ol className={cn("my-6 ml-6 text-sm list-decimal", className)} {...props} />
+    <ol className={cn("my-6 ml-6 text-sm md:text-base list-decimal", className)} {...props} />
   ),
   li: ({ className, ...props }: ComponentsProps) => (
-    <li className={cn("mt-2 text-sm list-disc", className)} {...props} />
+    <li className={cn("mt-2 text-sm md:text-base list-disc", className)} {...props} />
   ),
   blockquote: ({ className, ...props }: ComponentsProps) => (
     <blockquote
@@ -133,14 +133,13 @@ export const BaseComponents = {
   td: ({ className, ...props }: ComponentsProps) => (
     <td
       className={cn(
-        "border-2 px-4 py-2 text-left text-sm [[align=center]]:text-center [[align=right]]:text-right",
+        "border-2 px-4 py-2 text-left text-sm md:text-base [[align=center]]:text-center [[align=right]]:text-right",
         className
       )}
       {...props}
     />
   ),
   //////////////////////////////////////////////
-//   pre: Pre, // using as pre-with-copy for copy button functions
   //////////////////////////////////////////////
   code: ({ className, ...props }: ComponentsProps) => (
     <code
@@ -155,7 +154,7 @@ export const BaseComponents = {
   a: ({ className, ...props }: React.HTMLAttributes<HTMLAnchorElement>) => (
     <a
       className={cn(
-        "font-bold italic text-muted-foreground mx-1 pb-2 custom-underline text-sm",
+        "font-bold italic text-muted-foreground mx-1 pb-2 custom-underline text-sm md:text-base",
         className
       )}
       {...props}
