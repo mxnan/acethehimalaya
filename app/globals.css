@@ -126,8 +126,9 @@
   .maplibregl-popup-tip {
     @apply hidden!;
   }
-
+  
 }
+
 
 /****************************ACCORDION ANIMATIONS************************************/
 

@@ -36,7 +36,7 @@ export default function SearchBar({ items }: Props) {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  console.log("SearchBar items:", items);
+  // console.log("SearchBar items:", items);
 
   return (
     <>
