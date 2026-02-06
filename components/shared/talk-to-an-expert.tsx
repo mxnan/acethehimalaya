@@ -56,7 +56,7 @@ export function TalkToAnExpert({ className }: { className?: string }) {
           onMouseLeave={() => iconRef.current?.stopAnimation()}
           className={cn(
             "group inline-flex items-center gap-2 rounded-md border border-border/50",
-            "bg-green-500/10 hover:bg-green-500/20",
+            "text-primary bg-green-500 dark:bg-green-700 hover:bg-green-500 dark:hover:bg-green-600",
             "px-2 py-1 cursor-pointer transition-colors",
             className
           )}
@@ -64,7 +64,7 @@ export function TalkToAnExpert({ className }: { className?: string }) {
           <WhatsappIcon
             ref={iconRef}
             size={28}
-            className="text-green-700"
+            className=""
           />
 
           {/* Text only on lg+ */}

@@ -1,7 +1,6 @@
+import BestSellersSection from "@/components/landing/bestsellers-section";
 import HeroVideoSection from "@/components/landing/hero-video-section";
-import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Ace The Himalaya",
@@ -29,6 +28,7 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-screen">
       <HeroVideoSection />
+      <BestSellersSection />
     </div>
   );
 }
