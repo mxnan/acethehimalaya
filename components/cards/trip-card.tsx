@@ -55,7 +55,7 @@ export function TripCard({ trip, className }: TripCardProps) {
                 {/* Content */}
                 <div className="relative z-10 flex h-full w-full flex-col justify-end p-4">
                     <div className="rounded-lg bg-black/50 backdrop-blur-md p-3 transition-transform duration-300 group-hover:-translate-y-1">
-                        <h3 className="text-base font-semibold text-white line-clamp-2">
+                        <h3 className="text-base truncate font-semibold text-white line-clamp-2">
                             {title}
                         </h3>
 
