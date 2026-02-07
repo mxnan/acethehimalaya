@@ -11,16 +11,16 @@ const Navbar = () => {
     <header
       className="z-40 fixed top-2 left-1/2 transform -translate-x-1/2
     rounded-lg border border-border/50 px-4 lg:px-6 
-    bg-background/95 backdrop-blur max-w-7xl w-full
+    bg-background/95 backdrop-blur max-w-7xl w-full mx-auto  
     supports-backdrop-filter:bg-background/80"
     >
-      <nav className="mx-auto  flex gap-10 items-center justify-between">
+      <nav className="flex gap-10 items-center justify-between">
         <div className="py-2" >
-          <Link href="/" className="max-md:hidden ">
+          <Link href="/" className="max-lg:hidden ">
             {/* <span className="sr-only">{siteConfig.name}</span> */}
             <Icons.navlogo />
           </Link>
-          <Link href="/" className="md:hidden ">
+          <Link href="/" className="lg:hidden ">
             {/* <span className="sr-only">{siteConfig.name}</span> */}
             <Icons.iconlogo />
           </Link>

@@ -74,7 +74,7 @@ export const DesktopNavClient = () => {
   return (
     <div
       ref={navRef}
-      className="hidden md:flex items-end relative"
+      className="relative hidden md:flex items-center gap-0"
       onMouseLeave={handleNavLeave}
     >
       {navItems.map((item) => (
