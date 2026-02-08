@@ -1,4 +1,4 @@
-import ActivitySection from "@/components/landing/activity-section";
+import CategorySection from "@/components/landing/category-section";
 import BestSellersSection from "@/components/landing/bestsellers-section";
 import BestOfBhutanTibet from "@/components/landing/bhutantibet-section";
 import CountrySection from "@/components/landing/country-section";
@@ -39,7 +39,7 @@ export default function Home() {
       <BestSellersSection />
       {/* <WhyAceSection /> */}
       <CountrySection />
-      <ActivitySection />
+      <CategorySection />
       <TrekkingRegionNepalSection />
       <BestOfBhutanTibet />
       <FAQSection />
