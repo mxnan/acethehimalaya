@@ -1,5 +1,13 @@
+import ActivitySection from "@/components/landing/activity-section";
 import BestSellersSection from "@/components/landing/bestsellers-section";
+import BestOfBhutanTibet from "@/components/landing/bhutantibet-section";
+import CountrySection from "@/components/landing/country-section";
+import FAQSection from "@/components/landing/faq-section";
 import HeroVideoSection from "@/components/landing/hero-video-section";
+import InstagramFeed from "@/components/landing/instafeed-section";
+import TrekkingRegionNepalSection from "@/components/landing/trekregionnepal-section";
+import TripOfTheMonth from "@/components/landing/tripofmonth-section";
+import WhyAceSection from "@/components/landing/whyace-section";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,6 +37,14 @@ export default function Home() {
     <div className="relative w-full min-h-screen">
       <HeroVideoSection />
       <BestSellersSection />
+      {/* <WhyAceSection /> */}
+      <CountrySection />
+      <ActivitySection />
+      <TrekkingRegionNepalSection />
+      <BestOfBhutanTibet />
+      <FAQSection />
+      <TripOfTheMonth />
+      <InstagramFeed />
     </div>
   );
 }

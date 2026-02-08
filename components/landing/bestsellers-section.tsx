@@ -64,49 +64,49 @@ export default function BestSellersSection() {
     .sort((a, b) => b.rating - a.rating);
 
   return (
-    <section className="py-16">
-      <div
-        ref={sectionRef}
-        style={{ height: sectionHeight || "100vh" }}
-        className="relative"
-      >
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          {/* Header */}
-          <div className="pointer-events-none absolute left-1/2 top-32 z-10 -translate-x-1/2 text-center px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              Best Sellers for 2026
-            </h2>
-            <Separator className="mx-auto my-4 max-w-xs sm:max-w-md" />
-          </div>
 
-          {/* Footer text */}
-          <div className="pointer-events-none absolute left-1/2 bottom-32 z-10 -translate-x-1/2 text-center px-4">
-            <p className="text-sm sm:text-lg text-muted-foreground">
-              Explore our most popular trips, loved by adventurers worldwide.
-            </p>
-          </div>
-
-          {/* Horizontal track */}
-          <motion.div
-            ref={trackRef}
-            style={{ x }}
-            className="flex gap-4 sm:gap-6 px-6 sm:px-24"
-          >
-            {bestSellerTrips.map((trip) => (
-              <TripCard
-                key={trip.slug}
-                trip={trip}
-                className="h-56 sm:h-64 aspect-video"
-              />
-            ))}
-            <div className="h-56 sm:h-64 aspect-video flex items-center justify-center">
-              <Button asChild className="cursor-pointer max-md:hidden">
-                <Link href={"/trips"}>See all Trips ? </Link>
-              </Button>
-            </div>
-          </motion.div>
+    <div
+      ref={sectionRef}
+      style={{ height: sectionHeight || "100vh" }}
+      className="relative"
+    >
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        {/* Header */}
+        <div className="pointer-events-none absolute left-1/2 top-32 z-10 -translate-x-1/2 text-center px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Best Sellers for 2026
+          </h2>
+          <Separator className="mx-auto my-4 max-w-xs sm:max-w-md" />
         </div>
+
+        {/* Footer text */}
+        <div className="pointer-events-none absolute left-1/2 bottom-32 z-10 -translate-x-1/2 text-center px-4">
+          <p className="text-sm sm:text-lg text-muted-foreground">
+            Explore our most popular trips, loved by adventurers worldwide.
+          </p>
+        </div>
+
+        {/* Horizontal track */}
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex gap-4 sm:gap-6 px-6 sm:px-24"
+        >
+          {bestSellerTrips.map((trip) => (
+            <TripCard
+              key={trip.slug}
+              trip={trip}
+              className="h-56 sm:h-64 aspect-video"
+            />
+          ))}
+          <div className="h-56 sm:h-64 aspect-video flex items-center justify-center">
+            <Button asChild className="cursor-pointer max-md:hidden">
+              <Link href={"/trips"}>See all Trips ? </Link>
+            </Button>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </div>
+
   );
 }
