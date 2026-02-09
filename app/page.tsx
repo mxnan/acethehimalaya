@@ -9,10 +9,12 @@ import TrekkingRegionNepalSection from "@/components/landing/trekregionnepal-sec
 import TripOfTheMonth from "@/components/landing/tripofmonth-section";
 import WhyAceSection from "@/components/landing/whyace-section";
 import { Metadata } from "next";
+import OurAssociations from "@/components/landing/association-section";
 
 export const metadata: Metadata = {
   title: "Ace The Himalaya",
-  description: "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more. Your gateway to Nepal's mountain adventures.",
+  description:
+    "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more. Your gateway to Nepal's mountain adventures.",
   // openGraph: {
   //   title: "AceTheHimalaya - Premium Himalayan Trekking & Adventure Tours",
   //   description: "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more.",
@@ -43,8 +45,9 @@ export default function Home() {
       <TrekkingRegionNepalSection />
       <BestOfBhutanTibet />
       <FAQSection />
+      <OurAssociations />
       <TripOfTheMonth />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
     </div>
   );
 }

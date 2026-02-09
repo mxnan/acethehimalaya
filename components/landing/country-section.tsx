@@ -77,7 +77,7 @@ function CountryTile({
 
 export default function CountrySection() {
     return (
-        <section className="relative w-full">
+        <section className="relative w-full py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="flex flex-col items-center text-center">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Journey to the Himalayan Lands</h2>
