@@ -60,7 +60,7 @@ export default function CategorySection() {
     // console.log(categories)
     return (
         <section className="relative w-full py-24">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">

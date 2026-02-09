@@ -33,6 +33,7 @@ const trips = defineCollection({
       title: s.string(),
       country: s.enum(["nepal", "tibet", "bhutan"]),
       category: s.string().optional(),
+      region: s.string().optional(),
       rating: s.number().optional(),
       duration: s.string().optional(),
       description: s.string().optional(),
