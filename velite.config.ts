@@ -52,7 +52,7 @@ const countryPages = defineCollection({
   schema: s
     .object({
       slug: s.path(),
-      country: s.enum(["nepal", "tibet", "bhutan"]),
+      countryPage: s.enum(["nepal", "tibet", "bhutan"]),
       title: s.string(),
       description: s.string(),
       videoUrl: s.string().optional(),
