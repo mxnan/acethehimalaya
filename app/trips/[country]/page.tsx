@@ -8,7 +8,7 @@ const TableOfContents = dynamic(() =>
   import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents)
 );
 const getCountryPageBySlug = (country: string) => {
-  return countryPages.find((page) => page.country === country);
+  return countryPages.find((page) => page.countryPage === country);
 };
 
 type CountryPageParams = {
@@ -42,7 +42,7 @@ export async function generateMetadata(
 
 export function generateStaticParams() {
   return countryPages.map((page) => ({
-    country: page.country,
+    country: page.countryPage,
   }));
 }
 export default async function CountryPage({ params }: CountryPageParams) {
