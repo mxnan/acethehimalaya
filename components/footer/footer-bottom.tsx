@@ -9,7 +9,7 @@ export default function FooterBottom() {
         <div className="my-10">
             {/* Separator replacing border-top */}
             <Separator className="my-10" />
-            <div className="">
+            <div className="px-4 lg:px-6">
                 <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
 
                     <div className="flex items-center gap-6 text-sm text-muted-foreground">

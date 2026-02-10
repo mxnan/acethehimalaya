@@ -97,8 +97,8 @@ export default function FooterTwo() {
         />
       </div>
       <Separator className="my-8" />
-      <section className="mb-8 relative w-full flex flex-col max-md:items-center md:flex-row gap-8">
-        <Card className="min-h-[300px] w-full md:w-1/3 grow">
+      <div className="mb-8 px-4 lg:px-6 relative w-full flex flex-col max-md:items-center md:flex-row gap-8">
+        <Card className="min-h-[300px] w-full md:w-1/2 lg:w-1/3 grow">
           <CardHeader className="px-6 pt-6">
             <CardTitle className="text-3xl">Subscribe Now!</CardTitle>
             <CardDescription className="font-semibold">
@@ -113,10 +113,10 @@ export default function FooterTwo() {
           </CardContent>
         </Card>
 
-        <Card className="lg:max-h-[354px] w-full md:w-2/3 grow overflow-hidden shadow-none p-2 border-none bg-primary-background">
+        <Card className="lg:max-h-[300px] aspect-video w-full md:w-1/3 lg:w-2/3 grow overflow-hidden shadow-none p-2 border-none bg-primary-background">
           <Icons.brandlogo className="w-full h-full" />
         </Card>
-      </section>
+      </div>
       <Separator className="my-8" />
       <div className="my-8 min-h-[300px] w-full h-full ">
         <GoogleReviewsSection
