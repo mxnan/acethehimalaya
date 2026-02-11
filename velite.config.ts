@@ -31,7 +31,7 @@ const trips = defineCollection({
     .object({
       slug: s.path(),
       title: s.string(),
-      country: s.enum(["nepal", "tibet", "bhutan"]),
+      country: s.enum(["nepal", "tibet", "bhutan"]).optional(),
       category: s.string().optional(),
       region: s.string().optional(),
       rating: s.number().optional(),

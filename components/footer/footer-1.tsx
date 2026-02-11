@@ -7,8 +7,8 @@ import { Clock, Info, PhoneCall } from "lucide-react";
 
 export default function FooterOne() {
     return (
-        <div className="mb-8 w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] ">
-            <Card className="w-full h-full p-2">
+        <div className="mb-8 w-full h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px] px-4 lg:px-6">
+            <Card className="w-full h-full p-2 rounded-lg overflow-hidden">
                 <Map center={[85.324, 27.7172]} zoom={11}>
                     <MapMarker longitude={85.324} latitude={27.7172}>
                         <MarkerContent>
