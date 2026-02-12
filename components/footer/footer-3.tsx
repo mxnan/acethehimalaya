@@ -1,9 +1,25 @@
+"use client";
 import Image from "next/image";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "../ui/card";
 import Link from "next/link";
 import { Separator } from "../ui/separator";
+import InstagramIcon from "../ui/icons/instagram-icon";
+import FacebookIcon from "../ui/icons/facebook-icon";
+import YoutubeIcon from "../ui/icons/youtube-icon";
+import TwitterXIcon from "../ui/icons/twitter-x-icon";
+import { Button } from "../ui/button";
+import { useRef } from "react";
+import { AnimatedIconHandle } from "../ui/icons/types";
 
 export default function FooterThree() {
+  const iconRef = useRef<AnimatedIconHandle>(null);
+
   return (
     <div className="relative px-4 lg:px-6">
       <div className="relative w-full flex flex-col gap-8">
@@ -17,12 +33,22 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm">
-              <FooterLink href="/categories/trekking">Trekking in Nepal</FooterLink>
-              <FooterLink href="/categories/luxury-treks">Luxury Treks</FooterLink>
-              <FooterLink href="/categories/climbing-expedition">Climbing & Expedition</FooterLink>
-              <FooterLink href="/categories/cultural-tours">Cultural Tours</FooterLink>
-              <FooterLink href="/categories/cycling-mountain-biking">Cycling / MTB</FooterLink>
-              <FooterLink href="/categories/pilgrimage">Pilgrimage</FooterLink>
+              <FooterLink href="/trips/trekking-in-nepal">
+                Trekking in Nepal
+              </FooterLink>
+              <FooterLink href="/trips/cultural-tour">
+                Cultural Tour and Sightseeing
+              </FooterLink>
+              <FooterLink href="/trips/climbing-expedition">
+                Climbing & Expedition
+              </FooterLink>
+              <FooterLink href="/trips/cycling-mtb">
+                Cycling and Mountain Biking
+              </FooterLink>
+              <FooterLink href="/trips/luxury-treks">Luxury Treks</FooterLink>
+              <FooterLink href="/trips/extend-your-trip">
+                Extend Your Trip
+              </FooterLink>
             </CardContent>
           </Card>
 
@@ -33,13 +59,23 @@ export default function FooterThree() {
               <Separator className="my-2 max-w-xs" />
             </CardHeader>
 
-            <CardContent className="flex flex-col gap-3 text-sm">
-              <ExternalLink href="https://instagram.com">Instagram</ExternalLink>
-              <ExternalLink href="https://facebook.com">Facebook</ExternalLink>
-              <ExternalLink href="https://youtube.com">YouTube</ExternalLink>
-              <ExternalLink href="https://tripadvisor.com">
-                TripAdvisor
-              </ExternalLink>
+            <CardContent className="grid grid-cols-4 gap-4 place-items-center">
+              <SocialIconLink href="https://instagram.com">
+                <InstagramIcon size={28} />
+              </SocialIconLink>
+
+              <SocialIconLink href="https://facebook.com">
+                <FacebookIcon size={28} />
+              </SocialIconLink>
+
+              <SocialIconLink href="https://youtube.com">
+                <YoutubeIcon size={28} />
+              </SocialIconLink>
+
+              <SocialIconLink href="https://tripadvisor.com">
+                <TwitterXIcon size={28} />
+              </SocialIconLink>
+              <Separator className="my-2 max-w-xs" />
             </CardContent>
           </Card>
         </div>
@@ -73,19 +109,40 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-1 sm:grid-cols-3 gap-y-3 gap-x-6 text-sm">
-              <FooterLink href="/about">About Us</FooterLink>
-              <FooterLink href="/contact">Contact</FooterLink>
-              <FooterLink href="/careers">Careers</FooterLink>
-              <FooterLink href="/blogs">Blog</FooterLink>
-              <FooterLink href="/faqs">FAQs</FooterLink>
-              <FooterLink href="/terms">Terms & Conditions</FooterLink>
-              <FooterLink href="/privacy">Privacy Policy</FooterLink>
+              <FooterLink href="/company">About Us</FooterLink>
+              <FooterLink href="/company/why-ace">Why Ace</FooterLink>
+              <FooterLink href="/company/awards">Awards</FooterLink>
+              <FooterLink href="/company/csi">CSI</FooterLink>
+              <FooterLink href="/company/team">Team</FooterLink>
+              <FooterLink href="/company/mission-statement">Mission</FooterLink>
+              <FooterLink href="/company/founder">Meet our Founder</FooterLink>
+              <FooterLink href="/company/partner">Partner with ACE</FooterLink>
             </CardContent>
           </Card>
         </div>
         <AwardsLogo />
       </div>
     </div>
+  );
+}
+
+function SocialIconLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-14 w-14 items-center justify-center rounded-lg bg-background/40 backdrop-blur-md border border-border
+                 transition-all duration-300 hover:bg-muted hover:scale-105"
+    >
+      {children}
+    </Link>
   );
 }
 
@@ -97,10 +154,7 @@ function FooterLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link
-      href={href}
-      className="hover:underline underline-offset-4 transition-colors"
-    >
+    <Link href={href} className="custom-underline w-max pb-2">
       {children}
     </Link>
   );
@@ -118,7 +172,7 @@ function ExternalLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="hover:underline underline-offset-4 transition-colors"
+      className="custom-underline w-max pb-2"
     >
       {children}
     </a>
@@ -143,5 +197,5 @@ const AwardsLogo = () => {
         </CardContent>
       </Card>
     </>
-  )
-}
+  );
+};

@@ -2,6 +2,7 @@ import { blogs } from "#site/content";
 import { BlogCard } from "@/components/cards/blog-card";
 import { NewsletterForm } from "@/components/footer/newsletter-form";
 import { CategoriesSidebar } from "@/components/nav/categories-sidebar";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import type { Metadata } from "next";
 
@@ -35,20 +36,20 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   );
 
   return (
-    <div className="my-8 w-full min-h-screen">
+    <div className="my-8 w-full">
       <div className="relative flex flex-row gap-8">
-        <div className="w-full flex-1">
+        <div className="w-full flex flex-col">
           {/* Header Section */}
-          <div className="my-4 space-y-4">
+          <div className="space-y-4">
             {/* Dynamic Title with Blog Count */}
             <div className="flex flex-col md:flex-row md:items-end items-center">
               <h1 className="text-3xl md:text-4xl font-bold">
                 {!category ? <>{"Latest"} Blogs</> : <>{decodeURIComponent(category || "")}</>}
               </h1>
-              <p className="text-muted-foreground mt-2 md:mt-0 md:ml-4">
+              <Badge className="text-muted font-semibold mt-2 md:mt-0 md:ml-4 px-3 py-1">
                 {sortedBlogs.length}{" "}
                 {sortedBlogs.length === 1 ? "blog" : "blogs"} found
-              </p>
+              </Badge>
             </div>
             {/* Description */}
             <p className="mt-4 max-w-2xl max-md:text-center text-lg text-gray-700 dark:text-gray-300">

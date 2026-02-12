@@ -9,34 +9,31 @@ export const metadata: Metadata = {
 };
 
 export default function TripsPage() {
-  const publishedTrips = trips.filter(
-    (trip) => trip.status === "published"
-  );
+  const publishedTrips = trips.filter((trip) => trip.status === "published");
 
   if (!publishedTrips.length) {
     return (
       <section className="flex items-center justify-center px-6 py-16">
-        <p className="text-sm text-muted-foreground">
-          No trips available yet.
-        </p>
+        <p className="text-sm text-muted-foreground">No trips available yet.</p>
       </section>
     );
   }
 
   // Group by country only
-  const tripsByCountry = publishedTrips.reduce((acc, trip) => {
-    const country = trip.slugAsParams.split("/")[0];
-    acc[country] ??= [];
-    acc[country].push(trip);
-    return acc;
-  }, {} as Record<string, typeof publishedTrips>);
+  const tripsByCountry = publishedTrips.reduce(
+    (acc, trip) => {
+      const country = trip.slugAsParams.split("/")[0];
+      acc[country] ??= [];
+      acc[country].push(trip);
+      return acc;
+    },
+    {} as Record<string, typeof publishedTrips>,
+  );
 
   const countryOrder = ["nepal", "bhutan", "tibet"];
   const orderedCountries = [
     ...countryOrder.filter((c) => tripsByCountry[c]),
-    ...Object.keys(tripsByCountry).filter(
-      (c) => !countryOrder.includes(c)
-    ),
+    ...Object.keys(tripsByCountry).filter((c) => !countryOrder.includes(c)),
   ];
 
   return (
@@ -44,17 +41,12 @@ export default function TripsPage() {
       <div className="flex flex-col gap-8">
         {orderedCountries.map((country) => (
           <div key={country} className="flex flex-col gap-4">
-            <h2 className="text-3xl font-bold capitalize">
-              {country}
-            </h2>
+            <h2 className="text-3xl font-bold capitalize">{country}</h2>
             <Separator className="max-w-md my-4" />
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {tripsByCountry[country].map((trip) => (
-                <TripCard
-                  key={trip.slugAsParams}
-                  trip={trip}
-                />
+                <TripCard key={trip.slugAsParams} trip={trip} />
               ))}
             </div>
           </div>

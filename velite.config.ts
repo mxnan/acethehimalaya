@@ -5,7 +5,6 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
   slugAsParams: data.slug.split("/").slice(1).join("/"),
 });
 
-
 const blogs = defineCollection({
   name: "Blogs",
   pattern: "blogs/*.mdx",
@@ -46,22 +45,24 @@ const trips = defineCollection({
     })
     .transform(computedFields),
 });
-const countryPages = defineCollection({
-  name: "CountryPages",
-  pattern: "trips/*.mdx", // content/trips/nepal.mdx, content/trips/tibet.mdx, etc.
+const extraPages = defineCollection({
+  name: "ExtraPages",
+  pattern: "extra/*.mdx", // files like extra/bhutan.mdx
   schema: s
     .object({
       slug: s.path(),
-      countryPage: s.enum(["nepal", "tibet", "bhutan"]),
       title: s.string(),
       description: s.string(),
       videoUrl: s.string().optional(),
       toc: s.toc(),
       content: s.mdx(),
     })
-    .transform(computedFields),
+    .transform((data) => ({
+      ...data,
+      // For extra pages we only want the final segment (e.g. "bhutan")
+      slugAsParams: data.slug.split("/").slice(-1)[0],
+    })),
 });
-
 const company = defineCollection({
   name: "Company",
   pattern: "company/*.mdx",
@@ -88,7 +89,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, trips, company, countryPages },
+  collections: { blogs, trips, company, extraPages },
   mdx: {
     rehypePlugins: [
       // rehypeSlug,

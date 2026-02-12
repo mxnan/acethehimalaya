@@ -76,10 +76,10 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
       {/* <Separator className="my-4" /> */}
       <div className="relative flex flex-row gap-8">
         {" "}
-        <div className="w-full flex-1">
+        <div className="w-full flex flex-col">
           {" "}
           {/* Top metadata row */}
-          <div className="mb-4 flex flex-col sm:flex-row items-center sm:justify-between gap-2">
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2">
             <div className="max-sm:mb-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               {blog.category ? (
                 <Link href={`/blogs?category=${blog.category}`}>
@@ -150,7 +150,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
               />
             </div>
           </div>
-          <Separator className="my-6" />
+          <Separator className="my-4" />
           {/* Hero image (if provided) */}
           {blog.image ? (
             <div className="mb-8">
@@ -160,12 +160,12 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 priority
                 src={blog.image}
                 alt={blog.title}
-                className="w-full aspect-[16/9] object-cover object-center   rounded-md shadow-sm"
+                className="w-full aspect-video object-cover object-center   rounded-md shadow-sm"
               />
             </div>
           ) : null}
           {/* Title and description */}
-          <div className="flex flex-col gap-4 mb-8">
+          <div className="flex flex-col gap-4 mb-4">
             <h1 className="scroll-m-32 text-4xl font-extrabold font-sans uppercase text-primary tracking-normal">
               {blog.title}
             </h1>
