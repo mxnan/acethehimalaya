@@ -7,6 +7,7 @@ interface YTEmbedProps {
   /** If provided, sets the iframe title for accessibility. */
   title?: string
   allowFullScreen?: boolean
+  autoplay?: boolean
 }
 
 function parseTimeParam(t?: string | null): string | undefined {
@@ -64,10 +65,15 @@ function parseYouTubeId(input?: string | null): { id: string | null; start?: str
   return { id, start }
 }
 
-const YTEmbed: React.FC<YTEmbedProps> = ({ url, className = '', title = 'YouTube video', allowFullScreen = true }) => {
+const YTEmbed: React.FC<YTEmbedProps> = ({
+  url,
+  className = '',
+  title = 'YouTube video',
+  allowFullScreen = true,
+  autoplay = false,
+}) => {
   if (!url) {
     if (process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line no-console
       console.warn('YTEmbed: missing `url` prop')
     }
     return null
@@ -75,7 +81,6 @@ const YTEmbed: React.FC<YTEmbedProps> = ({ url, className = '', title = 'YouTube
 
   const { id, start } = parseYouTubeId(url)
   if (!id) {
-    // If we couldn't parse an ID, render a simple fallback link
     return (
       <div className={className}>
         <a href={String(url)} target="_blank" rel="noopener noreferrer">
@@ -85,17 +90,45 @@ const YTEmbed: React.FC<YTEmbedProps> = ({ url, className = '', title = 'YouTube
     )
   }
 
-  const params = new URLSearchParams({ rel: '0', modestbranding: '1' })
+  const params = new URLSearchParams({
+    rel: '0',
+    modestbranding: '1',
+  })
+
   if (start) params.set('start', start)
-  const src = `https://www.youtube.com/embed/${encodeURIComponent(id)}?${params.toString()}`
+
+  if (autoplay) {
+    params.set('autoplay', '1')
+    params.set('mute', '1') // autoplay requires mute
+  }
+
+  const src = `https://www.youtube.com/embed/${encodeURIComponent(
+    id
+  )}?${params.toString()}`
 
   return (
-    <div className={className} style={{ position: 'relative', width: '100%', paddingTop: '56.25%' ,borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}>
+    <div
+      className={className}
+      style={{
+        position: 'relative',
+        width: '100%',
+        paddingTop: '56.25%',
+        borderRadius: '8px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+      }}
+    >
       <iframe
         src={src}
         title={title}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-        frameBorder={0}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          border: 0,
+        }}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen={allowFullScreen}
       />

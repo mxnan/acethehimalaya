@@ -14,7 +14,6 @@ import { Button } from "@/components/ui/button";
 import UnorderedListIcon from "../../ui/icons/unordered-list-icon";
 import { usePathname } from "next/navigation";
 import { Separator } from "../../ui/separator";
-import { TripPricing } from "@/types/trip-pricing";
 import { ChevronRight } from "lucide-react";
 import dynamic from "next/dynamic";
 import type { TocEntry } from "./toc-tree.server";
@@ -36,7 +35,7 @@ const PrivateTripForm = dynamic(
 
 interface TocClientProps {
   toc: TocEntry[];
-  pricing?: TripPricing;
+  price?: number;
   className?: string;
   tripname?: string;
 }
@@ -150,21 +149,21 @@ function TreeClient({ tree, level = 1, activeItem }: TreeClientProps) {
 
 export function TableOfContentsClient({
   toc,
-  pricing,
+  price,
   tripname,
   className,
 }: TocClientProps) {
   const pathname = usePathname();
-  const showBookNow = pathname.startsWith("/trips/");
+  const showBookNow = pathname.startsWith("/trips/") && pathname.split("/").length > 3;
 
   const itemIds = React.useMemo(
     () =>
       toc
         ? toc
-            .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
-            .flat()
-            .filter(Boolean)
-            .map((id) => id?.split("#")[1])
+          .flatMap((item) => [item.url, item?.items?.map((item) => item.url)])
+          .flat()
+          .filter(Boolean)
+          .map((id) => id?.split("#")[1])
         : [],
     [toc]
   );
@@ -191,9 +190,9 @@ export function TableOfContentsClient({
       {/* Desktop TOC */}
       {isLargeScreen && (
         <div className={cn("w-64 shrink-0 ", className)}>
-          <div className="sticky top-20">
-            {showBookNow && pricing && (
-              <BookNowButton className="mb-4" pricing={pricing} />
+          <div className="sticky top-24">
+            {showBookNow && price && (
+              <BookNowButton className="mb-4" price={price} />
             )}
             {showBookNow && (
               <>
@@ -241,8 +240,8 @@ export function TableOfContentsClient({
       {/* Mobile TOC Button */}
       {!isLargeScreen && (
         <div className="flex flex-row gap-4 fixed bottom-6 left-1/2 -translate-1/2 z-30 ">
-          {showBookNow && pricing && (
-            <BookNowButton pricing={pricing} className="my-0 py-0" />
+          {showBookNow && price && (
+            <BookNowButton price={price} className="my-0 py-0" />
           )}
           {showBookNow && (
             <div className="mb-4">
@@ -277,7 +276,7 @@ export function TableOfContentsClient({
               <Button
                 variant="default"
                 size="default"
-                // className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
+              // className="fixed bottom-6 left-1/2 -translate-1/2 z-30 "
               >
                 <UnorderedListIcon className="h-8 w-8" />
                 {/* <span>On This Page</span> */}

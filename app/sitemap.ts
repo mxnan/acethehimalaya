@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { blogs, trips } from '#site/content'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acethehimalaya.com'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acethehimalaya.vercel.app'
 
   const blogEntries: MetadataRoute.Sitemap = blogs
     .filter(blog => blog.status === 'published')

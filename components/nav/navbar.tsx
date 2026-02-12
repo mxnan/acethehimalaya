@@ -1,52 +1,33 @@
 import Link from "next/link";
 import { Icons } from "../brand";
 import dynamic from "next/dynamic";
-import { Button } from "../ui/button";
-import WhatsappIcon from "../ui/icons/whatsapp-icon";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
 import DesktopNav from "./desktop-nav";
+import { TalkToAnExpert } from "../shared/talk-to-an-expert";
 
 const MobileNav = dynamic(() => import("./mobile-nav"));
 
 const Navbar = () => {
   return (
     <header
-      className="z-40 sticky top-2 mx-auto max-w-7xl px-4 lg:px-8 rounded-lg border
-    border-border/50
-    bg-background/95 backdrop-blur
-    supports-backdrop-filter:bg-background/60"
+      className="z-40 fixed top-2 left-1/2 transform -translate-x-1/2
+    rounded-lg border border-border/50 px-4 lg:px-6 
+    bg-background/95 backdrop-blur max-w-7xl w-full mx-auto  
+    supports-backdrop-filter:bg-background/80"
     >
-      <nav className="h-14 flex items-center justify-between">
-        <Link href="/" className="">
-          {/* <span className="sr-only">{siteConfig.name}</span> */}
-          <Icons.navlogo />
-        </Link>
+      <nav className="flex gap-10 items-center justify-between">
+        <div className="py-2" >
+          <Link href="/" className="max-lg:hidden ">
+            {/* <span className="sr-only">{siteConfig.name}</span> */}
+            <Icons.navlogo />
+          </Link>
+          <Link href="/" className="lg:hidden ">
+            {/* <span className="sr-only">{siteConfig.name}</span> */}
+            <Icons.iconlogo />
+          </Link>
+        </div>
 
         <div className="flex items-center gap-2">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="inline-flex group cursor-pointer"
-                aria-label="Talk to an Expert"
-              >
-                <WhatsappIcon className="h-6 w-6 stroke-green-700" />
-                <span className="sr-only">Talk to an Expert</span>
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogTitle>Talk to an Expert</DialogTitle>
-              map all sales personnel whatsapp numbers here
-              <DialogFooter>Ace the Himalaya</DialogFooter>
-            </DialogContent>
-          </Dialog>
+          <TalkToAnExpert />
           <div className="relative flex">
             <DesktopNav />
             <div className="md:hidden">
@@ -55,7 +36,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </header>
+    </header >
   );
 };
 

@@ -3,9 +3,23 @@ import ThemeToggle from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ClipboardCheck } from "lucide-react";
 
+
+
 export default function Demo() {
+
+
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-10 px-6 py-12">
+    <div className="relative w-full min-h-screen">
+
+
+      <IgnoreThis />
+    </div>
+  );
+}
+
+const IgnoreThis = () => {
+  return (
+    <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-10 px-6 py-12">
       <header className="flex items-center justify-between">
         <div className="space-y-2">
           <p className="text-sm font-medium text-muted-foreground">
@@ -25,7 +39,7 @@ export default function Demo() {
             size="icon"
             onClick={() =>
               import("sonner").then(({ toast }) =>
-                toast.success("Success toast")
+                toast.success("Success toast"),
               )
             }
           >
@@ -64,7 +78,7 @@ export default function Demo() {
             size="icon"
             onClick={() =>
               import("sonner").then(({ toast }) =>
-                toast.warning("Warning toast")
+                toast.warning("Warning toast"),
               )
             }
           >
@@ -104,7 +118,7 @@ export default function Demo() {
             size="icon"
             onClick={() =>
               import("sonner").then(({ toast }) =>
-                toast.loading("Loading toast")
+                toast.loading("Loading toast"),
               )
             }
           >
@@ -140,11 +154,11 @@ export default function Demo() {
         </div>
       </section>
 
-      <section className="space-y-6 rounded-xl border bg-card/40 p-6 shadow-sm">
-        <p className="text-sm font-semibold uppercase text-muted-foreground">
-          Accordion Component
-        </p>
-      </section>
+      {/* <section className="space-y-6 rounded-xl border bg-card/40 p-6 shadow-sm">
+      <p className="text-sm font-semibold uppercase text-muted-foreground">
+        Accordion Component
+      </p>
+    </section> */}
 
       <section className="space-y-6 rounded-xl border bg-card/40 p-6 shadow-sm">
         <p className="text-sm font-semibold uppercase text-muted-foreground">
@@ -193,4 +207,4 @@ export default function Demo() {
       </section>
     </div>
   );
-}
+};

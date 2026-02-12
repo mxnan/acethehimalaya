@@ -1,8 +1,6 @@
-"use client"
 
 import * as React from "react"
 import * as TabsPrimitive from "@radix-ui/react-tabs"
-
 import { cn } from "@/lib/utils"
 
 function Tabs({
@@ -26,7 +24,7 @@ function TabsList({
     <TabsPrimitive.List
       data-slot="tabs-list"
       className={cn(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
+        "relative flex rounded-md bg-neutral-200/50 dark:bg-neutral-800/60 p-2 w-min",
         className
       )}
       {...props}
@@ -37,17 +35,25 @@ function TabsList({
 function TabsTrigger({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+}: React.ComponentProps<typeof TabsPrimitive.Trigger> & { "data-state"?: string }) {
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative isolate cursor-pointer border-y-4 border-transparent rounded-md",
+        "inline-flex flex-1 items-center justify-center",
+        "px-3 py-1.5 text-sm font-medium whitespace-nowrap",
+        "data-[state=active]:bg-zinc-400/20  data-[state=active]:dark:bg-zinc-600 data-[state=inactive]:bg-transparent",
+        "transition-colors duration-500",
+        "data-[state=active]:text-primary data-[state=inactive]:text-muted-foreground",
+        // "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
         className
       )}
       {...props}
-    />
-  )
+    >
+      {props.children}
+    </TabsPrimitive.Trigger>
+  );
 }
 
 function TabsContent({

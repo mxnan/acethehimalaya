@@ -6,6 +6,7 @@ import MDXErrorBoundary from "./error-boundary";
 import { Button } from "../ui/button";
 import { Callout, CalloutFooter } from "./callout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import Link from "next/link";
 
 // ----------------------- Core MDX components (always) -----------------------
 // These are light, generic components that can be safely available on all MDX pages.
@@ -15,42 +16,28 @@ const YTEmbed = dynamic(() => import("./yt-embed").then((mod) => mod.default));
 // These should only be available on trip MDX pages (/trips/*).
 const TripDetailsCard = dynamic(
   () => import("../cards/trip-details-card").then((mod) => mod.TripDetailsCard),
-  { ssr: true }
+  { ssr: true },
 );
 // Lazy-loaded with intersection observer (below-the-fold)
 const TripAltitudeChart = dynamic(
   () =>
     import("./trip-altitude-chart-lazy").then(
-      (mod) => mod.TripAltitudeChartLazy
+      (mod) => mod.TripAltitudeChartLazy,
     ),
-  { ssr: true }
-);
-const GoogleReviewsSection = dynamic(
-  () =>
-    import("../reviews/google-reviews-section").then(
-      (mod) => mod.GoogleReviewsSection
-    ),
-  { ssr: true }
-);
-const TripadvisorReviewsSection = dynamic(
-  () =>
-    import("../reviews/tripadvisor-reviews-section").then(
-      (mod) => mod.TripadvisorReviewsSection
-    ),
-  { ssr: true }
+  { ssr: true },
 );
 // Lazy-loaded with intersection observer (below-the-fold)
 const TrekMap = dynamic(
   () => import("./trek-map-lazy").then((mod) => mod.TrekMapLazy),
-  { ssr: true }
+  { ssr: true },
 );
-const CalendarCard = dynamic(
-  () => import("./calendar-card").then((mod) => mod.default),
-  { ssr: true }
+const TripCalendar = dynamic(
+  () => import("./trip-calendar").then((mod) => mod.TripCalendar),
+  { ssr: true },
 );
 const PrivateTripForm = dynamic(
   () => import("./private-trip-form").then((mod) => mod.PrivateTripForm),
-  { ssr: true }
+  { ssr: true },
 );
 
 // ---------------------- Component maps by responsibility ---------------------
@@ -70,30 +57,32 @@ const coreComponents = {
   YTEmbed,
 };
 
+const extraComponent = {
+  a: Link,
+};
+
 // Trip-specific components: only used on /trips/* MDX content
 const tripComponents = {
   TrekMap,
   TripDetailsCard,
   TripAltitudeChart,
-  CalendarCard,
+  TripCalendar,
   PrivateTripForm,
-  GoogleReviewsSection,
-  TripadvisorReviewsSection,
   // Interactive but generic: accordions are used broadly
   Accordion: dynamic(() => import("./accordion").then((mod) => mod.Accordion), {
     ssr: true,
   }),
   AccordionItem: dynamic(
     () => import("./accordion").then((mod) => mod.AccordionItem),
-    { ssr: true }
+    { ssr: true },
   ),
   AccordionTrigger: dynamic(
     () => import("./accordion").then((mod) => mod.AccordionTrigger),
-    { ssr: true }
+    { ssr: true },
   ),
   AccordionContent: dynamic(
     () => import("./accordion").then((mod) => mod.AccordionContent),
-    { ssr: true }
+    { ssr: true },
   ),
 };
 
@@ -102,6 +91,10 @@ const blogComponents = {
   ...coreComponents,
 };
 
+const extraPageComponents = {
+  ...coreComponents,
+  ...extraComponent,
+};
 // Component map for trip MDX pages (core + trip-specific)
 const tripPageComponents = {
   ...coreComponents,
@@ -124,6 +117,18 @@ export const MDXContent = ({ code }: MDXProps) => {
     <MDXErrorBoundary>
       <section className="w-full h-full relative">
         <Component components={blogComponents} />
+      </section>
+    </MDXErrorBoundary>
+  );
+};
+
+// ExtraContent-specific MDXContent component (used for /countries/*)
+export const ExtraMDXContent = ({ code }: MDXProps) => {
+  const Component = useMDXComponent(code);
+  return (
+    <MDXErrorBoundary>
+      <section className="w-full h-full relative">
+        <Component components={extraPageComponents} />
       </section>
     </MDXErrorBoundary>
   );

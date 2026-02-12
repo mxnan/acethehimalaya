@@ -38,7 +38,7 @@ const AccordionTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => {
   const triggerRef = React.useRef<HTMLButtonElement | null>(null);
 
-  const HEADER_OFFSET = 96; // sticky header height
+  const HEADER_OFFSET = 120; // sticky header height
 
   React.useEffect(() => {
     const el = triggerRef.current;
@@ -80,8 +80,8 @@ const AccordionTrigger = React.forwardRef<
             (ref as React.RefObject<HTMLButtonElement | null>).current = node;
         }}
         className={cn(
-          "group flex w-full items-center justify-between rounded-lg border bg-muted px-4 py-3 text-left text-sm",
-          "hover:bg-muted/70 transition-colors",
+          "group cursor-pointer flex w-full items-center justify-between rounded-lg border bg-zinc-100 dark:bg-zinc-900 px-4 py-3 text-left text-sm",
+          "hover:bg-zinc-200/70 dark:hover:bg-zinc-900/60 transition-colors duration-200",
           className
         )}
         {...props}

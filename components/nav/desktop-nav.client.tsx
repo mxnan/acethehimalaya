@@ -12,10 +12,9 @@ const navItems = [
     label: "Trips",
     href: "/trips",
     menu: [
-      { label: "All Trips", href: "/trips" },
-      { label: "Nepal1", href: "/trips/nepal/nepal1" },
-      { label: "Bhutan1", href: "/trips/bhutan/bhutan1" },
-      { label: "Tibet1", href: "/trips/tibet/tibet1" },
+      { label: "Nepal", href: "/trips/nepal" }, // Ensure "nepal" matches slugAsParams
+      { label: "Bhutan", href: "/trips/bhutan" },
+      { label: "Tibet", href: "/trips/tibet" },
     ],
   },
   {
@@ -23,8 +22,7 @@ const navItems = [
     href: "/blogs",
     menu: [
       { label: "All Blogs", href: "/blogs" },
-      { label: "MDX Guide", href: "/blogs/mdx-gist" },
-      { label: "Style Guide", href: "/blogs/style-guide" },
+
     ],
   },
   {
@@ -76,7 +74,7 @@ export const DesktopNavClient = () => {
   return (
     <div
       ref={navRef}
-      className="hidden md:flex items-end relative"
+      className="relative hidden md:flex items-center gap-0"
       onMouseLeave={handleNavLeave}
     >
       {navItems.map((item) => (

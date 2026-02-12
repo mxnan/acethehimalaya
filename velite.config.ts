@@ -5,18 +5,6 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
   slugAsParams: data.slug.split("/").slice(1).join("/"),
 });
 
-const tripPricingSchema = s.object({
-  currency: s.string().default("USD"),
-  base: s.number(),
-  tiers: s
-    .object({
-      label: s.string(),
-      price: s.number(),
-    })
-    .array(),
-  bookingUrl: s.string().optional(),
-});
-
 const blogs = defineCollection({
   name: "Blogs",
   pattern: "blogs/*.mdx",
@@ -42,19 +30,39 @@ const trips = defineCollection({
     .object({
       slug: s.path(),
       title: s.string(),
-      country: s.enum(["nepal", "tibet", "bhutan"]),
-      category: s.string(),
+      country: s.enum(["nepal", "tibet", "bhutan"]).optional(),
+      category: s.string().optional(),
+      region: s.string().optional(),
+      rating: s.number().optional(),
+      duration: s.string().optional(),
       description: s.string().optional(),
       status: s.enum(["published", "draft"]).default("draft"),
       image: s.string().optional(),
       tags: s.string().array().optional(),
       toc: s.toc(),
-      price: tripPricingSchema.optional(),
+      price: s.number().optional(),
       content: s.mdx(),
     })
     .transform(computedFields),
 });
-
+const extraPages = defineCollection({
+  name: "ExtraPages",
+  pattern: "extra/*.mdx", // files like extra/bhutan.mdx
+  schema: s
+    .object({
+      slug: s.path(),
+      title: s.string(),
+      description: s.string(),
+      videoUrl: s.string().optional(),
+      toc: s.toc(),
+      content: s.mdx(),
+    })
+    .transform((data) => ({
+      ...data,
+      // For extra pages we only want the final segment (e.g. "bhutan")
+      slugAsParams: data.slug.split("/").slice(-1)[0],
+    })),
+});
 const company = defineCollection({
   name: "Company",
   pattern: "company/*.mdx",
@@ -81,7 +89,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { blogs, trips, company },
+  collections: { blogs, trips, company, extraPages },
   mdx: {
     rehypePlugins: [
       // rehypeSlug,

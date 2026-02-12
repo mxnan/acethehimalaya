@@ -17,7 +17,7 @@ const sans = Anybody({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://acethehimalaya.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://acethehimalaya.vercel.app"
   ),
   title: {
     template: "%s || AceTheHimalaya",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     "trekking Nepal",
   ],
   authors: [{ name: "AceTheHimalaya Team" }],
-  creator: "AceTheHimalaya",
-  publisher: "AceTheHimalaya",
+  creator: "mxnan",
+  publisher: "mxnan",
   formatDetection: {
     email: false,
     address: false,
@@ -43,28 +43,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://acethehimalaya.com",
-    title: "AceTheHimalaya - Premium Himalayan Trekking & Adventure Tours",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://acethehimalaya.vercel.app",
+    title: "AceTheHimalaya - Experience the Difference",
     description:
       "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more.",
     siteName: "AceTheHimalaya",
-    images: [
-      {
-        url: "/brand-assets/brand-logo-icon.png",
-        width: 1200,
-        height: 630,
-        alt: "AceTheHimalaya - Himalayan Trekking Tours",
-      },
-    ],
+    // images: [
+    //   {
+    //     url: "/brand-assets/brand-logo-icon.png",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "AceTheHimalaya - Himalayan Trekking Tours",
+    //   },
+    // ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "AceTheHimalaya - Premium Himalayan Trekking & Adventure Tours",
-    description:
-      "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more.",
-    images: ["/brand-assets/brand-logo-icon.png"],
-    creator: "@AceTheHimalaya",
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: "AceTheHimalaya - Premium Himalayan Trekking & Adventure Tours",
+  //   description:
+  //     "Experience the majesty of the Himalayas with AceTheHimalaya. Expert-led trekking tours to Everest Base Camp, Annapurna Circuit, and more.",
+  //   images: ["/brand-assets/brand-logo-icon.png"],
+  //   creator: "@AceTheHimalaya",
+  // },
   robots: {
     index: true,
     follow: true,
@@ -77,23 +77,23 @@ export const metadata: Metadata = {
     },
   },
   // Favicons
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      {
-        url: "/brand-assets/brand-logo-icon.png",
-        type: "image/png",
-        sizes: "32x32",
-      },
-    ],
-    apple: [
-      {
-        url: "/brand-assets/brand-logo-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-  },
+  // icons: {
+  //   icon: [
+  //     { url: "/favicon.ico", sizes: "any" },
+  //     {
+  //       url: "/brand-assets/brand-logo-icon.png",
+  //       type: "image/png",
+  //       sizes: "32x32",
+  //     },
+  //   ],
+  //   apple: [
+  //     {
+  //       url: "/brand-assets/brand-logo-icon.png",
+  //       sizes: "180x180",
+  //       type: "image/png",
+  //     },
+  //   ],
+  // },
 };
 
 export const viewport: Viewport = {
@@ -120,17 +120,14 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <>
+          <main className="relative w-full min-h-screen flex-1">
             {/* <ResponsiveSidebar /> */}
             <Navbar />
-            <main className="px-4 lg:px-8 max-w-7xl mx-auto min-h-screen">
-              <ProgressBar />
-              {children}
-              <Footer />
-            </main>
-
+            <ProgressBar />
+            {children}
+            <Footer />
             <Toaster position="top-left" />
-          </>
+          </main>
         </Providers>
       </body>
     </html>

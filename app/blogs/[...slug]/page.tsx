@@ -12,6 +12,8 @@ import ClockIcon from "@/components/ui/icons/clock-icon";
 import CopyLink from "@/components/mdx/copy-link";
 import { formatDate } from "@/lib/utils";
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const TableOfContents = dynamic(() =>
   import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents)
@@ -34,9 +36,6 @@ export async function generateMetadata({
   if (!blog) {
     return {};
   }
-
-  const ogImage = blog.image || "/brand-assets/brand-logo-icon.png";
-
   return {
     title: blog.title,
     description: blog.description,
@@ -44,14 +43,6 @@ export async function generateMetadata({
     openGraph: {
       title: blog.title,
       description: blog.description,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
       type: "article",
       publishedTime: blog.date,
       authors: ["AceTheHimalaya"],
@@ -61,7 +52,6 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: blog.title,
       description: blog.description,
-      images: [ogImage],
     },
   };
 }
@@ -86,15 +76,18 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
       {/* <Separator className="my-4" /> */}
       <div className="relative flex flex-row gap-8">
         {" "}
-        <div className="w-full flex-1">
+        <div className="w-full flex flex-col">
           {" "}
           {/* Top metadata row */}
-          <div className="mb-4 flex flex-col sm:flex-row items-center sm:justify-between gap-2">
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-2">
             <div className="max-sm:mb-4 flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
               {blog.category ? (
-                <span className="px-3 py-1.5 bg-primary text-secondary rounded-md font-semibold">
-                  {blog.category}
-                </span>
+                <Link href={`/blogs?category=${blog.category}`}>
+                  <Button className="group cursor-pointer font-semibold flex items-center gap-2 transition-all ease-in-out duration-500">
+                    {blog.category}
+                    <ChevronRight className="size-5 stroke-2 group-hover:-rotate-13 transition-transform ease-in-out duration-500" />
+                  </Button>
+                </Link>
               ) : null}
               <p className="text-sm text-muted-foreground">
                 <ClockIcon className="inline-block mr-1 " />
@@ -109,7 +102,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                     blog.title
                   )}&url=${encodeURIComponent(
                     (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -123,9 +116,9 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 <a
                   href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
                     blog.title +
-                      " " +
-                      (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    " " +
+                    (process.env.NEXT_PUBLIC_SITE_URL || "") +
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -139,7 +132,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 <a
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                     (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -157,7 +150,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
               />
             </div>
           </div>
-          <Separator className="my-6" />
+          <Separator className="my-4" />
           {/* Hero image (if provided) */}
           {blog.image ? (
             <div className="mb-8">
@@ -167,12 +160,12 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 priority
                 src={blog.image}
                 alt={blog.title}
-                className="w-full h-84 md:h-108 object-cover object-center   rounded-md shadow-sm"
+                className="w-full aspect-video object-cover object-center   rounded-md shadow-sm"
               />
             </div>
           ) : null}
           {/* Title and description */}
-          <div className="flex flex-col gap-4 mb-8">
+          <div className="flex flex-col gap-4 mb-4">
             <h1 className="scroll-m-32 text-4xl font-extrabold font-sans uppercase text-primary tracking-normal">
               {blog.title}
             </h1>
@@ -201,7 +194,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                     blog.title
                   )}&url=${encodeURIComponent(
                     (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -215,9 +208,9 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 <a
                   href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
                     blog.title +
-                      " " +
-                      (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    " " +
+                    (process.env.NEXT_PUBLIC_SITE_URL || "") +
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -231,7 +224,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
                 <a
                   href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
                     (process.env.NEXT_PUBLIC_SITE_URL || "") +
-                      `/blogs/${blog.slugAsParams}`
+                    `/blogs/${blog.slugAsParams}`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

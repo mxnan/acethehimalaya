@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { trips } from "#site/content";
 import { TripMDXContent } from "@/components/mdx/content-mdx";
 import dynamic from "next/dynamic";
+import { Badge } from "@/components/ui/badge";
+import { ClockIcon } from "lucide-react";
 
 const TableOfContents = dynamic(
   () => import("@/components/mdx/toc/toc").then((mod) => mod.TableOfContents),
@@ -21,7 +23,7 @@ const TableOfContents = dynamic(
         </div>
       </div>
     ),
-  }
+  },
 );
 
 const getTripBySlug = (slugPath: string) =>
@@ -45,7 +47,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const ogImage = trip.image || "/brand-assets/brand-logo-icon.png";
+  const ogImage = trip.image || "";
 
   return {
     title: trip.title,
@@ -83,7 +85,9 @@ export function generateStaticParams() {
       return { country, slug };
     });
 }
+
 export const revalidate = 86400; // 24 hours
+
 export default async function TripPage({ params }: TripPageParams) {
   const { country, slug } = await params;
   const slugPath = `${country}/${slug}`;
@@ -96,26 +100,30 @@ export default async function TripPage({ params }: TripPageParams) {
   return (
     <div className="my-8 w-full min-h-screen">
       <div className="relative flex flex-col lg:flex-row gap-8">
-        <div className="flex-1">
-          {/* <Separator className="my-6" /> */}
-          {/* Title and description */}
-          <div className="flex flex-col gap-4 mb-8 mt-3">
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-4">
             <h1 className="scroll-m-32 text-4xl font-extrabold font-sans uppercase text-primary tracking-normal">
               {trip.title}
+              {trip.duration ? (
+                <Badge className="ml-4 font-bold">
+                  <ClockIcon className="size-4 mr-1" />
+                  {trip.duration}
+                </Badge>
+              ) : null}
             </h1>
             {trip.description ? (
               <p className="text-muted-foreground">{trip.description}</p>
             ) : null}
           </div>
-          {/* <Separator className="my-8" /> */}
           <TripMDXContent code={trip.content} />
         </div>
         <TableOfContents
           toc={trip.toc}
-          pricing={trip.price}
+          price={trip.price}
           tripname={trip.title}
         />
       </div>
     </div>
   );
 }
+
