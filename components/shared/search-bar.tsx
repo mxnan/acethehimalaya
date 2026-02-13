@@ -14,6 +14,13 @@ import { Search } from "lucide-react";
 import { SearchItem } from "@/lib/search-index";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/lib/utils";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+import { Badge } from "../ui/badge";
 
 type Props = {
   items: SearchItem[];
@@ -41,19 +48,34 @@ export default function SearchBar({ items }: Props) {
   return (
     <>
       {/* INPUT TRIGGER (Hero visible) */}
-      <div
-        role="button"
-        tabIndex={0}
-        onClick={() => setOpen(true)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key.length === 1) setOpen(true);
-        }}
-        className="flex h-14 w-full max-w-xl mx-auto cursor-text items-center gap-3 rounded-xl bg-muted px-4 text-sm text-muted-foreground shadow-lg transition hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-ring"
-      >
-        <Search className="size-5 stroke-2" />
-        <span className="font-bold text-xs md:text-sm">Search trips or blogs</span>
-        <CommandShortcut className="font-bold text-xs md:text-sm">⌘ + K</CommandShortcut>
-      </div>
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div
+              role="button"
+              tabIndex={0}
+              onClick={() => setOpen(true)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key.length === 1) setOpen(true);
+              }}
+              className="flex h-14 w-full max-w-xl mx-auto cursor-text items-center gap-3 rounded-xl bg-muted px-4 text-sm text-muted-foreground shadow-lg transition hover:bg-muted/80 focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+              <Search className="size-5 stroke-2" />
+              <span className="font-bold text-xs md:text-sm">
+                Search trips or blogs
+              </span>
+              <CommandShortcut className="font-bold text-xs md:text-sm">
+                ⌘ + K
+              </CommandShortcut>
+            </div>
+          </TooltipTrigger>
+
+          <TooltipContent side="top">
+            <div>Use <Badge variant={"secondary"} className="mx-1">Ctrl + K
+            </Badge> anywhere on the page</div>
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
 
       {/* SEARCH DIALOG */}
       <CommandDialog open={open} onOpenChange={setOpen}>

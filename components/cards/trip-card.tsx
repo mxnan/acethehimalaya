@@ -54,13 +54,13 @@ export function TripCard({ trip, className }: TripCardProps) {
 
                 {/* Content */}
                 <div className="relative z-10 flex h-full w-full flex-col justify-end p-4">
-                    <div className="rounded-lg bg-black/50 backdrop-blur-md p-3 transition-transform duration-300 group-hover:-translate-y-1">
+                    <div className="rounded-lg bg-black/50 group-hover:bg-black/80 backdrop-blur-md p-3 transition-all ease-in-out duration-500 group-hover:-translate-y-1">
                         <h3 className="text-base truncate font-semibold text-white line-clamp-2">
                             {title}
                         </h3>
 
                         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-white/70">
-                            <ChevronRight className="size-4 stroke-2 shrink-0 transition-transform group-hover:-rotate-90" />
+                            <ChevronRight className="size-4 stroke-4 shrink-0 transition-all group-hover:-rotate-30 duration-500" />
 
                             {duration && (
                                 <span className="inline-flex items-center gap-1 whitespace-nowrap">

@@ -17,7 +17,7 @@ type RegionTileProps = {
 
 function TrekkingRegionTile({ name, count, image, href }: RegionTileProps) {
     return (
-        <div className="relative group overflow-hidden rounded-lg h-56 sm:h-64 aspect-video">
+        <div className="relative group overflow-hidden rounded-lg h-96 aspect-video">
             <Image
                 src={image}
                 alt={name}
@@ -35,14 +35,14 @@ function TrekkingRegionTile({ name, count, image, href }: RegionTileProps) {
                 }}
             />
 
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 text-white">
-                <Button variant="secondary" size="lg">
-
+            <div
+                className="absolute z-10 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 
+      flex items-center gap-2 rounded-lg bg-black/50 backdrop-blur-md p-2 group-hover:p-3 group-hover:bg-black/80 transition-all ease-in-out duration-500"
+            >
+                <Button variant="default" size="lg" className='cursor-pointer'>
                     {name}
-                    <ChevronRight className="size-4 transition-transform group-hover:-rotate-90" />
-
+                    <ChevronRight className="size-4 stroke-4 transition-transform duration-1000  group-hover:-rotate-30" />
                 </Button>
-
                 <Badge variant="secondary">{count} treks</Badge>
             </div>
         </div>

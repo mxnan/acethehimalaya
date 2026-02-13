@@ -96,10 +96,10 @@ export default function BestSellersSection() {
             <TripCard
               key={trip.slug}
               trip={trip}
-              className="h-56 sm:h-64 aspect-video"
+              className="h-96 aspect-square lg:aspect-video"
             />
           ))}
-          <div className="h-56 sm:h-64 aspect-video flex items-center justify-center">
+          <div className="h-96 aspect-square flex items-end justify-center">
             <Button asChild className="cursor-pointer max-md:hidden">
               <Link href={"/trips"}>See all Trips ? </Link>
             </Button>

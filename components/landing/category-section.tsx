@@ -37,7 +37,7 @@ function CategoryTile({ name, count, href, image }: CategoryTileProps) {
                 className="absolute z-10 bottom-10 left-2"
             >
 
-                <Badge variant="secondary" className="text-sm opacity-90">
+                <Badge variant="default" className="text-sm opacity-90">
                     <p>{name}</p>
                 </Badge>
             </div>
@@ -45,7 +45,7 @@ function CategoryTile({ name, count, href, image }: CategoryTileProps) {
                 className="absolute z-10 bottom-2 left-2"
             >
 
-                <Badge variant="secondary" className="text-sm opacity-90">
+                <Badge variant="default" className="text-sm opacity-90">
                     <p>{count} trips</p>
                 </Badge>
             </div>
