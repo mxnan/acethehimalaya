@@ -33,16 +33,16 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm">
-              <FooterLink href="/trips/trekking-in-nepal">
+              <FooterLink href="/trips/trekking">
                 Trekking in Nepal
               </FooterLink>
-              <FooterLink href="/trips/cultural-tour">
+              <FooterLink href="/trips/cultural-tour-and-sightseeing">
                 Cultural Tour and Sightseeing
               </FooterLink>
-              <FooterLink href="/trips/climbing-expedition">
+              <FooterLink href="/trips/climbing-and-expedition">
                 Climbing & Expedition
               </FooterLink>
-              <FooterLink href="/trips/cycling-mtb">
+              <FooterLink href="/trips/cycling-and-mountain-biking">
                 Cycling and Mountain Biking
               </FooterLink>
               <FooterLink href="/trips/luxury-treks">Luxury Treks</FooterLink>
