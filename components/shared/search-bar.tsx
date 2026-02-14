@@ -83,7 +83,35 @@ export default function SearchBar({ items }: Props) {
           <CommandInput placeholder="Search trips or blogs..." />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
-
+            <CommandGroup heading="Most Searched">
+              <CommandItem>
+                <span>
+                  Trekking in Nepal
+                </span>
+              </CommandItem>
+              <CommandItem>
+                <span>
+                  Festival in Bhutan
+                </span>
+              </CommandItem>
+            </CommandGroup>
+            <CommandGroup heading="About us">
+              <CommandItem>
+                <span>
+                  Why Ace
+                </span>
+              </CommandItem>
+              <CommandItem>
+                <span>
+                  Meet our Founder
+                </span>
+              </CommandItem>
+              <CommandItem>
+                <span>
+                  Corporate Social Initiative (CSI)
+                </span>
+              </CommandItem>
+            </CommandGroup>
             {trips.length > 0 && (
               <CommandGroup heading="Trips">
                 {trips.map((item) => (

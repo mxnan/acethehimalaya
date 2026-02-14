@@ -14,12 +14,11 @@ export function getTrekkingRegionStatsNepal(): TrekkingRegionStat[] {
   const countMap = trips.reduce<Record<string, number>>((acc, trip) => {
     if (
       trip.country?.toLowerCase() !== "nepal" ||
-      (trip.category !== "Trekking" &&
-       trip.category !== "Climbing and Expedition")
+      (trip.category !== "trekking" &&
+       trip.category !== "climbing-and-expedition")
     ) {
       return acc;
     }
-
     const key = trip.region;
     if (!key) return acc;
 

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { Badge } from '../ui/badge';
 import { getTrekkingRegionStatsNepal } from '@/lib/trekking-region-utils';
+import Link from 'next/link';
 
 type RegionTileProps = {
     name: string;
@@ -18,33 +19,36 @@ type RegionTileProps = {
 function TrekkingRegionTile({ name, count, image, href }: RegionTileProps) {
     return (
         <div className="relative group overflow-hidden rounded-lg h-96 aspect-video">
-            <Image
-                src={image}
-                alt={name}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <Link href={href}>
 
-            {/* Neutral vignette */}
-            <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                    background:
-                        "radial-gradient(circle at center, rgba(64,64,64,0) 40%, rgba(64,64,64,0.25) 75%, rgba(64,64,64,0.45) 100%)",
-                }}
-            />
+                <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
 
-            <div
-                className="absolute z-10 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 
+                {/* Neutral vignette */}
+                <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "radial-gradient(circle at center, rgba(64,64,64,0) 40%, rgba(64,64,64,0.25) 75%, rgba(64,64,64,0.45) 100%)",
+                    }}
+                />
+
+                <div
+                    className="absolute z-10 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 
       flex items-center gap-2 rounded-lg bg-black/50 backdrop-blur-md p-2 group-hover:p-3 group-hover:bg-black/80 transition-all ease-in-out duration-500"
-            >
-                <Button variant="default" size="lg" className='cursor-pointer'>
-                    {name}
-                    <ChevronRight className="size-4 stroke-4 transition-transform duration-1000  group-hover:-rotate-30" />
-                </Button>
-                <Badge variant="secondary">{count} treks</Badge>
-            </div>
+                >
+                    <Button variant="default" size="lg" className='cursor-pointer'>
+                        {name}
+                        <ChevronRight className="size-4 stroke-4 transition-transform duration-1000  group-hover:-rotate-30" />
+                    </Button>
+                    <Badge variant="secondary">{count} treks</Badge>
+                </div>
+            </Link>
         </div>
     );
 }
@@ -131,7 +135,7 @@ export default function TrekkingRegionNepalSection() {
                             name={region.label}
                             count={region.count}
                             image={region.image}
-                            href={`/trips/nepal/${region.key}`}
+                            href={`/trips/${region.key}`}
                         />
                     ))}
                 </motion.div>

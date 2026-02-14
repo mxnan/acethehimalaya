@@ -56,7 +56,7 @@ function CountryTile({
 
                 {/* CONTENT */}
                 <div
-                    className="absolute z-10 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 
+                    className="absolute z-10 bottom-2 left-2 
       flex items-center gap-2 rounded-lg bg-black/50 backdrop-blur-md p-2 group-hover:p-3 group-hover:bg-black/80 transition-all ease-in-out duration-500"
                 >
                     <div className="flex items-center gap-2 px-2 py-1">
@@ -90,7 +90,7 @@ export default function CountrySection() {
                         name="Nepal"
                         trips={getTripCountByCountry("nepal")}
                         href="/trips/nepal"
-                        image="/trips/nepal/nepal-multi-sport-luxury-adventure/cover.jpg"
+                        image="/assets/landing/country/nepal.jpg"
                         className="sm:w-2/3 h-[420px]"
                     />
 
@@ -100,7 +100,7 @@ export default function CountrySection() {
                             name="Bhutan"
                             trips={getTripCountByCountry("bhutan")}
                             href="/trips/bhutan"
-                            image="/trips/bhutan/paro-tshechu-festival/cover.jpg"
+                            image="/assets/landing/country/bhutan.jpg"
                             className="h-[200px]"
                         />
 

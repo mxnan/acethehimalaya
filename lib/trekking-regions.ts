@@ -6,44 +6,44 @@ export type TrekkingRegionConfig = {
 
 export const TREKKING_REGIONS_NEPAL: TrekkingRegionConfig[] = [
   {
-    key: "Everest Region",
+    key: "everest-region",
     label: "Everest Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/everest.jpg",
   },
   {
-    key: "Annapurna Region",
+    key: "annapurna-region",
     label: "Annapurna Region",
-  image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+  image: "/assets/landing/region/annapurna.jpg",
   },
   {
-    key: "Langtang Region",
+    key: "langtang-region",
     label: "Langtang Region",
-  image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+  image: "/assets/landing/region/langtang.jpg",
   },
   {
-    key: "Manaslu Region",
+    key: "manaslu-region",
     label: "Manaslu Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/manaslu.jpg",
   },
   {
-    key: "Dolpo Region",
+    key: "dolpo-region",
     label: "Dolpo Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/dolpo.webp",
   },
   {
-    key: "Mustang Region",
+    key: "mustang-region",
     label: "Mustang Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/mustang.jpg",
   },
   {
-    key: "Dhaulagiri Region",
+    key: "dhaulagiri-region",
     label: "Dhaulagiri Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/dhaulagiri.jpg",
   },
   {
-    key: "Kanchenjunga Region",
+    key: "kanchenjunga-region",
     label: "Kanchenjunga Region",
-    image: "/trips/nepal/everest-base-camp-with-island-peak/cover.jpg",
+    image: "/assets/landing/region/kanchenjunga.webp",
   },
 
 ];
