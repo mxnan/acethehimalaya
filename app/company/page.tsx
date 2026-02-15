@@ -128,13 +128,13 @@ export default function IntroPage() {
             <CompanyTileCard
               href="/company/why-ace"
               title="Why ACE?"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/why-ace.jpg"
               className="md:w-2/3  grow "
             />
             <CompanyTileCard
               href="/company/mission-statement"
               title="Mission Statement"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/mission.webp"
               className="md:w-1/3  grow "
             />
           </div>
@@ -142,13 +142,13 @@ export default function IntroPage() {
             <CompanyTileCard
               href="/company/sustainability"
               title="Sustainability Policy"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/sustainability.jpg"
               className="md:w-1/3  grow "
             />
             <CompanyTileCard
               href="/company/team"
               title="Meet Our Team"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/team.webp"
               className="md:w-2/3  grow "
             />
           </div>
@@ -156,13 +156,13 @@ export default function IntroPage() {
             <CompanyTileCard
               href="/company/partner"
               title="Partner with ACE"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/partner.webp"
               className="md:w-2/3  grow "
             />
             <CompanyTileCard
               href="/company/csi"
               title="CSI"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/csi.jpg"
               className="md:w-1/3  grow "
             />
           </div>
@@ -170,13 +170,13 @@ export default function IntroPage() {
             <CompanyTileCard
               href="/company/awards"
               title="Awards and Achievements"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/awards.jpg"
               className="md:w-1/3  grow "
             />
             <CompanyTileCard
               href="/company/founder"
               title="Meet our Founder"
-              image="/trips/nepal/everest-base-camp-trek/cover.jpg"
+              image="/company/intro/founder.jpg"
               className="md:w-2/3  grow "
             />
           </div>

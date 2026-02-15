@@ -16,6 +16,7 @@ import TwitterXIcon from "../ui/icons/twitter-x-icon";
 import { Button } from "../ui/button";
 import { useRef } from "react";
 import { AnimatedIconHandle } from "../ui/icons/types";
+import { getTripCountByCountry } from "@/lib/trip-count";
 
 export default function FooterThree() {
   const iconRef = useRef<AnimatedIconHandle>(null);
@@ -90,13 +91,24 @@ export default function FooterThree() {
 
             <CardContent className="flex flex-col gap-3 text-sm">
               <FooterLink href="/trips/nepal">
-                Nepal <span className="opacity-60 ml-1">10 trips</span>
+                Nepal{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("nepal")} trips
+                </span>
               </FooterLink>
+
               <FooterLink href="/trips/bhutan">
-                Bhutan <span className="opacity-60 ml-1">10 trips</span>
+                Bhutan{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("bhutan")} trips
+                </span>
               </FooterLink>
+
               <FooterLink href="/trips/tibet">
-                Tibet <span className="opacity-60 ml-1">10 trips</span>
+                Tibet{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("tibet")} trips
+                </span>
               </FooterLink>
             </CardContent>
           </Card>

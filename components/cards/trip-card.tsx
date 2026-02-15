@@ -63,7 +63,7 @@ export function TripCard({ trip, className }: TripCardProps) {
                             <ChevronRight className="size-4 stroke-4 shrink-0 transition-all group-hover:-rotate-30 duration-500" />
 
                             {duration && (
-                                <span className="inline-flex items-center gap-1 whitespace-nowrap">
+                                <span className="max-w-[60%] whitespace-nowrap flex gap-2 font-bold bg-neutral-100 text-black px-2 py-[3px] rounded-lg">
                                     <ClockIcon className="size-4 shrink-0" />
                                     {duration}
                                 </span>
