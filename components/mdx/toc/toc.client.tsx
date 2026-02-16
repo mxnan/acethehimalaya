@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import UnorderedListIcon from "../../ui/icons/unordered-list-icon";
 import { usePathname } from "next/navigation";
 import { Separator } from "../../ui/separator";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, MessageCircle } from "lucide-react";
 import dynamic from "next/dynamic";
 import type { TocEntry } from "./toc-tree.server";
 
@@ -202,11 +202,11 @@ export function TableOfContentsClient({
                       <Button
                         variant="outline"
                         size="default"
-                        className="group cursor-pointer w-max lg:font-bold"
+                        className="group cursor-pointer w-max lg:font-bold flex items-center gap-2"
                       >
+                        <MessageCircle className="size-5 stroke-2 transition-all duration-300 group-hover:scale-110" />
                         Make an Inquiry
-                        <ChevronRight className="size-5 stroke-3 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
-                        <span className="sr-only">Book now</span>
+                        <span className="sr-only">Make an Inquiry</span>
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-[354px] mx-auto">
@@ -239,7 +239,7 @@ export function TableOfContentsClient({
 
       {/* Mobile TOC Button */}
       {!isLargeScreen && (
-        <div className="flex flex-row gap-4 fixed bottom-6 left-1/2 -translate-1/2 z-30 ">
+        <div className="flex flex-row gap-2 fixed bottom-2 left-1/2 -translate-x-1/2 z-30 ">
           {showBookNow && price && (
             <BookNowButton price={price} className="my-0 py-0" />
           )}
@@ -250,11 +250,11 @@ export function TableOfContentsClient({
                   <Button
                     variant="default"
                     size="default"
-                    className="group cursor-pointer w-max lg:font-bold"
+                    className="group cursor-pointer w-max lg:font-bold flex items-center gap-2"
                   >
+                    <MessageCircle className="size-5 stroke-2 transition-all duration-300 group-hover:scale-110" />
                     Inquiry
-                    <ChevronRight className="size-5 stroke-3 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
-                    <span className="sr-only">Book now</span>
+                    <span className="sr-only">Make an Inquiry</span>
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-[354px] mx-auto">

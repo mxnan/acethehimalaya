@@ -76,7 +76,7 @@ export function TripCalendar({
         range_end: "rdp-range_end",
         range_middle: "rdp-range_middle",
       }}
-      className={cn("rounded-lg border shadow-sm", className)}
+      className={cn("rounded-lg border shadow-sm bg-muted-foreground/20", className)}
     />
   );
 }

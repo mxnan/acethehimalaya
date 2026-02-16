@@ -31,7 +31,7 @@ export default function FooterBottom() {
             <LaptopMinimalCheckIcon className="inline-block ml-1 size-10 stroke-1" />{" "}
             by
             <Link
-              href="https://acehimalaya.com"
+              href="https://x.com/mxn8n"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-1 pt-2 pb-2 font-bold custom-underline transition-colors hover:text-foreground"

@@ -61,19 +61,19 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-4 gap-4 place-items-center">
-              <SocialIconLink href="https://instagram.com">
+              <SocialIconLink href="https://www.instagram.com/acethehimalaya/">
                 <InstagramIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://facebook.com">
+              <SocialIconLink href="https://www.facebook.com/acethehimalaya">
                 <FacebookIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://youtube.com">
+              <SocialIconLink href="https://www.youtube.com/@acethehimalayas">
                 <YoutubeIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://tripadvisor.com">
+              <SocialIconLink href="https://x.com/acethehimalaya">
                 <TwitterXIcon size={28} />
               </SocialIconLink>
               <Separator className="my-2 max-w-xs" />
@@ -166,7 +166,7 @@ function FooterLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link href={href} className="custom-underline w-max pb-2">
+    <Link href={href} className="custom-underline font-semibold w-max pb-2">
       {children}
     </Link>
   );

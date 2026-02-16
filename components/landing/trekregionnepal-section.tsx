@@ -18,7 +18,7 @@ type RegionTileProps = {
 
 function TrekkingRegionTile({ name, count, image, href }: RegionTileProps) {
     return (
-        <div className="relative group overflow-hidden rounded-lg h-96 aspect-video">
+        <div className="relative group overflow-hidden rounded-lg h-96 aspect-square lg:aspect-video">
             <Link href={href}>
 
                 <Image
@@ -108,14 +108,14 @@ export default function TrekkingRegionNepalSection() {
             className="relative">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 {/* Header */}
-                <div className="pointer-events-none absolute left-1/2 top-32 z-10 -translate-x-1/2 text-center px-4">
+                <div className="pointer-events-none absolute left-1/2 top-8 sm:top-16 md:top-24 lg:top-32 z-10 -translate-x-1/2 text-center px-4">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                         Trekking Regions in Nepal
                     </h2>
                     <Separator className="mx-auto my-4 max-w-xs sm:max-w-md" />
                 </div>
                 {/* Footer text */}
-                <div className="pointer-events-none absolute left-1/2 bottom-32 z-10 -translate-x-1/2 text-center px-4">
+                <div className="pointer-events-none absolute left-1/2 bottom-8 sm:bottom-16 md:bottom-24 lg:bottom-32 z-10 -translate-x-1/2 w-full text-center px-4">
                     <p className="text-sm sm:text-lg text-muted-foreground">
                         Explore the Himalaya and unravel the beauty of trekking in Nepal along these regions.
 
@@ -138,6 +138,7 @@ export default function TrekkingRegionNepalSection() {
                             href={`/trips/${region.key}`}
                         />
                     ))}
+                    <div className='h-96 aspect-square '></div>
                 </motion.div>
 
             </div>
