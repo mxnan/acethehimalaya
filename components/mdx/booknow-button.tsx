@@ -6,7 +6,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
-import { BadgeDollarSign, ChevronRight } from "lucide-react";
+import { BadgeDollarSign, CalendarCheck, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { Separator } from "../ui/separator";
@@ -30,8 +30,8 @@ export default function BookNowButton({
             size="default"
             className="group cursor-pointer lg:py-5 w-max"
           >
-            Book now{" "}
-            <ChevronRight className="size-5 stroke-4 group-hover:-rotate-45 transition-all ease-in-out duration-500" />
+            <CalendarCheck className="size-5 stroke-2 transition-all duration-300 group-hover:scale-110" />
+            Book now
             <span className="sr-only">Book now</span>
           </Button>
         </DialogTrigger>

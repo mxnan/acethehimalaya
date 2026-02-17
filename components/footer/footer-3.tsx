@@ -16,6 +16,7 @@ import TwitterXIcon from "../ui/icons/twitter-x-icon";
 import { Button } from "../ui/button";
 import { useRef } from "react";
 import { AnimatedIconHandle } from "../ui/icons/types";
+import { getTripCountByCountry } from "@/lib/trip-count";
 
 export default function FooterThree() {
   const iconRef = useRef<AnimatedIconHandle>(null);
@@ -33,16 +34,16 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-sm">
-              <FooterLink href="/trips/trekking-in-nepal">
+              <FooterLink href="/trips/trekking">
                 Trekking in Nepal
               </FooterLink>
-              <FooterLink href="/trips/cultural-tour">
+              <FooterLink href="/trips/cultural-tour-and-sightseeing">
                 Cultural Tour and Sightseeing
               </FooterLink>
-              <FooterLink href="/trips/climbing-expedition">
+              <FooterLink href="/trips/climbing-and-expedition">
                 Climbing & Expedition
               </FooterLink>
-              <FooterLink href="/trips/cycling-mtb">
+              <FooterLink href="/trips/cycling-and-mountain-biking">
                 Cycling and Mountain Biking
               </FooterLink>
               <FooterLink href="/trips/luxury-treks">Luxury Treks</FooterLink>
@@ -60,19 +61,19 @@ export default function FooterThree() {
             </CardHeader>
 
             <CardContent className="grid grid-cols-4 gap-4 place-items-center">
-              <SocialIconLink href="https://instagram.com">
+              <SocialIconLink href="https://www.instagram.com/acethehimalaya/">
                 <InstagramIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://facebook.com">
+              <SocialIconLink href="https://www.facebook.com/acethehimalaya">
                 <FacebookIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://youtube.com">
+              <SocialIconLink href="https://www.youtube.com/@acethehimalayas">
                 <YoutubeIcon size={28} />
               </SocialIconLink>
 
-              <SocialIconLink href="https://tripadvisor.com">
+              <SocialIconLink href="https://x.com/acethehimalaya">
                 <TwitterXIcon size={28} />
               </SocialIconLink>
               <Separator className="my-2 max-w-xs" />
@@ -90,13 +91,24 @@ export default function FooterThree() {
 
             <CardContent className="flex flex-col gap-3 text-sm">
               <FooterLink href="/trips/nepal">
-                Nepal <span className="opacity-60 ml-1">10 trips</span>
+                Nepal{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("nepal")} trips
+                </span>
               </FooterLink>
+
               <FooterLink href="/trips/bhutan">
-                Bhutan <span className="opacity-60 ml-1">10 trips</span>
+                Bhutan{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("bhutan")} trips
+                </span>
               </FooterLink>
+
               <FooterLink href="/trips/tibet">
-                Tibet <span className="opacity-60 ml-1">10 trips</span>
+                Tibet{" "}
+                <span className="opacity-60 ml-1">
+                  {getTripCountByCountry("tibet")} trips
+                </span>
               </FooterLink>
             </CardContent>
           </Card>
@@ -154,7 +166,7 @@ function FooterLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link href={href} className="custom-underline w-max pb-2">
+    <Link href={href} className="custom-underline font-semibold w-max pb-2">
       {children}
     </Link>
   );

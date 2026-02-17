@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import { Callout, CalloutFooter } from "./callout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import Link from "next/link";
+import Mxnan from "./mxnan";
 
 // ----------------------- Core MDX components (always) -----------------------
 // These are light, generic components that can be safely available on all MDX pages.
@@ -55,6 +56,8 @@ const coreComponents = {
   CalloutFooter,
   // Generic media
   YTEmbed,
+  // placeholder mxnan
+  Mxnan,
 };
 
 const extraComponent = {

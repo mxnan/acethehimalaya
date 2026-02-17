@@ -72,7 +72,7 @@ export default function BestSellersSection() {
     >
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         {/* Header */}
-        <div className="pointer-events-none absolute left-1/2 top-32 z-10 -translate-x-1/2 text-center px-4">
+        <div className="pointer-events-none absolute left-1/2 top-8 sm:top-16 md:top-24 lg:top-32 z-10 -translate-x-1/2 text-center px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Best Sellers for 2026
           </h2>
@@ -80,8 +80,8 @@ export default function BestSellersSection() {
         </div>
 
         {/* Footer text */}
-        <div className="pointer-events-none absolute left-1/2 bottom-32 z-10 -translate-x-1/2 text-center px-4">
-          <p className="text-sm sm:text-lg text-muted-foreground">
+        <div className="pointer-events-none absolute left-1/2 bottom-8 sm:bottom-16 md:bottom-24 lg:bottom-32 z-10 -translate-x-1/2 w-full text-center px-4">
+          <p className="text-sm sm:text-lg  text-muted-foreground">
             Explore our most popular trips, loved by adventurers worldwide.
           </p>
         </div>
@@ -96,10 +96,10 @@ export default function BestSellersSection() {
             <TripCard
               key={trip.slug}
               trip={trip}
-              className="h-56 sm:h-64 aspect-video"
+              className="h-96 aspect-square lg:aspect-video"
             />
           ))}
-          <div className="h-56 sm:h-64 aspect-video flex items-center justify-center">
+          <div className="h-96 aspect-square flex items-end justify-center">
             <Button asChild className="cursor-pointer max-md:hidden">
               <Link href={"/trips"}>See all Trips ? </Link>
             </Button>

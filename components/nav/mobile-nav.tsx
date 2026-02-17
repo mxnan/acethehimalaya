@@ -11,20 +11,11 @@ import InstagramIcon from "../ui/icons/instagram-icon";
 import FacebookIcon from "../ui/icons/facebook-icon";
 import TwitterXIcon from "../ui/icons/twitter-x-icon";
 import YoutubeIcon from "../ui/icons/youtube-icon";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Separator } from "../ui/separator";
+import { BadgeCheck, BookOpen, Building2, Mountain } from "lucide-react";
 
-const navLinks = [
-  { href: "/trips", label: "Trips" },
-  { href: "/blogs", label: "Blogs" },
-  { href: "/company", label: "Company" },
-];
 
-const socialLinks = [
-  { href: "https://instagram.com", label: "Instagram", icon: InstagramIcon },
-  { href: "https://facebook.com", label: "Facebook", icon: FacebookIcon },
-  { href: "https://twitter.com", label: "Twitter", icon: TwitterXIcon },
-  { href: "https://youtube.com", label: "YouTube", icon: YoutubeIcon },
-];
 
 type OpenCloseButtonProps = {
   onclickFunction: () => void;
@@ -103,6 +94,27 @@ const menuVariants = {
   },
 };
 
+function SocialIconLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex h-14 w-14 items-center justify-center rounded-lg bg-background/40 backdrop-blur-md border border-border
+                 transition-all duration-300 hover:bg-muted hover:scale-105"
+    >
+      {children}
+    </Link>
+  );
+}
+
+
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -160,59 +172,64 @@ const MobileNav = () => {
             </Link>
           </div>
 
-          {/* Scrollable content area to keep content in screen */}
+
           <div className="flex-1 overflow-y-auto px-2 py-3 space-y-4">
-            {/* Primary links */}
-            <nav className="flex flex-col">
-              {navLinks.map((link) => (
-                <Button
-                  key={link.href}
-                  asChild
-                  variant="ghost"
-                  size="lg"
-                  className="justify-start px-4 py-3 text-base font-sans uppercase tracking-wide"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Link href={link.href}>{link.label}</Link>
-                </Button>
-              ))}
-            </nav>
+            <Card className="p-6 lg:p-8">
+
+              <CardContent className="grid grid-cols-2 gap-2 place-items-center">
+                <Link href="/trips" className="w-full">
+                  <Button className="w-full justify-start gap-2">
+                    <Mountain size={16} />
+                    Trips
+                  </Button>
+                </Link>
+
+                <Link href="/blogs" className="w-full">
+                  <Button className="w-full justify-start gap-2">
+                    <BookOpen size={16} />
+                    Blogs
+                  </Button>
+                </Link>
+
+                <Link href="/company" className="w-full">
+                  <Button className="w-full justify-start gap-2">
+                    <Building2 size={16} />
+                    About Us
+                  </Button>
+                </Link>
+
+                <Link href="/company/why-ace" className="w-full">
+                  <Button className="w-full justify-start gap-2">
+                    <BadgeCheck size={16} />
+                    Why Ace?
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
 
             {/* Social links */}
-            <div className="border-t pt-3 px-2 space-y-3">
-              <p className="px-2 text-xs font-sans uppercase tracking-wide text-muted-foreground">
-                Follow us
-              </p>
-              <div className="flex flex-wrap gap-3 px-2">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <Tooltip  key={social.href}>
-                      <TooltipTrigger  asChild>
-                        <Button
-                          asChild
-                          variant="default"
-                          size="icon"
-                          className=""
-                        >
-                          <Link
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={social.label}
-                          >
-                            <Icon />
-                          </Link>
-                        </Button>
-                      </TooltipTrigger>
-                        <TooltipContent align="center" side="bottom">
-                        <p>{social.label}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  );
-                })}
-              </div>
-            </div>
+            <Card className="w-full p-6 lg:p-8">
+
+
+              <CardContent className="grid grid-cols-4 gap-4 place-items-center">
+                <SocialIconLink href="https://www.instagram.com/acethehimalaya/">
+                  <InstagramIcon size={28} />
+                </SocialIconLink>
+
+                <SocialIconLink href="https://www.facebook.com/acethehimalaya">
+                  <FacebookIcon size={28} />
+                </SocialIconLink>
+
+                <SocialIconLink href="https://www.youtube.com/@acethehimalayas">
+                  <YoutubeIcon size={28} />
+                </SocialIconLink>
+
+                <SocialIconLink href="https://x.com/acethehimalaya">
+                  <TwitterXIcon size={28} />
+                </SocialIconLink>
+
+              </CardContent>
+            </Card>
 
             {/* Footer small text */}
             <div className="px-4 pt-2 pb-3 border-t text-xs text-muted-foreground">

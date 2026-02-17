@@ -129,6 +129,18 @@
   
 }
 
+/**************************** Classes for no scroll over full app ************************************/
+
+/* html, body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+} */
+
 /****************************MARQUEE ANIMATIONS************************************/
 
 @media (prefers-reduced-motion: reduce) {

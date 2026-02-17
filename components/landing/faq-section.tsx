@@ -1,11 +1,9 @@
-import React from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "../mdx/accordion";
-import Image from "next/image";
 import { Callout } from "../mdx/callout";
 import { Separator } from "../ui/separator";
 
@@ -15,7 +13,7 @@ export default function FAQSection() {
       <div className="px-4 sm:px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-          Frequently Asked Questions by Travelers
+            Frequently Asked Questions by Travelers
           </h2>
           <Separator className="my-4 max-w-2xl" />
           {/* <p className="text-sm sm:text-lg text-muted-foreground">
@@ -26,462 +24,100 @@ export default function FAQSection() {
         <Accordion type="single" collapsible className="mt-8 max-w-2xl mx-auto w-full py-2">
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Why Trek with ACE The Himalaya ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
+              Ace the Himalaya is widely regarded as one of the best trekking and travel companies in Nepal due to its expert local guides, high safety standards, well-designed trekking packages, and consistent service quality since 2006. With operations based in Kathmandu and across the world with our representatives, we deliver reliable, professionally managed trekking and travel experiences.
               <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
+                Here are 17 reasons why you should choose Ace the Himalaya for your next adventure!
               </Callout>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Why do travelers rate Ace the Himalaya so highly on TripAdvisor ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              Travelers consistently rate Ace the Himalaya highly on TripAdvisor for our knowledgeable guides, excellent trip organization, safety-first approach, and responsive customer service. Our strong review record reflects genuine traveler satisfaction and trust earned through years of successful Himalayan treks and tours.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              What trekking packages does Ace the Himalaya offer in Nepal ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              Ace the Himalaya offers a wide range of trekking packages in Nepal, including Everest Base Camp, Annapurna region treks, Manaslu Circuit, Langtang Valley, and off-the-beaten-path routes. We also provide cultural tours, luxury treks, and customizable private itineraries for different experience levels.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              How does Ace the Himalaya ensure safe and sustainable trekking experiences ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              We ensure safe and sustainable trekking experiences through trained and licensed local guides, proper acclimatization schedules, strict safety protocols, and responsible tourism practices. As a Travelife certified travel company in Nepal, we actively support local communities while minimizing environmental impact across all our trekking routes.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-5">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Can you recommend the best trek in Nepal based on my fitness and interests ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              Our experts help you choose the best trek in Nepal based on your fitness level, trekking experience, travel duration, and personal interests.
+              We carefully consider factors such as altitude, trail difficulty, accommodation comfort, and seasonal conditions to recommend the most suitable trekking route.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Are your trekking packages suitable for beginners as well as experienced trekkers ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              Yes, our trekking packages in Nepal are designed for beginners, intermediate hikers, and experienced trekkers alike. Proper acclimatization, pacing, and guide support ensure a safe and enjoyable experience for all levels.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-7">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Can I customize a private trek or tour itinerary with Ace ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              You can definitely customize a private journey in the Himalaya. We specialize in customized private trekking and tour itineraries tailored to your schedule, fitness level, and travel preferences. Our experts handle every detail from planning to execution.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-8">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Do you provide cultural tours, short hikes, and sightseeing experiences in Nepal, Bhutan and Tibet ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              Yes, we provide a wide range of cultural tours, short hikes, and sightseeing experiences across Nepal, Bhutan, and Tibet. These include heritage city tours, monastery visits, village walks, nature hikes, and scenic day excursions, ideal for travelers seeking softer adventures and deeper cultural immersion.
+
+              Our itineraries are led by knowledgeable local guides and can be enjoyed as standalone trips or combined with longer treks and tours.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-9">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              What kind of physical training is necessary for trek preparation ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              For trekking, you must prepare your body to walk over uneven, hilly landscapes while carrying a backpack. Walking at an incline, jogging, cycling, and going for long-distance hikes are all good ways to exercise. You should work out for at least one hour four to five times a week for at least two months before trekking.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-10">
             <AccordionTrigger>
-              **Day 01:** Arrival at Tribhuvan International Airport in
-              Kathmandu and transfer to hotel
+              Where can I exchange money upon arrival in Nepal ?
             </AccordionTrigger>
             <AccordionContent>
-              Upon your arrival at Tribhuvan International Airport in Kathmandu,
-              one of our representatives will warmly welcome you. You’ll be
-              escorted to your hotel in our private tourist vehicle.
-              <figure className="my-4">
-                <Image
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 50vw"
-                  src={"/trips/nepal/everest-base-camp-trek/day1.jpg"}
-                  alt={"Arrival at Tribhuvan International Airport"}
-                  className="w-min h-54 md:h-72 object-cover rounded-md shadow-sm"
-                />
-                <figcaption className="text-muted-foreground text-sm mt-4">
-                  Arrival at Tribhuvan International Airport
-                </figcaption>
-              </figure>
-              During the pre-trip meeting, you’ll have the opportunity to meet
-              your trip guide and address any questions or concerns you may have
-              about your upcoming mountain trekking adventure with one of our
-              team members.
-              {/* <TripDetailsCard
-              variant="info-only"
-              className="my-4"
-              altitude="Kathmandu (1,400 m / 4,593 ft)"
-              accommodation="Overnight in Kathmandu"
-              meals="Meals not included"
-            /> */}
-              <Callout type="note">
-                **Note:** The pre-trip meeting will be held either at our office
-                or at your hotel, depending on your arrival time and group size.
-                Please be sure to bring a passport-sized photo, a readable copy
-                of your travel insurance policy, and your original passport to
-                the meeting. These documents are required to obtain trekking
-                permits and complete related documentation for the trek.
-                Additionally, settle the remaining balance of your invoice and
-                sign the legally binding trip form and non-liability disclaimer.
-              </Callout>
+              You can exchange currency at one of the money exchange counters in the arrivals area of Tribhuvan International Airport, which operate 24 hours a day. Alternatively, you can also exchange money at authorized exchange centers near your hotel, which are typically open during the day.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-11">
+            <AccordionTrigger>
+              What is your cancellation policy ?
+            </AccordionTrigger>
+            <AccordionContent>
+              Notice should be provided 20 days before the trip start date in case of cancellation. The trip can be canceled for justifiable reasons. Once the trip is canceled, a fee of 30% of the trip cost is retained for administrative costs.
+
+              However, the trip amount is entirely non-refundable if the cancellation is not made before the 20 days as per our terms and conditions. For submitting a claim to your insurance company after the cancellation, we can assist with documentation such as a receipt of monies paid. Refund will not be provided for unused accommodation in case of trip cancellation caused by personal reasons/sickness/weather.
+
+              More information about our cancellation policy can be found here in Terms and Conditions page.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

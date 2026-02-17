@@ -3,6 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { getCategoryStats } from "@/lib/category-utils";
 import { Badge } from "../ui/badge";
+import Link from "next/link";
 
 
 type CategoryTileProps = {
@@ -15,41 +16,43 @@ type CategoryTileProps = {
 function CategoryTile({ name, count, href, image }: CategoryTileProps) {
     return (
         <div className="relative group h-40 overflow-hidden rounded-xl">
-            <Image
-                src={image}
-                alt={name}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <Link href={href}>
 
-            {/* Neutral vignette */}
-            <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                    background:
-                        "radial-gradient(circle at center, rgba(64,64,64,0) 40%, rgba(64,64,64,0.25) 75%, rgba(64,64,64,0.45) 100%)",
-                }}
-            />
+                <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
 
-            {/* CONTENT */}
-            <div
-                className="absolute z-10 bottom-10 left-2"
-            >
+                {/* Neutral vignette */}
+                <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    style={{
+                        background:
+                            "radial-gradient(circle at center, rgba(64,64,64,0) 40%, rgba(64,64,64,0.25) 75%, rgba(64,64,64,0.45) 100%)",
+                    }}
+                />
 
-                <Badge variant="secondary" className="text-sm opacity-90">
-                    <p>{name}</p>
-                </Badge>
-            </div>
-            <div
-                className="absolute z-10 bottom-2 left-2"
-            >
+                {/* CONTENT */}
+                <div
+                    className="absolute z-10 bottom-10 left-2"
+                >
 
-                <Badge variant="secondary" className="text-sm opacity-90">
-                    <p>{count} trips</p>
-                </Badge>
-            </div>
+                    <Badge variant="default" className="text-sm opacity-90">
+                        <p>{name}</p>
+                    </Badge>
+                </div>
+                <div
+                    className="absolute z-10 bottom-2 left-2"
+                >
 
+                    <Badge variant="default" className="text-sm opacity-90">
+                        <p>{count} trips</p>
+                    </Badge>
+                </div>
+            </Link>
         </div>
     );
 }
@@ -79,7 +82,7 @@ export default function CategorySection() {
                             key={cat.key}
                             name={cat.label}
                             count={cat.count}
-                            href={`/categories/${cat.key}`}
+                            href={`/trips/${cat.key}`}
                             image={cat.image}
                         />
                     ))}

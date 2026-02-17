@@ -29,14 +29,34 @@ type SalesPerson = {
 
 const SALES_TEAM: SalesPerson[] = [
   {
-    name: "Ramesh Gurung",
-    role: "Senior Trek Advisor",
-    phone: "9779812345678",
+    name: "Sujan",
+    role: "Nepal",
+    phone: "+9779851233710",
   },
   {
-    name: "Sita Sherpa",
-    role: "Trip Consultant",
-    phone: "9779801234567",
+    name: "Prem",
+    role: "Nepal",
+    phone: "+9779851102225",
+  },
+  {
+    name: "Kathy",
+    role: "USA",
+    phone: "+18773060650",
+  },
+  {
+    name: "Melanie",
+    role: "Switzerland",
+    phone: "+41765662003",
+  },
+  {
+    name: "Abex",
+    role: "Indonesia",
+    phone: "+6281270160460",
+  },
+  {
+    name: "Sihyoung",
+    role: "South Korea",
+    phone: "+821093401692",
   },
 ];
 
@@ -55,7 +75,7 @@ export function TalkToAnExpert({ className }: { className?: string }) {
           onMouseEnter={() => iconRef.current?.startAnimation()}
           onMouseLeave={() => iconRef.current?.stopAnimation()}
           className={cn(
-            "group inline-flex items-center gap-2 rounded-md border border-border/50",
+            "group relative inline-flex items-center gap-2 rounded-md border border-border/50",
             "text-primary bg-green-500 dark:bg-green-700 hover:bg-green-500 dark:hover:bg-green-600",
             "px-2 py-1 cursor-pointer transition-colors",
             className
@@ -68,7 +88,7 @@ export function TalkToAnExpert({ className }: { className?: string }) {
           />
 
           {/* Text only on lg+ */}
-          <span className="hidden lg:inline  font-medium">
+          <span className="max-lg:hidden text-sm font-semibold ">
             Talk to an Expert
           </span>
 

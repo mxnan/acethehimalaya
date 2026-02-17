@@ -56,15 +56,15 @@ function CountryTile({
 
                 {/* CONTENT */}
                 <div
-                    className="absolute z-10 bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 
-      flex flex-col items-center gap-2"
+                    className="absolute z-10 bottom-2 left-2 
+      flex items-center gap-2 rounded-lg bg-black/50 backdrop-blur-md p-2 group-hover:p-3 group-hover:bg-black/80 transition-all ease-in-out duration-500"
                 >
-                    <Button variant="secondary" size="lg" className="cursor-pointer">
-                        <p className="text-xl">{name}</p>
-                        <ChevronRight className="size-4 stroke-2 shrink-0 transition-transform group-hover:-rotate-90" />
-                    </Button>
+                    <div className="flex items-center gap-2 px-2 py-1">
+                        <p className="text-xl text-neutral-200">{name}</p>
+                        <ChevronRight className="size-4 stroke-4 text-neutral-200 shrink-0 transition-transform duration-1000 group-hover:-rotate-30" />
+                    </div>
 
-                    <Badge variant="secondary" className="text-sm opacity-90">
+                    <Badge variant="outline" className="text-sm text-neutral-200 opacity-90">
                         {trips} trips
                     </Badge>
                 </div>
@@ -90,7 +90,7 @@ export default function CountrySection() {
                         name="Nepal"
                         trips={getTripCountByCountry("nepal")}
                         href="/trips/nepal"
-                        image="/trips/nepal/nepal-multi-sport-luxury-adventure/cover.jpg"
+                        image="/assets/landing/country/nepal.jpg"
                         className="sm:w-2/3 h-[420px]"
                     />
 
@@ -100,7 +100,7 @@ export default function CountrySection() {
                             name="Bhutan"
                             trips={getTripCountByCountry("bhutan")}
                             href="/trips/bhutan"
-                            image="/trips/bhutan/paro-tshechu-festival/cover.jpg"
+                            image="/assets/landing/country/bhutan.jpg"
                             className="h-[200px]"
                         />
 
